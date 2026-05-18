@@ -1,0 +1,36 @@
+runConfig:
+  cpu: 1
+  memoryMiB: 512
+  concurrency: 80
+  minInstances: 0
+  maxInstances: 10
+
+env:
+  - variable: NEXT_PUBLIC_FIREBASE_API_KEY
+    value: "AIzaSyALalUZlJ7xeDEWeM8J_l3Zd0rr0pYCMrQ"
+  - variable: NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN
+    value: "satvera-aaf16.firebaseapp.com"
+  - variable: NEXT_PUBLIC_FIREBASE_PROJECT_ID
+    value: "satvera-aaf16"
+  - variable: NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET
+    value: "satvera-aaf16.firebasestorage.app"
+  - variable: NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID
+    value: "388299825701"
+  - variable: NEXT_PUBLIC_FIREBASE_APP_ID
+    value: "1:388299825701:web:4d4b51327cae7b37fc15cc"
+  - variable: NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID
+    value: "G-XGMS4PR9WZ"
+  - variable: FIREBASE_ADMIN_PROJECT_ID
+    value: "satvera-aaf16"
+  - variable: AI_PROVIDER
+    value: "claude"
+  - variable: FIREBASE_ADMIN_CLIENT_EMAIL
+    secret: FIREBASE_ADMIN_CLIENT_EMAIL
+  - variable: FIREBASE_ADMIN_PRIVATE_KEY
+    secret: FIREBASE_ADMIN_PRIVATE_KEY
+  - variable: ANTHROPIC_API_KEY
+    secret: ANTHROPIC_API_KEY
+  - variable: OPENAI_API_KEY
+    secret: OPENAI_API_KEY
+  - variable: GOOGLE_GENERATIVE_AI_API_KEY
+    secret: GOOGLE_GENERATIVE_AI_API_KEY
