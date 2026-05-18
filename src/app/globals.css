@@ -1,26 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+Devanagari:wght@400;500;600;700&family=Source+Serif+4:ital,wght@0,400;0,600;0,700;0,800;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-navy-900: #0b1f3a;
+  --color-navy-800: #11294a;
+  --color-navy-700: #173565;
+  --color-navy-600: #1e4684;
+  --color-navy-500: #2e62a8;
+  --color-navy-100: #e8eef7;
+  --color-navy-50: #f3f6fb;
+
+  --color-saffron-700: #b9580f;
+  --color-saffron-600: #d96f1a;
+  --color-saffron-500: #e8881e;
+  --color-saffron-400: #efa047;
+  --color-saffron-100: #fcecd6;
+  --color-saffron-50: #fdf6ec;
+
+  --color-green-600: #1f7a3c;
+  --color-green-500: #2a9352;
+  --color-green-100: #def0e2;
+
+  --color-red-600: #b3261e;
+  --color-red-500: #d23a31;
+  --color-red-100: #fbe2df;
+
+  --color-ink-900: #0e1626;
+  --color-ink-700: #2d3848;
+  --color-ink-500: #5a6678;
+  --color-ink-400: #8290a4;
+  --color-ink-300: #aab4c4;
+  --color-ink-200: #cfd6e0;
+  --color-ink-100: #e6eaf0;
+  --color-ink-50: #f4f6f9;
+
+  --color-paper: #ffffff;
+  --color-bone: #fbfaf6;
+
+  --font-sans: 'Inter', 'Noto Sans', system-ui, sans-serif;
+  --font-serif: 'Source Serif 4', 'Source Serif Pro', Georgia, serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, Menlo, monospace;
+  --font-deva: 'Noto Sans Devanagari', 'Inter', system-ui, sans-serif;
+
+  --shadow-sh-1: 0 1px 2px rgba(11, 31, 58, 0.06), 0 1px 1px rgba(11, 31, 58, 0.04);
+  --shadow-sh-2: 0 6px 16px rgba(11, 31, 58, 0.07), 0 2px 4px rgba(11, 31, 58, 0.04);
+  --shadow-sh-3: 0 24px 48px rgba(11, 31, 58, 0.10), 0 4px 12px rgba(11, 31, 58, 0.06);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  color: var(--color-ink-900);
+  background: var(--color-bone);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
+
+/* Headings */
+.h1 { font-family: var(--font-serif); font-size: 44px; font-weight: 600; line-height: 1.1; letter-spacing: -0.01em; color: var(--color-navy-900); }
+.h2 { font-family: var(--font-serif); font-size: 32px; font-weight: 600; line-height: 1.15; color: var(--color-navy-900); }
+.h3 { font-family: var(--font-serif); font-size: 22px; font-weight: 600; color: var(--color-navy-900); }
+
+/* Eyebrow label */
+.eyebrow {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--color-saffron-700);
+  font-weight: 700;
+}
+
+/* Legal term inline */
+.lt {
+  border-bottom: 1.5px dotted var(--color-saffron-600);
+  cursor: help;
+  color: var(--color-navy-800);
+  font-weight: 500;
+}
+.lt:hover { background: var(--color-saffron-50); }
+
+/* Law reference */
+.lref {
+  font-weight: 700;
+  color: var(--color-navy-700);
+  background: var(--color-navy-50);
+  padding: 1px 6px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: var(--font-sans);
+  font-size: 0.95em;
+}
+
+/* GandhiAI Avatar */
+.gandhi-avatar {
+  width: 36px; height: 36px; border-radius: 50%;
+  background: radial-gradient(circle at 50% 36%, #fff 0 36%, transparent 36%),
+              radial-gradient(circle at 35% 38%, var(--color-navy-900) 0 6px, transparent 6px),
+              radial-gradient(circle at 65% 38%, var(--color-navy-900) 0 6px, transparent 6px),
+              linear-gradient(180deg, var(--color-saffron-100), var(--color-saffron-50));
+  border: 1.5px solid var(--color-saffron-600);
+  display: inline-flex; align-items: center; justify-content: center;
+  position: relative; flex-shrink: 0;
+  box-shadow: 0 0 0 3px rgba(217,111,26,0.15);
+}
+.gandhi-avatar::after {
+  content: ""; position: absolute; left: 30%; right: 30%; top: 36%; height: 1.5px;
+  background: var(--color-navy-900); border-radius: 2px;
+}
+.gandhi-avatar.lg { width: 64px; height: 64px; }
+.gandhi-avatar.sm { width: 24px; height: 24px; }
+.gandhi-avatar.lg::after { top: 38%; height: 2px; left: 28%; right: 28%; }
+
+/* Scrollbar styling */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--color-ink-300); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--color-ink-400); }
