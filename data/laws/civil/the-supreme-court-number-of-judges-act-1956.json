@@ -1,0 +1,27 @@
+{
+  "slug": "the-supreme-court-number-of-judges-act-1956",
+  "title": "The Supreme Court (Number of Judges) Act, 1956",
+  "hindiTitle": "उच्चतम न्यायालय (न्यायाधीश संख्या) अधिनियम, 1956",
+  "actNumber": 55,
+  "actYear": 1956,
+  "ministry": "Ministry of Law and Justice",
+  "department": "Department of Justice",
+  "categories": [
+    "civil",
+    "general"
+  ],
+  "primaryCategory": "civil",
+  "sectionCount": 2,
+  "sections": [
+    {
+      "sectionNo": "1",
+      "title": "Short title.",
+      "content": "This act may be called the Supreme Court (Number of Judges) Act, 1956."
+    },
+    {
+      "sectionNo": "2",
+      "title": "Maximum number of Supreme Court Judges other than Chief Justice.",
+      "content": "The maximum\nnumber of Judges of the Supreme Court, excluding the Chief Justice of India, shall be\n^1[thirty-three]."
+    }
+  ]
+}

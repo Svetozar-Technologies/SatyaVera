@@ -1,0 +1,27 @@
+{
+  "slug": "the-forfeited-deposits-act-1850",
+  "title": "The Forfeited Deposits Act, 1850",
+  "hindiTitle": "समपहृत निक्षेप अधिनियम,1850",
+  "actNumber": 25,
+  "actYear": 1850,
+  "ministry": "Ministry of Home Affairs",
+  "department": "Department of States",
+  "categories": [
+    "criminal",
+    "property"
+  ],
+  "primaryCategory": "criminal",
+  "sectionCount": 2,
+  "sections": [
+    {
+      "sectionNo": "1",
+      "title": "Repeals.",
+      "content": "Rep. by the Repealing Act, 1870 (14 of 1870), s. 1 and Sch. Pt. II."
+    },
+    {
+      "sectionNo": "2",
+      "title": "Application of forfeited deposits.",
+      "content": "Any such forfeited deposit shall be applied to defray the\nexpenses of the sale, and the surplus shall be forfeited to Government."
+    }
+  ]
+}

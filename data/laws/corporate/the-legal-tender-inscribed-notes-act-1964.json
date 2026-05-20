@@ -1,0 +1,32 @@
+{
+  "slug": "the-legal-tender-inscribed-notes-act-1964",
+  "title": "The Legal Tender (Inscribed Notes) Act, 1964",
+  "hindiTitle": "वैध निविदा (अन्‍तर्लिखित नोट) अधिनियम, 1964",
+  "actNumber": 28,
+  "actYear": 1964,
+  "ministry": "Ministry of Finance",
+  "department": "Department of Economic Affairs",
+  "categories": [
+    "tax",
+    "corporate"
+  ],
+  "primaryCategory": "corporate",
+  "sectionCount": 3,
+  "sections": [
+    {
+      "sectionNo": "1",
+      "title": "Short title and extent.",
+      "content": "(1) This Act may be called the Legal Tender (Inscribed Notes) Act, 1964.\n\n(2) It extends to the whole of India."
+    },
+    {
+      "sectionNo": "2",
+      "title": "Notes bearing messages of a political character not to be legal tender.",
+      "content": "Notwithstanding\nanything contained in the Reserve Bank of India Act, 1934 (2 of 1934), or in the Currency\nOrdinance, 1940 (Ord. 4 of 1940), or in any other law for the time being in force, a currency note of the\nGovernment of India, a bank note issued by the Reserve Bank of India, or a Government of India\none-rupee note issued under the Currency Ordinance, 1940, which bears written upon it any extrinsic\nwords or visible representations intended to convey or capable of conveying a message of a political\ncharacter, shall not be legal tender; and the Reserve Bank of India shall not be under any legal obligation\nto receive any such note, or to issue rupee coin or other coin or currency notes or bank notes in exchange\nfor any such note, or to refund the value of any such note:\n\nProvided that the Reserve Bank of India may refund as of grace the whole or part of the value of any\nsuch note."
+    },
+    {
+      "sectionNo": "3",
+      "title": "Repeal and savings.",
+      "content": "(1) The Legal Tender (Inscribed Notes) Ordinance, 1942 (Ord. 59 of 1942),\nis hereby repealed.\n\n(2) Notwithstanding such repeal, anything done or any action taken under the said Ordinance, shall be\ndeemed to have been done or taken under this Act as if this Act were in force on the day on which such\nthing was done or such action was taken."
+    }
+  ]
+}

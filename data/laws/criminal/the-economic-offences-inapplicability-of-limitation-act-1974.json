@@ -1,0 +1,29 @@
+{
+  "slug": "the-economic-offences-inapplicability-of-limitation-act-1974",
+  "title": "The Economic Offences (Inapplicability of Limitation) Act, 1974",
+  "hindiTitle": "आर्थिक अपराध (परिसीमा का लागू न होना) अधिनियम, 1974",
+  "actNumber": 12,
+  "actYear": 1974,
+  "ministry": "Ministry of Finance",
+  "department": "Department of Revenue",
+  "categories": [
+    "tax",
+    "corporate",
+    "criminal",
+    "civil"
+  ],
+  "primaryCategory": "criminal",
+  "sectionCount": 2,
+  "sections": [
+    {
+      "sectionNo": "1",
+      "title": "Short title, extent and commencement.",
+      "content": "(1) This Act may be called the Economic Offences\n(Inapplicability of Limitation) Act, 1974.\n\n(2) It extends to the territories to which the Code of Criminal Procedure, 1973 (2 of 1974) applies.\n\n(3) It shall come into force on the 1st day of April, 1974."
+    },
+    {
+      "sectionNo": "2",
+      "title": "Chapter XXXVI of the Code of Criminal Procedure, 1973 not to apply to certain offences.",
+      "content": "Nothing in Chapter XXXVI of the Code of Criminal Procedure, 1973 (2 of 1974) shall apply to--\n\n(i) any offence punishable under any of the enactments ^1\n[or provisions, if any, thereof] specified\nin the Schedule; or\n\n(ii) any other offence, which under the provisions of that Code, may be tried along with such\noffence,\n\nand every offence referred to in clause (i) or clause (ii) may be taken cognizance of by the Court having\njurisdiction as if the provisions of that Chapter were not enacted."
+    }
+  ]
+}

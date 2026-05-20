@@ -1,0 +1,1641 @@
+{
+  "slug": "the-merchant-shipping-act-2025",
+  "title": "The Merchant Shipping Act, 2025",
+  "hindiTitle": "undefined",
+  "actNumber": 24,
+  "actYear": 2025,
+  "ministry": "Ministry of Ports, Shipping and Waterways",
+  "department": "undefined",
+  "categories": [
+    "family"
+  ],
+  "primaryCategory": "family",
+  "sectionCount": 325,
+  "sections": [
+    {
+      "sectionNo": "1",
+      "title": "Short title and commencement.",
+      "content": "obj_root_law_sections_1_content"
+    },
+    {
+      "sectionNo": "2",
+      "title": "Application of Act.",
+      "content": "obj_root_law_sections_2_content"
+    },
+    {
+      "sectionNo": "3",
+      "title": "Definitions.",
+      "content": "obj_root_law_sections_3_content"
+    },
+    {
+      "sectionNo": "4",
+      "title": "Establishment of National Shipping Board.",
+      "content": "obj_root_law_sections_4_content"
+    },
+    {
+      "sectionNo": "5",
+      "title": "Constitution of Seafarer’s Welfare Board.",
+      "content": "obj_root_law_sections_5_content"
+    },
+    {
+      "sectionNo": "6",
+      "title": "Power to make rules.",
+      "content": "obj_root_law_sections_6_content"
+    },
+    {
+      "sectionNo": "7",
+      "title": "Director-General of Maritime Administration.",
+      "content": "obj_root_law_sections_7_content"
+    },
+    {
+      "sectionNo": "8",
+      "title": "Officers.",
+      "content": "obj_root_law_sections_8_content"
+    },
+    {
+      "sectionNo": "9",
+      "title": "Surveyors.",
+      "content": "obj_root_law_sections_9_content"
+    },
+    {
+      "sectionNo": "10",
+      "title": "Senior radio surveyors and radio inspectors.",
+      "content": "obj_root_law_sections_10_content"
+    },
+    {
+      "sectionNo": "11",
+      "title": "Mercantile Marine Department.",
+      "content": "obj_root_law_sections_11_content"
+    },
+    {
+      "sectionNo": "12",
+      "title": "Shipping office.",
+      "content": "obj_root_law_sections_12_content"
+    },
+    {
+      "sectionNo": "13",
+      "title": "Body for security of vessels and port facilities.",
+      "content": "obj_root_law_sections_13_content"
+    },
+    {
+      "sectionNo": "14",
+      "title": "Application of this Part.",
+      "content": "obj_root_law_sections_14_content"
+    },
+    {
+      "sectionNo": "15",
+      "title": "Indian vessel and its registration.",
+      "content": "obj_root_law_sections_15_content"
+    },
+    {
+      "sectionNo": "16",
+      "title": "Registration of Indian chartered foreign vessels.",
+      "content": "obj_root_law_sections_16_content"
+    },
+    {
+      "sectionNo": "17",
+      "title": "Temporary registration of vessels sought to be recycled.",
+      "content": "obj_root_law_sections_17_content"
+    },
+    {
+      "sectionNo": "18",
+      "title": "Registrar of Indian vessels.",
+      "content": "obj_root_law_sections_18_content"
+    },
+    {
+      "sectionNo": "19",
+      "title": "Provisional registration of Indian vessel.",
+      "content": "obj_root_law_sections_19_content"
+    },
+    {
+      "sectionNo": "20",
+      "title": "Procedure for registration of Indian vessels.",
+      "content": "obj_root_law_sections_20_content"
+    },
+    {
+      "sectionNo": "21",
+      "title": "Temporary pass in lieu of certificate of registration.",
+      "content": "obj_root_law_sections_21_content"
+    },
+    {
+      "sectionNo": "22",
+      "title": "Custody and use of certificate.",
+      "content": "obj_root_law_sections_22_content"
+    },
+    {
+      "sectionNo": "23",
+      "title": "Transfer of Indian vessel or shares.",
+      "content": "obj_root_law_sections_23_content"
+    },
+    {
+      "sectionNo": "24",
+      "title": "Transmission of property in Indian vessel on death, insolvency, etc.",
+      "content": "obj_root_law_sections_24_content"
+    },
+    {
+      "sectionNo": "25",
+      "title": "Order for sale where vessel has ceased to be an Indian vessel.",
+      "content": "obj_root_law_sections_25_content"
+    },
+    {
+      "sectionNo": "26",
+      "title": "Mortgage of vessel or share.",
+      "content": "obj_root_law_sections_26_content"
+    },
+    {
+      "sectionNo": "27",
+      "title": "Rights of mortgagee.",
+      "content": "obj_root_law_sections_27_content"
+    },
+    {
+      "sectionNo": "28",
+      "title": "Liability of mortgagee.",
+      "content": "obj_root_law_sections_28_content"
+    },
+    {
+      "sectionNo": "29",
+      "title": "Mortgage not affected by insolvency.",
+      "content": "obj_root_law_sections_29_content"
+    },
+    {
+      "sectionNo": "30",
+      "title": "Transfer of mortgages.",
+      "content": "obj_root_law_sections_30_content"
+    },
+    {
+      "sectionNo": "31",
+      "title": "Transmission of interest in mortgage in certain circumstances.",
+      "content": "obj_root_law_sections_31_content"
+    },
+    {
+      "sectionNo": "32",
+      "title": "Rules as to name of vessel.",
+      "content": "obj_root_law_sections_32_content"
+    },
+    {
+      "sectionNo": "33",
+      "title": "Registration of alterations.",
+      "content": "obj_root_law_sections_33_content"
+    },
+    {
+      "sectionNo": "34",
+      "title": "Provisional certificate and endorsement where vessel is to be re-registered.",
+      "content": "obj_root_law_sections_34_content"
+    },
+    {
+      "sectionNo": "35",
+      "title": "Transfer of registration.",
+      "content": "obj_root_law_sections_35_content"
+    },
+    {
+      "sectionNo": "36",
+      "title": "Restrictions on re-registration of abandoned vessel.",
+      "content": "obj_root_law_sections_36_content"
+    },
+    {
+      "sectionNo": "37",
+      "title": "National colours for Indian vessels.",
+      "content": "obj_root_law_sections_37_content"
+    },
+    {
+      "sectionNo": "38",
+      "title": "Concealment of Indian or assumption of foreign character.",
+      "content": "obj_root_law_sections_38_content"
+    },
+    {
+      "sectionNo": "39",
+      "title": "Liabilities of vessel not recognised as Indian vessel.",
+      "content": "obj_root_law_sections_39_content"
+    },
+    {
+      "sectionNo": "40",
+      "title": "Proceedings on forfeiture of vessel.",
+      "content": "obj_root_law_sections_40_content"
+    },
+    {
+      "sectionNo": "41",
+      "title": "Liability of owners.",
+      "content": "obj_root_law_sections_41_content"
+    },
+    {
+      "sectionNo": "42",
+      "title": "Evidence of register book, certificate of registration and other documents.",
+      "content": "obj_root_law_sections_42_content"
+    },
+    {
+      "sectionNo": "43",
+      "title": "Closure of registration.",
+      "content": "obj_root_law_sections_43_content"
+    },
+    {
+      "sectionNo": "44",
+      "title": "Power to make rules.",
+      "content": "obj_root_law_sections_44_content"
+    },
+    {
+      "sectionNo": "45",
+      "title": "Certificates to be held by seafarers.",
+      "content": "obj_root_law_sections_45_content"
+    },
+    {
+      "sectionNo": "46",
+      "title": "Certificate of competency and certificate of proficiency.",
+      "content": "obj_root_law_sections_46_content"
+    },
+    {
+      "sectionNo": "47",
+      "title": "Training for grant of certificate of competency and certificate of proficiency.",
+      "content": "obj_root_law_sections_47_content"
+    },
+    {
+      "sectionNo": "48",
+      "title": "Examination for grant of certificates.",
+      "content": "obj_root_law_sections_48_content"
+    },
+    {
+      "sectionNo": "49",
+      "title": "Production of certificate of competency.",
+      "content": "obj_root_law_sections_49_content"
+    },
+    {
+      "sectionNo": "50",
+      "title": "Recognition of certificates of competency granted in other States.",
+      "content": "obj_root_law_sections_50_content"
+    },
+    {
+      "sectionNo": "51",
+      "title": "Foreign vessel not to sail without seafarers having certificate.",
+      "content": "obj_root_law_sections_51_content"
+    },
+    {
+      "sectionNo": "52",
+      "title": "Obligations of certain certificate holders to serve on Indian vessels.",
+      "content": "obj_root_law_sections_52_content"
+    },
+    {
+      "sectionNo": "53",
+      "title": "Power to make rules.",
+      "content": "obj_root_law_sections_53_content"
+    },
+    {
+      "sectionNo": "54",
+      "title": "Application of this Part.",
+      "content": "obj_root_law_sections_54_content"
+    },
+    {
+      "sectionNo": "55",
+      "title": "Definitions.",
+      "content": "obj_root_law_sections_55_content"
+    },
+    {
+      "sectionNo": "56",
+      "title": "Classification of seafarers.",
+      "content": "obj_root_law_sections_56_content"
+    },
+    {
+      "sectionNo": "57",
+      "title": "Application of maritime labour standards to seafarers and vessels.",
+      "content": "obj_root_law_sections_57_content"
+    },
+    {
+      "sectionNo": "58",
+      "title": "Duties of shipping master, director and seafarer’s welfare officer.",
+      "content": "obj_root_law_sections_58_content"
+    },
+    {
+      "sectionNo": "59",
+      "title": "Minimum age for seafarers.",
+      "content": "obj_root_law_sections_59_content"
+    },
+    {
+      "sectionNo": "60",
+      "title": "Medical certificate.",
+      "content": "obj_root_law_sections_60_content"
+    },
+    {
+      "sectionNo": "61",
+      "title": "Training and qualifications.",
+      "content": "obj_root_law_sections_61_content"
+    },
+    {
+      "sectionNo": "62",
+      "title": "Recruitment and placement of seafarers.",
+      "content": "obj_root_law_sections_62_content"
+    },
+    {
+      "sectionNo": "63",
+      "title": "Agreement with seafarers.",
+      "content": "obj_root_law_sections_63_content"
+    },
+    {
+      "sectionNo": "64",
+      "title": "Wages.",
+      "content": "obj_root_law_sections_64_content"
+    },
+    {
+      "sectionNo": "65",
+      "title": "Hours of rest.",
+      "content": "obj_root_law_sections_65_content"
+    },
+    {
+      "sectionNo": "66",
+      "title": "Entitlement to leave.",
+      "content": "obj_root_law_sections_66_content"
+    },
+    {
+      "sectionNo": "67",
+      "title": "Repatriation.",
+      "content": "obj_root_law_sections_67_content"
+    },
+    {
+      "sectionNo": "68",
+      "title": "Compensation for vessel’s loss or foundering.",
+      "content": "obj_root_law_sections_68_content"
+    },
+    {
+      "sectionNo": "69",
+      "title": "Manning levels.",
+      "content": "obj_root_law_sections_69_content"
+    },
+    {
+      "sectionNo": "70",
+      "title": "Accommodation and recreational facilities.",
+      "content": "obj_root_law_sections_70_content"
+    },
+    {
+      "sectionNo": "71",
+      "title": "Food and catering.",
+      "content": "obj_root_law_sections_71_content"
+    },
+    {
+      "sectionNo": "72",
+      "title": "Medical care.",
+      "content": "obj_root_law_sections_72_content"
+    },
+    {
+      "sectionNo": "73",
+      "title": "Ship owners’ liability.",
+      "content": "obj_root_law_sections_73_content"
+    },
+    {
+      "sectionNo": "74",
+      "title": "Health and safety protection and accident prevention.",
+      "content": "obj_root_law_sections_74_content"
+    },
+    {
+      "sectionNo": "75",
+      "title": "Social security.",
+      "content": "obj_root_law_sections_75_content"
+    },
+    {
+      "sectionNo": "76",
+      "title": "Flag State responsibilities.",
+      "content": "obj_root_law_sections_76_content"
+    },
+    {
+      "sectionNo": "77",
+      "title": "Port State responsibilities.",
+      "content": "obj_root_law_sections_77_content"
+    },
+    {
+      "sectionNo": "78",
+      "title": "Rules for enforcement of Maritime Labour Convention.",
+      "content": "obj_root_law_sections_78_content"
+    },
+    {
+      "sectionNo": "79",
+      "title": "Payment of wages.",
+      "content": "obj_root_law_sections_79_content"
+    },
+    {
+      "sectionNo": "80",
+      "title": "Discharge of seafarers.",
+      "content": "obj_root_law_sections_80_content"
+    },
+    {
+      "sectionNo": "81",
+      "title": "Wages and property of deceased seafarers and seafarers left behind.",
+      "content": "obj_root_law_sections_81_content"
+    },
+    {
+      "sectionNo": "82",
+      "title": "Certain undisbursed amounts to be utilised for welfare of seafarers.",
+      "content": "obj_root_law_sections_82_content"
+    },
+    {
+      "sectionNo": "83",
+      "title": "Shipping master to adjudicate disputes involving seafarer.",
+      "content": "obj_root_law_sections_83_content"
+    },
+    {
+      "sectionNo": "84",
+      "title": "Power of shipping master to require production of documents.",
+      "content": "obj_root_law_sections_84_content"
+    },
+    {
+      "sectionNo": "85",
+      "title": "Wages not recoverable outside India in certain cases.",
+      "content": "obj_root_law_sections_85_content"
+    },
+    {
+      "sectionNo": "86",
+      "title": "Summary proceedings for wages.",
+      "content": "obj_root_law_sections_86_content"
+    },
+    {
+      "sectionNo": "87",
+      "title": "Restrictions on suits for wages.",
+      "content": "obj_root_law_sections_87_content"
+    },
+    {
+      "sectionNo": "88",
+      "title": "Remedies of master for wages, disbursements, etc.",
+      "content": "obj_root_law_sections_88_content"
+    },
+    {
+      "sectionNo": "89",
+      "title": "Power to refer disputes between seafarers and employers to Tribunal.",
+      "content": "obj_root_law_sections_89_content"
+    },
+    {
+      "sectionNo": "90",
+      "title": "Recovery of wages, etc., of seafarers lost with vessel.",
+      "content": "obj_root_law_sections_90_content"
+    },
+    {
+      "sectionNo": "91",
+      "title": "Relief and maintenance of abandoned seafarers.",
+      "content": "obj_root_law_sections_91_content"
+    },
+    {
+      "sectionNo": "92",
+      "title": "Replacement crew onboard abandoned vessels.",
+      "content": "obj_root_law_sections_92_content"
+    },
+    {
+      "sectionNo": "93",
+      "title": "Inspection by shipping master, etc.",
+      "content": "obj_root_law_sections_93_content"
+    },
+    {
+      "sectionNo": "94",
+      "title": "Special provisions for protection of seafarers in respect of litigation.",
+      "content": "obj_root_law_sections_94_content"
+    },
+    {
+      "sectionNo": "95",
+      "title": "Facilities for making complaint.",
+      "content": "obj_root_law_sections_95_content"
+    },
+    {
+      "sectionNo": "96",
+      "title": "Vessel not to be boarded without permission.",
+      "content": "obj_root_law_sections_96_content"
+    },
+    {
+      "sectionNo": "97",
+      "title": "Misconduct endangering life or vessel.",
+      "content": "obj_root_law_sections_97_content"
+    },
+    {
+      "sectionNo": "98",
+      "title": "Desertion and absence without leave.",
+      "content": "obj_root_law_sections_98_content"
+    },
+    {
+      "sectionNo": "99",
+      "title": "General liability against discipline.",
+      "content": "obj_root_law_sections_99_content"
+    },
+    {
+      "sectionNo": "100",
+      "title": "Smuggling of goods by seafarer.",
+      "content": "obj_root_law_sections_100_content"
+    },
+    {
+      "sectionNo": "101",
+      "title": "Entry of offences in official logbook.",
+      "content": "obj_root_law_sections_101_content"
+    },
+    {
+      "sectionNo": "102",
+      "title": "Report of desertions and absences without leave.",
+      "content": "obj_root_law_sections_102_content"
+    },
+    {
+      "sectionNo": "103",
+      "title": "Entries and certificates of desertion abroad.",
+      "content": "obj_root_law_sections_103_content"
+    },
+    {
+      "sectionNo": "104",
+      "title": "Facilities for proving desertion in proceedings for forfeiture of wages.",
+      "content": "obj_root_law_sections_104_content"
+    },
+    {
+      "sectionNo": "105",
+      "title": "Application of forfeitures.",
+      "content": "obj_root_law_sections_105_content"
+    },
+    {
+      "sectionNo": "106",
+      "title": "Decision of questions of forfeiture and deduction in suits for wages.",
+      "content": "obj_root_law_sections_106_content"
+    },
+    {
+      "sectionNo": "107",
+      "title": "Payment of fines imposed under agreement to shipping master.",
+      "content": "obj_root_law_sections_107_content"
+    },
+    {
+      "sectionNo": "108",
+      "title": "Seafarer not to be enticed to desert.",
+      "content": "obj_root_law_sections_108_content"
+    },
+    {
+      "sectionNo": "109",
+      "title": "Stowaways and seafarers carried under compulsion.",
+      "content": "obj_root_law_sections_109_content"
+    },
+    {
+      "sectionNo": "110",
+      "title": "On change of master, documents to be handed over to successor.",
+      "content": "obj_root_law_sections_110_content"
+    },
+    {
+      "sectionNo": "111",
+      "title": "Deserters from foreign vessels.",
+      "content": "obj_root_law_sections_111_content"
+    },
+    {
+      "sectionNo": "112",
+      "title": "Official logbook.",
+      "content": "obj_root_law_sections_112_content"
+    },
+    {
+      "sectionNo": "113",
+      "title": "Power to make rules.",
+      "content": "obj_root_law_sections_113_content"
+    },
+    {
+      "sectionNo": "114",
+      "title": "Application of this Part.",
+      "content": "obj_root_law_sections_114_content"
+    },
+    {
+      "sectionNo": "115",
+      "title": "Definitions.",
+      "content": "obj_root_law_sections_115_content"
+    },
+    {
+      "sectionNo": "116",
+      "title": "Safety and security requirements.",
+      "content": "obj_root_law_sections_116_content"
+    },
+    {
+      "sectionNo": "117",
+      "title": "Reporting of incidents.",
+      "content": "obj_root_law_sections_117_content"
+    },
+    {
+      "sectionNo": "118",
+      "title": "Obligations to render assistance on receiving signal of distress and to persons in danger.",
+      "content": "obj_root_law_sections_118_content"
+    },
+    {
+      "sectionNo": "119",
+      "title": "Search and rescue services.",
+      "content": "obj_root_law_sections_119_content"
+    },
+    {
+      "sectionNo": "120",
+      "title": "Radio communication requirements.",
+      "content": "obj_root_law_sections_120_content"
+    },
+    {
+      "sectionNo": "121",
+      "title": "Information about vessel’s stability.",
+      "content": "obj_root_law_sections_121_content"
+    },
+    {
+      "sectionNo": "122",
+      "title": "Submersion of load lines.",
+      "content": "obj_root_law_sections_122_content"
+    },
+    {
+      "sectionNo": "123",
+      "title": "No vessel to carry passenger without certificate.",
+      "content": "obj_root_law_sections_123_content"
+    },
+    {
+      "sectionNo": "124",
+      "title": "Vessel not to proceed to sea without valid safety and security certificates.",
+      "content": "obj_root_law_sections_124_content"
+    },
+    {
+      "sectionNo": "125",
+      "title": "Penalties for certain acts.",
+      "content": "obj_root_law_sections_125_content"
+    },
+    {
+      "sectionNo": "126",
+      "title": "Vessel not to carry cargo or passengers in contravention of Act.",
+      "content": "obj_root_law_sections_126_content"
+    },
+    {
+      "sectionNo": "127",
+      "title": "Unseaworthy vessel not to be sent to sea.",
+      "content": "obj_root_law_sections_127_content"
+    },
+    {
+      "sectionNo": "128",
+      "title": "Obligation of ship owner, master or agent with respect to seaworthiness.",
+      "content": "obj_root_law_sections_128_content"
+    },
+    {
+      "sectionNo": "129",
+      "title": "Safety and security management.",
+      "content": "obj_root_law_sections_129_content"
+    },
+    {
+      "sectionNo": "130",
+      "title": "Power to make rules.",
+      "content": "obj_root_law_sections_130_content"
+    },
+    {
+      "sectionNo": "131",
+      "title": "Application of this Part.",
+      "content": "obj_root_law_sections_131_content"
+    },
+    {
+      "sectionNo": "132",
+      "title": "Definitions.",
+      "content": "obj_root_law_sections_132_content"
+    },
+    {
+      "sectionNo": "133",
+      "title": "Control of discharge or emission of harmful substances or dumping at sea.",
+      "content": "obj_root_law_sections_133_content"
+    },
+    {
+      "sectionNo": "134",
+      "title": "Prevention and containment of pollution and response.",
+      "content": "obj_root_law_sections_134_content"
+    },
+    {
+      "sectionNo": "135",
+      "title": "Vessel not to proceed to sea without valid pollution prevention certificates.",
+      "content": "obj_root_law_sections_135_content"
+    },
+    {
+      "sectionNo": "136",
+      "title": "Record books.",
+      "content": "obj_root_law_sections_136_content"
+    },
+    {
+      "sectionNo": "137",
+      "title": "Power to deny entry, detain or move vessel.",
+      "content": "obj_root_law_sections_137_content"
+    },
+    {
+      "sectionNo": "138",
+      "title": "Power to take measures for containment of pollution and reporting of incidents.",
+      "content": "obj_root_law_sections_138_content"
+    },
+    {
+      "sectionNo": "139",
+      "title": "Power of Central Government to give directions.",
+      "content": "obj_root_law_sections_139_content"
+    },
+    {
+      "sectionNo": "140",
+      "title": "Measures for detection of pollution.",
+      "content": "obj_root_law_sections_140_content"
+    },
+    {
+      "sectionNo": "141",
+      "title": "Appointment of analysts.",
+      "content": "obj_root_law_sections_141_content"
+    },
+    {
+      "sectionNo": "142",
+      "title": "Reception facilities.",
+      "content": "obj_root_law_sections_142_content"
+    },
+    {
+      "sectionNo": "143",
+      "title": "Power to make rules.",
+      "content": "obj_root_law_sections_143_content"
+    },
+    {
+      "sectionNo": "144",
+      "title": "Survey, audit and certification.",
+      "content": "obj_root_law_sections_144_content"
+    },
+    {
+      "sectionNo": "145",
+      "title": "Certificates.",
+      "content": "obj_root_law_sections_145_content"
+    },
+    {
+      "sectionNo": "146",
+      "title": "Power of surveyor.",
+      "content": "obj_root_law_sections_146_content"
+    },
+    {
+      "sectionNo": "147",
+      "title": "Compliance of provisions of convention.",
+      "content": "obj_root_law_sections_147_content"
+    },
+    {
+      "sectionNo": "148",
+      "title": "Recognition of certificates granted outside India.",
+      "content": "obj_root_law_sections_148_content"
+    },
+    {
+      "sectionNo": "149",
+      "title": "Grant of certificate to foreign vessels in India and Indian vessels in foreign States.",
+      "content": "obj_root_law_sections_149_content"
+    },
+    {
+      "sectionNo": "150",
+      "title": "Power to call for information.",
+      "content": "obj_root_law_sections_150_content"
+    },
+    {
+      "sectionNo": "151",
+      "title": "Power to conduct inspections.",
+      "content": "obj_root_law_sections_151_content"
+    },
+    {
+      "sectionNo": "152",
+      "title": "Power to make rules.",
+      "content": "obj_root_law_sections_152_content"
+    },
+    {
+      "sectionNo": "153",
+      "title": "Application of this Chapter.",
+      "content": "obj_root_law_sections_153_content"
+    },
+    {
+      "sectionNo": "154",
+      "title": "Apportionment of liability.",
+      "content": "obj_root_law_sections_154_content"
+    },
+    {
+      "sectionNo": "155",
+      "title": "Damage or loss of vessel, cargo or property.",
+      "content": "obj_root_law_sections_155_content"
+    },
+    {
+      "sectionNo": "156",
+      "title": "Joint and several liability for loss of life or personal injury.",
+      "content": "obj_root_law_sections_156_content"
+    },
+    {
+      "sectionNo": "157",
+      "title": "Right of contribution.",
+      "content": "obj_root_law_sections_157_content"
+    },
+    {
+      "sectionNo": "158",
+      "title": "Duty of master of vessel to assist in case of collision.",
+      "content": "obj_root_law_sections_158_content"
+    },
+    {
+      "sectionNo": "159",
+      "title": "Collision to be entered in official logbook.",
+      "content": "obj_root_law_sections_159_content"
+    },
+    {
+      "sectionNo": "160",
+      "title": "Report to Director-General of accidents to vessels.",
+      "content": "obj_root_law_sections_160_content"
+    },
+    {
+      "sectionNo": "161",
+      "title": "Notice of loss of Indian vessel to be given to Director-General.",
+      "content": "obj_root_law_sections_161_content"
+    },
+    {
+      "sectionNo": "162",
+      "title": "Limitation of liability for damages in respect of certain claims.",
+      "content": "obj_root_law_sections_162_content"
+    },
+    {
+      "sectionNo": "163",
+      "title": "Conduct barring limitation.",
+      "content": "obj_root_law_sections_163_content"
+    },
+    {
+      "sectionNo": "164",
+      "title": "Counter claims.",
+      "content": "obj_root_law_sections_164_content"
+    },
+    {
+      "sectionNo": "165",
+      "title": "Limits of liability.",
+      "content": "obj_root_law_sections_165_content"
+    },
+    {
+      "sectionNo": "166",
+      "title": "Limit for passenger claims.",
+      "content": "obj_root_law_sections_166_content"
+    },
+    {
+      "sectionNo": "167",
+      "title": "Aggregation of claims.",
+      "content": "obj_root_law_sections_167_content"
+    },
+    {
+      "sectionNo": "168",
+      "title": "Constitution of limitation fund.",
+      "content": "obj_root_law_sections_168_content"
+    },
+    {
+      "sectionNo": "169",
+      "title": "Limitation of liability without constitution of a limitation fund.",
+      "content": "obj_root_law_sections_169_content"
+    },
+    {
+      "sectionNo": "170",
+      "title": "Distribution of fund.",
+      "content": "obj_root_law_sections_170_content"
+    },
+    {
+      "sectionNo": "171",
+      "title": "Bar to other actions.",
+      "content": "obj_root_law_sections_171_content"
+    },
+    {
+      "sectionNo": "172",
+      "title": "Compulsory insurance or other financial security for maritime claims subject to limitation.",
+      "content": "obj_root_law_sections_172_content"
+    },
+    {
+      "sectionNo": "173",
+      "title": "Scope of application of this Chapter.",
+      "content": "obj_root_law_sections_173_content"
+    },
+    {
+      "sectionNo": "174",
+      "title": "Power to make rules for matters under Chapters I and II of this Part.",
+      "content": "obj_root_law_sections_174_content"
+    },
+    {
+      "sectionNo": "175",
+      "title": "Application of this Chapter.",
+      "content": "obj_root_law_sections_175_content"
+    },
+    {
+      "sectionNo": "176",
+      "title": "Definitions.",
+      "content": "obj_root_law_sections_176_content"
+    },
+    {
+      "sectionNo": "177",
+      "title": "Liability of ship owner.",
+      "content": "obj_root_law_sections_177_content"
+    },
+    {
+      "sectionNo": "178",
+      "title": "Joint and several liability for ships.",
+      "content": "obj_root_law_sections_178_content"
+    },
+    {
+      "sectionNo": "179",
+      "title": "Jurisdiction of High Court.",
+      "content": "obj_root_law_sections_179_content"
+    },
+    {
+      "sectionNo": "180",
+      "title": "Jurisdiction where pollution damage occurs in two or more States.",
+      "content": "obj_root_law_sections_180_content"
+    },
+    {
+      "sectionNo": "181",
+      "title": "Limitation of liability.",
+      "content": "obj_root_law_sections_181_content"
+    },
+    {
+      "sectionNo": "182",
+      "title": "Constitution of limitation fund.",
+      "content": "obj_root_law_sections_182_content"
+    },
+    {
+      "sectionNo": "183",
+      "title": "Claims for compensation where fund is established.",
+      "content": "obj_root_law_sections_183_content"
+    },
+    {
+      "sectionNo": "184",
+      "title": "Acquisition of right for compensation by subrogation.",
+      "content": "obj_root_law_sections_184_content"
+    },
+    {
+      "sectionNo": "185",
+      "title": "Consolidation of claims and distribution of fund.",
+      "content": "obj_root_law_sections_185_content"
+    },
+    {
+      "sectionNo": "186",
+      "title": "Arrest and sale of ship if ship owner, etc., unable to satisfy claims for compensation.",
+      "content": "obj_root_law_sections_186_content"
+    },
+    {
+      "sectionNo": "187",
+      "title": "Restriction on enforcement of claims after establishment of fund.",
+      "content": "obj_root_law_sections_187_content"
+    },
+    {
+      "sectionNo": "188",
+      "title": "Compulsory insurance or other financial security.",
+      "content": "obj_root_law_sections_188_content"
+    },
+    {
+      "sectionNo": "189",
+      "title": "Acceptance of certificate granted outside India.",
+      "content": "obj_root_law_sections_189_content"
+    },
+    {
+      "sectionNo": "190",
+      "title": "Ban on entering or leaving an Indian port without certificate.",
+      "content": "obj_root_law_sections_190_content"
+    },
+    {
+      "sectionNo": "191",
+      "title": "Direct action against insurer or other person providing financial security.",
+      "content": "obj_root_law_sections_191_content"
+    },
+    {
+      "sectionNo": "192",
+      "title": "Recognition of judgment of court of contracting parties to Civil Liability Convention.",
+      "content": "obj_root_law_sections_192_content"
+    },
+    {
+      "sectionNo": "193",
+      "title": "Limitation period.",
+      "content": "obj_root_law_sections_193_content"
+    },
+    {
+      "sectionNo": "194",
+      "title": "Government ships.",
+      "content": "obj_root_law_sections_194_content"
+    },
+    {
+      "sectionNo": "195",
+      "title": "Power to make rules.",
+      "content": "obj_root_law_sections_195_content"
+    },
+    {
+      "sectionNo": "196",
+      "title": "Application of this Chapter.",
+      "content": "obj_root_law_sections_196_content"
+    },
+    {
+      "sectionNo": "197",
+      "title": "Definitions.",
+      "content": "obj_root_law_sections_197_content"
+    },
+    {
+      "sectionNo": "198",
+      "title": "Liability for bunker oil pollution.",
+      "content": "obj_root_law_sections_198_content"
+    },
+    {
+      "sectionNo": "199",
+      "title": "Exemption from liability.",
+      "content": "obj_root_law_sections_199_content"
+    },
+    {
+      "sectionNo": "200",
+      "title": "Right of ship owner to limitation of liability.",
+      "content": "obj_root_law_sections_200_content"
+    },
+    {
+      "sectionNo": "201",
+      "title": "Determination of limitation of liability.",
+      "content": "obj_root_law_sections_201_content"
+    },
+    {
+      "sectionNo": "202",
+      "title": "Consolidation of claims and distribution of amount.",
+      "content": "obj_root_law_sections_202_content"
+    },
+    {
+      "sectionNo": "203",
+      "title": "Extinguishment of right to claim.",
+      "content": "obj_root_law_sections_203_content"
+    },
+    {
+      "sectionNo": "204",
+      "title": "Maintenance of compulsory insurance or other financial security.",
+      "content": "obj_root_law_sections_204_content"
+    },
+    {
+      "sectionNo": "205",
+      "title": "Direct action against insurer or other person providing financial security.",
+      "content": "obj_root_law_sections_205_content"
+    },
+    {
+      "sectionNo": "206",
+      "title": "Grant of certificate.",
+      "content": "obj_root_law_sections_206_content"
+    },
+    {
+      "sectionNo": "207",
+      "title": "Ban on entering or leaving port without clearance.",
+      "content": "obj_root_law_sections_207_content"
+    },
+    {
+      "sectionNo": "208",
+      "title": "Right of recourse.",
+      "content": "obj_root_law_sections_208_content"
+    },
+    {
+      "sectionNo": "209",
+      "title": "Recognition of judgment of court of contracting parties to Bunker Convention.",
+      "content": "obj_root_law_sections_209_content"
+    },
+    {
+      "sectionNo": "210",
+      "title": "Power to make rules.",
+      "content": "obj_root_law_sections_210_content"
+    },
+    {
+      "sectionNo": "211",
+      "title": "Application of this Chapter.",
+      "content": "obj_root_law_sections_211_content"
+    },
+    {
+      "sectionNo": "212",
+      "title": "Definitions.",
+      "content": "obj_root_law_sections_212_content"
+    },
+    {
+      "sectionNo": "213",
+      "title": "Contribution to Fund.",
+      "content": "obj_root_law_sections_213_content"
+    },
+    {
+      "sectionNo": "214",
+      "title": "Contribution payable by persons to Fund.",
+      "content": "obj_root_law_sections_214_content"
+    },
+    {
+      "sectionNo": "215",
+      "title": "Liability of Fund.",
+      "content": "obj_root_law_sections_215_content"
+    },
+    {
+      "sectionNo": "216",
+      "title": "Limitation of liability of Fund.",
+      "content": "obj_root_law_sections_216_content"
+    },
+    {
+      "sectionNo": "217",
+      "title": "Power to call for information.",
+      "content": "obj_root_law_sections_217_content"
+    },
+    {
+      "sectionNo": "218",
+      "title": "Claims against Fund and jurisdiction of courts.",
+      "content": "obj_root_law_sections_218_content"
+    },
+    {
+      "sectionNo": "219",
+      "title": "Extinguishment of claims.",
+      "content": "obj_root_law_sections_219_content"
+    },
+    {
+      "sectionNo": "220",
+      "title": "Subrogation and right of recourse.",
+      "content": "obj_root_law_sections_220_content"
+    },
+    {
+      "sectionNo": "221",
+      "title": "Power of Central Government to establish fund for excess claim.",
+      "content": "obj_root_law_sections_221_content"
+    },
+    {
+      "sectionNo": "222",
+      "title": "Power to make rules.",
+      "content": "obj_root_law_sections_222_content"
+    },
+    {
+      "sectionNo": "223",
+      "title": "Application of this Part.",
+      "content": "obj_root_law_sections_223_content"
+    },
+    {
+      "sectionNo": "224",
+      "title": "Definitions.",
+      "content": "obj_root_law_sections_224_content"
+    },
+    {
+      "sectionNo": "225",
+      "title": "Appointment of nodal authority for marine incidents.",
+      "content": "obj_root_law_sections_225_content"
+    },
+    {
+      "sectionNo": "226",
+      "title": "Primary response party.",
+      "content": "obj_root_law_sections_226_content"
+    },
+    {
+      "sectionNo": "227",
+      "title": "Plans and procedures for response mechanisms.",
+      "content": "obj_root_law_sections_227_content"
+    },
+    {
+      "sectionNo": "228",
+      "title": "Powers of nodal authority.",
+      "content": "obj_root_law_sections_228_content"
+    },
+    {
+      "sectionNo": "229",
+      "title": "Maintenance of compulsory insurance or other financial security.",
+      "content": "obj_root_law_sections_229_content"
+    },
+    {
+      "sectionNo": "230",
+      "title": "Power to make rules.",
+      "content": "obj_root_law_sections_230_content"
+    },
+    {
+      "sectionNo": "231",
+      "title": "Marine casualties and report thereof.",
+      "content": "obj_root_law_sections_231_content"
+    },
+    {
+      "sectionNo": "232",
+      "title": "Power of Central Government to initiate proceedings.",
+      "content": "obj_root_law_sections_232_content"
+    },
+    {
+      "sectionNo": "233",
+      "title": "Application of this Chapter.",
+      "content": "obj_root_law_sections_233_content"
+    },
+    {
+      "sectionNo": "234",
+      "title": "Definitions.",
+      "content": "obj_root_law_sections_234_content"
+    },
+    {
+      "sectionNo": "235",
+      "title": "Receiver of wreck.",
+      "content": "obj_root_law_sections_235_content"
+    },
+    {
+      "sectionNo": "236",
+      "title": "Duty to report wrecks.",
+      "content": "obj_root_law_sections_236_content"
+    },
+    {
+      "sectionNo": "237",
+      "title": "Determination of hazard.",
+      "content": "obj_root_law_sections_237_content"
+    },
+    {
+      "sectionNo": "238",
+      "title": "Locating and marking of wrecks.",
+      "content": "obj_root_law_sections_238_content"
+    },
+    {
+      "sectionNo": "239",
+      "title": "Power to pass over adjoining lands.",
+      "content": "obj_root_law_sections_239_content"
+    },
+    {
+      "sectionNo": "240",
+      "title": "Prohibition of certain acts in respect of wreck.",
+      "content": "obj_root_law_sections_240_content"
+    },
+    {
+      "sectionNo": "241",
+      "title": "Search warrants where wreck is involved.",
+      "content": "obj_root_law_sections_241_content"
+    },
+    {
+      "sectionNo": "242",
+      "title": "Measures to facilitate removal of wrecks.",
+      "content": "obj_root_law_sections_242_content"
+    },
+    {
+      "sectionNo": "243",
+      "title": "Liability of ship owner.",
+      "content": "obj_root_law_sections_243_content"
+    },
+    {
+      "sectionNo": "244",
+      "title": "Maintenance of insurance or other financial security.",
+      "content": "obj_root_law_sections_244_content"
+    },
+    {
+      "sectionNo": "245",
+      "title": "Claims of ship owners to wreck.",
+      "content": "obj_root_law_sections_245_content"
+    },
+    {
+      "sectionNo": "246",
+      "title": "Extinguishment of right to claim recovery of costs.",
+      "content": "obj_root_law_sections_246_content"
+    },
+    {
+      "sectionNo": "247",
+      "title": "Application of this Chapter.",
+      "content": "obj_root_law_sections_247_content"
+    },
+    {
+      "sectionNo": "248",
+      "title": "Definitions.",
+      "content": "obj_root_law_sections_248_content"
+    },
+    {
+      "sectionNo": "249",
+      "title": "Salvage payable for saving life, cargo or wreck.",
+      "content": "obj_root_law_sections_249_content"
+    },
+    {
+      "sectionNo": "250",
+      "title": "Salvage operations controlled by Government or port and public authorities.",
+      "content": "obj_root_law_sections_250_content"
+    },
+    {
+      "sectionNo": "251",
+      "title": "Salvage contracts.",
+      "content": "obj_root_law_sections_251_content"
+    },
+    {
+      "sectionNo": "252",
+      "title": "Duties of salvor, owner and master.",
+      "content": "obj_root_law_sections_252_content"
+    },
+    {
+      "sectionNo": "253",
+      "title": "Rights of salvors.",
+      "content": "obj_root_law_sections_253_content"
+    },
+    {
+      "sectionNo": "254",
+      "title": "Powers and duties of Central Government in relation to salvage operations.",
+      "content": "obj_root_law_sections_254_content"
+    },
+    {
+      "sectionNo": "255",
+      "title": "Retention of salvors.",
+      "content": "obj_root_law_sections_255_content"
+    },
+    {
+      "sectionNo": "256",
+      "title": "Disputes between ship owner and salvor.",
+      "content": "obj_root_law_sections_256_content"
+    },
+    {
+      "sectionNo": "257",
+      "title": "Adjudication of disputes between ship owner and salvor.",
+      "content": "obj_root_law_sections_257_content"
+    },
+    {
+      "sectionNo": "258",
+      "title": "Extinguishment of claims.",
+      "content": "obj_root_law_sections_258_content"
+    },
+    {
+      "sectionNo": "259",
+      "title": "Savings.",
+      "content": "obj_root_law_sections_259_content"
+    },
+    {
+      "sectionNo": "260",
+      "title": "Power to make rules.",
+      "content": "obj_root_law_sections_260_content"
+    },
+    {
+      "sectionNo": "261",
+      "title": "Application of this Part.",
+      "content": "obj_root_law_sections_261_content"
+    },
+    {
+      "sectionNo": "262",
+      "title": "Definitions.",
+      "content": "obj_root_law_sections_262_content"
+    },
+    {
+      "sectionNo": "263",
+      "title": "Decision of question whether a vessel falls under this Part.",
+      "content": "obj_root_law_sections_263_content"
+    },
+    {
+      "sectionNo": "264",
+      "title": "Requirements for safety, security, prevention of pollution and insurance.",
+      "content": "obj_root_law_sections_264_content"
+    },
+    {
+      "sectionNo": "265",
+      "title": "Manning of fishing vessels.",
+      "content": "obj_root_law_sections_265_content"
+    },
+    {
+      "sectionNo": "266",
+      "title": "Central Government to grant certificate of proficiency.",
+      "content": "obj_root_law_sections_266_content"
+    },
+    {
+      "sectionNo": "267",
+      "title": "Training for grant of certificate of competency and certificate of proficiency.",
+      "content": "obj_root_law_sections_267_content"
+    },
+    {
+      "sectionNo": "268",
+      "title": "Examination for grant of certificate.",
+      "content": "obj_root_law_sections_268_content"
+    },
+    {
+      "sectionNo": "269",
+      "title": "Withdrawal, suspension or cancellation of certificate.",
+      "content": "obj_root_law_sections_269_content"
+    },
+    {
+      "sectionNo": "270",
+      "title": "Production of certificate.",
+      "content": "obj_root_law_sections_270_content"
+    },
+    {
+      "sectionNo": "271",
+      "title": "Agreements in respect of fishing vessel.",
+      "content": "obj_root_law_sections_271_content"
+    },
+    {
+      "sectionNo": "272",
+      "title": "Fishery data to be furnished by Indian fishing vessels.",
+      "content": "obj_root_law_sections_272_content"
+    },
+    {
+      "sectionNo": "273",
+      "title": "Vessel not to proceed without valid certificates.",
+      "content": "obj_root_law_sections_273_content"
+    },
+    {
+      "sectionNo": "274",
+      "title": "Power of Central Government to initiate action against non-mechanically propelled vessels.",
+      "content": "obj_root_law_sections_274_content"
+    },
+    {
+      "sectionNo": "275",
+      "title": "Statement relating to crew of vessels to be maintained.",
+      "content": "obj_root_law_sections_275_content"
+    },
+    {
+      "sectionNo": "276",
+      "title": "Inquiry to jettisoning of cargo.",
+      "content": "obj_root_law_sections_276_content"
+    },
+    {
+      "sectionNo": "277",
+      "title": "Detention of vessel by proper officer.",
+      "content": "obj_root_law_sections_277_content"
+    },
+    {
+      "sectionNo": "278",
+      "title": "Detention of unseaworthy vessels.",
+      "content": "obj_root_law_sections_278_content"
+    },
+    {
+      "sectionNo": "279",
+      "title": "Power to exempt.",
+      "content": "obj_root_law_sections_279_content"
+    },
+    {
+      "sectionNo": "280",
+      "title": "Power to make rules.",
+      "content": "obj_root_law_sections_280_content"
+    },
+    {
+      "sectionNo": "281",
+      "title": "Offences and penalties.",
+      "content": "obj_root_law_sections_281_content"
+    },
+    {
+      "sectionNo": "282",
+      "title": "Authority for imposition of penalty and procedure therefor.",
+      "content": "obj_root_law_sections_282_content"
+    },
+    {
+      "sectionNo": "283",
+      "title": "Place of trial and jurisdiction of court.",
+      "content": "obj_root_law_sections_283_content"
+    },
+    {
+      "sectionNo": "284",
+      "title": "Special provision regarding punishment.",
+      "content": "obj_root_law_sections_284_content"
+    },
+    {
+      "sectionNo": "285",
+      "title": "Appointment of Special Public Prosecutors.",
+      "content": "obj_root_law_sections_285_content"
+    },
+    {
+      "sectionNo": "286",
+      "title": "Penalties in respect of masters or owners of special trade passenger vessels.",
+      "content": "obj_root_law_sections_286_content"
+    },
+    {
+      "sectionNo": "287",
+      "title": "Offences by companies.",
+      "content": "obj_root_law_sections_287_content"
+    },
+    {
+      "sectionNo": "288",
+      "title": "Depositions to be received in evidence when witness cannot be produced.",
+      "content": "obj_root_law_sections_288_content"
+    },
+    {
+      "sectionNo": "289",
+      "title": "Power to detain foreign vessel that has occasioned damage.",
+      "content": "obj_root_law_sections_289_content"
+    },
+    {
+      "sectionNo": "290",
+      "title": "Power to enforce detention of vessel.",
+      "content": "obj_root_law_sections_290_content"
+    },
+    {
+      "sectionNo": "291",
+      "title": "Levy of wages, etc., by distress of movable property or vessel.",
+      "content": "obj_root_law_sections_291_content"
+    },
+    {
+      "sectionNo": "292",
+      "title": "Service of documents.",
+      "content": "obj_root_law_sections_292_content"
+    },
+    {
+      "sectionNo": "293",
+      "title": "Birth and death of persons onboard vessel during a voyage.",
+      "content": "obj_root_law_sections_293_content"
+    },
+    {
+      "sectionNo": "294",
+      "title": "Inquiry into cause of death onboard or person missing from Indian vessel.",
+      "content": "obj_root_law_sections_294_content"
+    },
+    {
+      "sectionNo": "295",
+      "title": "Certain persons deemed to be public servants.",
+      "content": "obj_root_law_sections_295_content"
+    },
+    {
+      "sectionNo": "296",
+      "title": "Power of persons authorised to investigate, inquire, etc.",
+      "content": "obj_root_law_sections_296_content"
+    },
+    {
+      "sectionNo": "297",
+      "title": "Power to permit alternative provisions and arrangement.",
+      "content": "obj_root_law_sections_297_content"
+    },
+    {
+      "sectionNo": "298",
+      "title": "Control of nuclear vessels and security measures.",
+      "content": "obj_root_law_sections_298_content"
+    },
+    {
+      "sectionNo": "299",
+      "title": "Exemption of Government vessels, foreign and Indian.",
+      "content": "obj_root_law_sections_299_content"
+    },
+    {
+      "sectionNo": "300",
+      "title": "Power to exempt.",
+      "content": "obj_root_law_sections_300_content"
+    },
+    {
+      "sectionNo": "301",
+      "title": "Power of Director-General to give directions.",
+      "content": "obj_root_law_sections_301_content"
+    },
+    {
+      "sectionNo": "302",
+      "title": "Special provisions with respect to defaulting ship owners.",
+      "content": "obj_root_law_sections_302_content"
+    },
+    {
+      "sectionNo": "303",
+      "title": "Right to pursue foreign vessels in high seas.",
+      "content": "obj_root_law_sections_303_content"
+    },
+    {
+      "sectionNo": "304",
+      "title": "Power of Central Government with respect to vessel without nationality.",
+      "content": "obj_root_law_sections_304_content"
+    },
+    {
+      "sectionNo": "305",
+      "title": "Protection of action taken in good faith.",
+      "content": "obj_root_law_sections_305_content"
+    },
+    {
+      "sectionNo": "306",
+      "title": "Agreement with other States.",
+      "content": "obj_root_law_sections_306_content"
+    },
+    {
+      "sectionNo": "307",
+      "title": "Control measures and detention of vessels.",
+      "content": "obj_root_law_sections_307_content"
+    },
+    {
+      "sectionNo": "308",
+      "title": "Costs of detention and damages.",
+      "content": "obj_root_law_sections_308_content"
+    },
+    {
+      "sectionNo": "309",
+      "title": "Procedure for detention of vessel other than Indian vessel.",
+      "content": "obj_root_law_sections_309_content"
+    },
+    {
+      "sectionNo": "310",
+      "title": "Obligations of ports under conventions and monitoring thereof by Director-General.",
+      "content": "obj_root_law_sections_310_content"
+    },
+    {
+      "sectionNo": "311",
+      "title": "Power of Central Government in respect of abandoned vessels.",
+      "content": "obj_root_law_sections_311_content"
+    },
+    {
+      "sectionNo": "312",
+      "title": "Power to cancel, suspend, etc., certificate of seafarers.",
+      "content": "obj_root_law_sections_312_content"
+    },
+    {
+      "sectionNo": "313",
+      "title": "Re-hearing.",
+      "content": "obj_root_law_sections_313_content"
+    },
+    {
+      "sectionNo": "314",
+      "title": "Maintenance of insurance or such other financial security.",
+      "content": "obj_root_law_sections_314_content"
+    },
+    {
+      "sectionNo": "315",
+      "title": "Use and maintenance of electronic records.",
+      "content": "obj_root_law_sections_315_content"
+    },
+    {
+      "sectionNo": "316",
+      "title": "Classification of vessels.",
+      "content": "obj_root_law_sections_316_content"
+    },
+    {
+      "sectionNo": "317",
+      "title": "Transparency of charges.",
+      "content": "obj_root_law_sections_317_content"
+    },
+    {
+      "sectionNo": "318",
+      "title": "Power of Director-General to call for information.",
+      "content": "obj_root_law_sections_318_content"
+    },
+    {
+      "sectionNo": "319",
+      "title": "General power to make rules.",
+      "content": "obj_root_law_sections_319_content"
+    },
+    {
+      "sectionNo": "320",
+      "title": "Provisions with respect to rules.",
+      "content": "obj_root_law_sections_320_content"
+    },
+    {
+      "sectionNo": "321",
+      "title": "Power to remove difficulties.",
+      "content": "obj_root_law_sections_321_content"
+    },
+    {
+      "sectionNo": "322",
+      "title": "Power to constitute committees.",
+      "content": "obj_root_law_sections_322_content"
+    },
+    {
+      "sectionNo": "323",
+      "title": "Power of Central Government to protect interest of Indian Shipping.",
+      "content": "obj_root_law_sections_323_content"
+    },
+    {
+      "sectionNo": "324",
+      "title": "Repeals and savings.",
+      "content": "obj_root_law_sections_324_content"
+    },
+    {
+      "sectionNo": "325",
+      "title": "Amendment of Act 20 of 2021.",
+      "content": "obj_root_law_sections_325_content"
+    }
+  ]
+}

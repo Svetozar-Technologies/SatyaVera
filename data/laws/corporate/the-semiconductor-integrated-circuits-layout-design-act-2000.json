@@ -1,0 +1,496 @@
+{
+  "slug": "the-semiconductor-integrated-circuits-layout-design-act-2000",
+  "title": "The Semiconductor Integrated Circuits Layout-Design Act, 2000",
+  "hindiTitle": "अर्धचालक एकीकृत परिपथ अभिन्यासडिजाइन अधिनियम, 2000",
+  "actNumber": 37,
+  "actYear": 2000,
+  "ministry": "Ministry of Commerce and Industry",
+  "department": "Department of Commerce",
+  "categories": [
+    "corporate"
+  ],
+  "primaryCategory": "corporate",
+  "sectionCount": 96,
+  "sections": [
+    {
+      "sectionNo": "1",
+      "title": "Short title, extent and commencement.",
+      "content": "(1) This Act may be called the Semiconductor\nIntegrated Circuits Layout-Design Act, 2000.\n\n(2) It extends to the whole of India.\n\n(3) It shall come into force on such date^1\nas the Central Government may, by notification in the\nOfficial Gazette, appoint; and different dates may be appointed for different provisions of this Act, and\nany reference in any such provision to the commencement of this Act shall be construed as a reference to\nthe coming into force of that provision."
+    },
+    {
+      "sectionNo": "2",
+      "title": "Definitions.",
+      "content": "In this Act, unles the context otherwise requires,--\n\n(a) \"Appellate Board\" means the Appellate Board established under section 32;\n\n(b) \"assignment\" means an assignment in writing by act of the parties concerned;\n\n(c) \"Bench\" means a Bench of the Appellate Board;\n\n(d) \"Chairperson\" means the Chairperson of the Appellate Board;\n\n(e) \"commercial exploitation\", in relation to Semiconductor Integrated Circuits Layout-Design,\nmeans to sell, lease, offer or exhibit for sale or otherwise distribute such semiconductor integrated\ncircuit for any commercial purpose;\n\n(f) \"convention country\" means a country notified as such under section 93;\n\n(g) \"Judicial Member\" means a Member of the Appellate Board appointed as such under this Act,\nand includes the Chairperson or such Vice-Chairperson who possesses any of the qualifications\nspecified in sub-section (3) of section 34;\n\n(h) \"layout-design\" means a layout of transistors and other circuitry elements and includes lead\nwires connecting such elements and expressed in any manner in a semiconductor integrated circuit;\n\n(i) \"Member\" means a Judicial Member or a Technical Member of the Appellate Board and\nincludes the Chairperson and the Vice-Chairperson;\n\n(j) \"notify\" means to notify in the Semiconductor Integrated Circuit Journal published by the\nRegistrar;\n\n(k) \"prescribed\" means prescribed by rules made under this Act;\n\n(l) \"register\" means the Register of Layout-Designs referred to in section 6;\n\n(m) \"registered\" (with its grammatical variations) means registered under this Act;\n\n(n) \"registered layout-design\" means a layout-design which is actually on the register;\n\n(o) \"registered proprietor\", in relation to a layout-design, means the person for the time being\nentered in the register as proprietor of the layout-design;\n\n(p) \"registered user\" means a person who is for the time being registered as such under section\n25;\n\n(q) \"Registrar\" means the Registrar of Semiconductor Integrated Circuits Layout-Design referred\nto in section 3;\n\n(r) \"semiconductor integrated circuit\" means a product having transistors and other circuitry\nelements which are inseparably formed on a semiconductor material or an insulating material or\ninside the semiconductor material and designed to perform an electronic circuitry function;\n\n(s) \"Technical Member\" means a Member of the Appellate Board who is not a Judicial Member\nand includes the Chairperson or such Vice-Chairperson who possesses any of the qualifications\nspecified in sub-section (4) of section 34;\n\n(t) \"transmission\" means transmission by operation of law, devolution on the personal\nrepresentation of a deceased person or any other mode of transfer not being assignment;\n\n(u) \"Vice-Chairperson\" means the Vice-Chairperson of the Appellate Board;\n\n(v) any reference to the Semiconductor Integrated Circuits Layout-Design Registry shall be\nconstrued as including a reference to any office of the Semiconductor Integrated Circuits LayoutDesign\nRegistry."
+    },
+    {
+      "sectionNo": "3",
+      "title": "Registrar of Semiconductor Integrated Circuits layout-design.",
+      "content": "(1) The Central Government\nmay, by notification in the Official Gazette, appoint a person to be known as the Registrar of\nSemiconductor Integrated Circuits Layout-Design for the purposes of this Act.\n\n(2) The Central Government may appoint such other officers with such designation as it thinks fit for\nthe purpose of discharging, under the superintendence and direction of the Registrar, such functions of the\nRegistrar under this Act as he may from time to time authorise them to discharge."
+    },
+    {
+      "sectionNo": "4",
+      "title": "Power of Registrar to transfer pending matters.",
+      "content": "Without prejudice to the generality of the\nprovisions of sub-section (2) of section 3, the Registrar may, by order in writing and for reasons to be\nrecorded therein, withdraw any matter pending before an officer appointed under the said sub-section (2)\nand deal with such matter himself either de novo or from the stage it was so withdrawn or transferred the same to another officer so appointed who may subject to the special direction in the order of transfer deal\nwith the matter either de novo or from the stage it was so transferred."
+    },
+    {
+      "sectionNo": "5",
+      "title": "Registry.",
+      "content": "(1) For the purposes of this Act, there shall be established a Registry which shall be\nknown as the Semiconductor Integrated Circuits Layout-Design Registry.\n\n(2) The head office of the Semiconductor Integrated Circuits Layout-Design Registry shall be at such\nplace as the Central Government may specify and for the purposes of facilitating the registration of\nlayout-designs, there may be established, at such places as the Central Government may think fit, branch\noffices of the Semiconductor Integrated Circuits Layout-Design Registry.\n\n(3) The Central Government may, by notification in the Official Gazette, define the territorial limits\nwithin which an office of the Semiconductor Integrated Circuits Layout-Design Registry may exercise its\nfunctions.\n\n(4) There shall be seal of the Semiconductor Integrated Circuits Layout-Design Registry."
+    },
+    {
+      "sectionNo": "6",
+      "title": "Register of Layout-Designs.",
+      "content": "(1) For the purposes of this Act, a record called the Register of\nLayout-Designs shall be kept at the head office of the Semiconductor Integrated Circuits Layout-Design\nRegistry wherein shall be entered all registered layout-designs with the names, addresses and descriptions\nof the proprietor and such other matters related to the registered layout-designs as may be prescribed.\n\n(2) Subject to the superintendence and direction of the Central Government, the register shall be kept\nunder the control and management of the Registrar.\n\n(3) There shall be kept at each Branch office of the Semiconductor Integrated Circuits Layout-Design\nRegistry a copy of the register and other documents as the Central Government may, by notification in the\nOfficial Gazette, direct."
+    },
+    {
+      "sectionNo": "7",
+      "title": "Prohibition of registration of certain layout-designs.",
+      "content": "(1) A layout-design--\n\n(a) which is not original; or\n\n(b) which has been commercially exploited anywhere in India or in a convention country; or\n\n(c) which is not inherently distinctive; or\n\n(d) which is not inherently capable of being distinguishable from any other registered layoutdesign,\n\nshall not be registered as a layout-design:\n\nProvided that a layout-design which has been commercially exploited for not more than two years\nfrom the date on which an application for its registration has been filed either in India or in a convention\ncountry shall be treated as not having been commercially exploited for the purposes of this sub-section.\n\n(2) A layout-design shall be considered to be original if it is the result of its creator's own intellectual\nefforts and is not commonly known to the creators of layout-designs and manufacturers of semiconductor\nintegrated circuits at the time of its creation:\n\nProvided that a layout-design consisting of such combination of elements and interconnections that\nare commonly known among creators of layout-designs and manufacturers of semiconductor integrated\ncircuits shall be considered as original if such combination taken as a whole is the result of its creator's\nown intellectual efforts.\n\n(3) Where an original layout-design has been created in execution of a commission or a contract of\nemployment, the right of registration to such layout-design under this Act shall belong, in the absence of\nany contractual provision to the contrary, to the person who commissioned the work or to the employer."
+    },
+    {
+      "sectionNo": "8",
+      "title": "Application for registration.",
+      "content": "(1) Any person claiming to be the creator of a layout-design, who\nis desirous of registering it, shall apply in writing to the Registrar in the prescribed manner for the\nregistration of his layout-design.\n\n(2) Every application under sub-section (1) shall be filed in the office of the Semiconductor Integrated\nCircuits Layout-Design Registry within whose territorial limits the principal place of business in India of\nthe applicant or in the case of joint application the principal place of business in India of the applicant\nwhose name is first mentioned in the application, as having a place of business in India, is situate:\n\nProvided that, where the applicant or any of the joint applicant does not carry on business in India, the\napplication shall be filed in the office of the Semiconductor Integrated Circuits Layout-Design Registry\nwithin whose territorial limits the place mentioned in the address for service in India as disclosed in the\napplication is situate.\n\n(3) Subject to the provisions of this Act, the Registrar may refuse the application or may accept it\nabsolutely or subject to such amendments or modifications, as he may think fit."
+    },
+    {
+      "sectionNo": "9",
+      "title": "Withdrawal of acceptance.",
+      "content": "Where after the acceptance of an application for registration of\nlayout-design, but before its registration, the Registrar is satisfied that the layout-design is prohibited of\nregistration under section 7, the Registrar may, after hearing the applicant if he so desires, withdraw the\nacceptance and proceed as if the application had not been accepted."
+    },
+    {
+      "sectionNo": "10",
+      "title": "Advertisement of application.",
+      "content": "(1) When an application for registration of a layout-design has\nbeen accepted, the Registrar shall, within fourteen days after the date of acceptance, cause the application\nas accepted to be advertised in the prescribed manner.\n\n(2) Where after advertisement of an application--\n\n(a) an error in the application has been corrected; or\n\n(b) the application has been permitted to be amended under section 12,\n\nthe Registrar may in his discretion cause the application to be advertised again or, in any case falling\nunder clause (b), may, instead of causing the application to be advertised again, notify in the prescribed\nmanner the correction or amendment made in the application."
+    },
+    {
+      "sectionNo": "11",
+      "title": "Opposition to registration.",
+      "content": "(1) Any person may, within three months from the date of the\nadvertisement or re-advertisement of an application for registration or within such further period, not\nexceeding one month in the aggregate, as the Registrar, on application made to him in the prescribed\nmanner and on payment of the prescribed fee, allows, give notice in writing in the prescribed manner to\nthe Registrar of opposition to the registration.\n\n(2) The Registrar shall serve a copy of the notice on the applicant for registration and, within two\nmonths from the receipt by the applicant of such copy of the notice of opposition, the applicant shall send\nto the Registrar in the prescribed manner a counter-statement of the grounds on which he relies for his\napplication and if he does not do so, he shall be deemed to have abandoned his application.\n\n(3) If the applicant sends such counter-statement, the Registrar shall serve a copy thereof on the\nperson giving notice of opposition.\n\n(4) Any evidence upon which the opponent and the applicant may rely shall be submitted in the\nprescribed manner and within the prescribed time to the Registrar, the Registrar shall give an opportunity\nto them to be heard, if they so desire.\n\n(5) The Registrar shall, after hearing the parties, if so required, and considering the evidence, decide,\nafter taking into account any ground of objection whether relied upon by the opponent or not.\n\n(6) When a person giving notice of opposition or an applicant sending a counter-statement after\nreceipt of a copy of such notice neither resides nor carries on business in India, the Registrar may require\nhim to give security for the costs of proceedings before him and, in default of such security being duly\ngiven, may treat the opposition or application, as the case may be, as abandoned."
+    },
+    {
+      "sectionNo": "12",
+      "title": "Correction and amendment.",
+      "content": "The Registrar may on such terms as he thinks just--\n\n(a) at any time, whether before or after acceptance of an application for registration under section\n8, permit the correction of any error in or in connection with the application or permit an amendment\nof the application; or\n\n(b) permit correction of any error in, or an amendment of, a notice of opposition or a counterstatement\nunder section 11."
+    },
+    {
+      "sectionNo": "13",
+      "title": "Registration.",
+      "content": "(1) Subject to the provisions of section 9, when an application for the registration\nof the layout-design has been accepted and either--\n\n(a) the application has not been opposed and time for notice of opposition has expired; or\n\n(b) the application has been opposed and the opposition has been decided in favour of the\napplicant,\n\nthe Registrar shall register the said layout-design in the register and the layout-design shall be registered\nas of the date of the making of the said application and that date shall be deemed to be the date of\nregistration.\n\n(2) On the registration of a layout-design, the Registrar shall issue to the applicant a certificate in the\nprescribed form of the registration thereof sealed with the seal of the Semiconductor Integrated Circuits\nLayout-Design Registry.\n\n(3) Where registration of a layout-design is not completed within twelve months from the date of the\napplication by reason of default on the part of the applicant, the Registrar may, after giving notice to the\napplicant in the prescribed manner, treat the application as abandoned unless it is completed within the\ntime specified in that behalf in the notice.\n\n(4) The Registrar may amend the register or a certificate of registration for the purpose of correcting a\nclerical error or an obvious mistake."
+    },
+    {
+      "sectionNo": "14",
+      "title": "Jointly owned layout-design.",
+      "content": "(1) Save as provided in sub-section (2), nothing in this Act shall\nauthorise the registration of two or more persons who claim to be the creator of a layout-design.\n\n(2) Where the relation between two or more persons claiming to be the creator of layout-design are\nsuch that--\n\n(a) both of them or all of them have put the combined intellectual effort in creating such design;\nor\n\n(b) in relation to the creation of such layout-design both of them or all of them are connected in\nsuch manner that intellectual effort of each of them are not distinguishable in creation of such layout design,\n\nthose persons may be registered as joint proprietor of the layout-design and this Act shall have effect in\nrelation to any right to the use of the layout-design vested in those persons as if in those rights vested in a\nsingle person."
+    },
+    {
+      "sectionNo": "15",
+      "title": "Duration of registration.",
+      "content": "The registration of a layout-design shall be only for a period of ten\nyears counted from the date of filing an application for registration or from the date of first commercial\nexploitation anywhere in India or in any country whichever is earlier."
+    },
+    {
+      "sectionNo": "16",
+      "title": "No action of infringement of unregistered layout-design.",
+      "content": "No person shall be entitled to\ninstitute any proceeding to prevent, or to recover damages for, the infringement of an unregistered layout design."
+    },
+    {
+      "sectionNo": "17",
+      "title": "Rights conferred by registration.",
+      "content": "Subject to the other provisions of this Act, the registration of\na layout-design shall, if valid, give to the registered proprietor of layout-design the exclusive right to the\nuse of the layout-design and to obtain relief in respect of infringement in the manner provided by this Act.\n\nExplanation.--For removal of doubts, it is hereby declared that the rights conferred by the\nregistration of a layout-design shall be available to the registered proprietor of that layout-design\nirrespective of the fact as to whether the layout-design is incorporated in an article or not."
+    },
+    {
+      "sectionNo": "18",
+      "title": "Infringement of layout-design.",
+      "content": "(1) A registered layout-design is infringed by a person who,\nnot being the registered proprietor of the layout-design or a registered user thereof,--\n\n(a) does any act of reproducing, whether by incorporating in a semiconductor integrated circuit or\notherwise, a registered layout-design in its entirety or any part thereof, except such act of reproducing\nany part thereof which is not original within the meaning sub-section (2) of section 7;\n\n(b) subject to the provisions of sub-section (5), does any act of importing or selling or otherwise\ndistributing for commercial purposes a registered layout-design or a semiconductor integrated circuit\nincorporating such registered layout-design or an article incorporating such a semiconductor\nintegrated circuit containing such registered layout-design for the use of which such person is not\nentitled under this Act.\n\n(2) Notwithstanding anything contained in section 17, sub-section (1) or sub-section (5), the\nperformance of the act of reproduction referred to in clause (a) of sub-section (1), where such act is\nperformed for the limited purposes of scientific evaluation, analysis, research or teaching, shall not\nconstitute act of infringement within the meaning of that clause.\n\n(3) Where a person, on the basis of scientific evaluation or analysis of a registered layout-design,\ncreates another layout-design which is original within the meaning of sub-section (2) of section 7, that\nperson shall have the right to incorporate such another layout-design in a semiconductor integrated circuit\nor to perform any of the acts referred to in sub-section (1) or sub-section (5) in respect of such another\nlayout-design and such incorporation or performance of any act shall not be regarded as infringement\nwithin the meaning of sub-section (1).\n\n(4) Where a layout-design is created by the process of scientific evaluation or analysis of the\nregistered layout-design as referred to in sub-section (3), the use of such layout-design by the proprietor\nof such registered layout-design shall be regarded as infringement within the meaning of sub-section (1)\nafter the date of registration of such layout-design under this Act.\n\n(5) Notwithstanding anything contained in clause (b) of sub-section (1), the performance of any of the\nacts referred to in that clause by a person shall not be regarded as infringement within the meaning of that\nclause if such act is performed or directed to be performed in respect of a semiconductor integrated circuit\nincorporating a registered layout-design or any article incorporating such a semiconductor integrated\ncircuit where such person does not possess any knowledge or has no reasonable ground to know while performing or directing to be performed such act in respect of such semiconductor integrated circuit or\narticle that it incorporated a registered layout-design but after the time when such person has received\nnotice of such knowledge, he may continue to perform or directing to be performed such act in respect of\nthe stock on hand or ordered before such time and, then, he shall be liable to pay the proprietor of the\nregistered layout-design a sum by way of royalty to be determined by negotiation between registered\nproprietor of the registered layout-design and that person or by the Appellate Board having regard to the\nbenefit accrued to such person by performing or directing to be performed such act in respect of such\nsemiconductor integrated circuit or article, as the case may be.\n\n(6) Where any other person purchases a semiconductor integrated circuit incorporating a registered\nlayout-design or any article incorporating such a semiconductor integrated circuit referred to in\nsub-section (5) from a person referred to in that sub-section, then, such other person shall be entitled to\nthe immunity from infringement in respect of that semiconductor integrated circuit or article, as the case\nmay be, to the extent and in the manner as if the word person referred in that sub-section includes the\nword any other person referred in this sub-section.\n\n(7) Nothing contained in clause (b) of sub-section (1) shall be construed as constituting an act of\ninfringement where any person performs any of the acts specified in that clause with the written consent\nof the registered proprietor of a registered layout-design or within the control of the person obtaining such\nconsent, or in respect of a registered layout-design or a semiconductor integrated circuit incorporating a\nregistered layout-design or any article incorporating such a semiconductor integrated circuit, that has been\nput on the market by or with the consent of the registered proprietor of such registered layout-design.\n\n(8) Notwithstanding anything contained in this Act, where any person by application of independent\nintellect has created a layout-design which is identical to a registered layout-design, then, any act of such\nperson in respect of the layout-design so created shall not be the infringement of the registered layoutdesign."
+    },
+    {
+      "sectionNo": "19",
+      "title": "Registration to be prima facie evidence of validity.",
+      "content": "(1) In all legal proceedings relating to a\nlayout-design registered under this Act (including application under section 30), the original registration\nof the layout-design and all subsequent assignments and transmissions of layout-design shall be prima\nfacie evidence of the validity thereof.\n\n(2) In all legal proceedings as aforesaid, a registered layout-design shall not be held to be invalid on\nthe ground that it was not a registerable layout-design under section 7 except upon evidence of originality\nand that such evidence was not submitted to the Registrar before registration."
+    },
+    {
+      "sectionNo": "20",
+      "title": "Power of Registered Proprietor to assign and give receipts.",
+      "content": "The person for the time being\nincluded in the register as proprietor of a layout-design shall, subject to the provisions of this Act and to\nany right appearing from the register to be vested in any other person, have power to assign the layoutdesign,\nand to give effectual receipts for any consideration for such assignment."
+    },
+    {
+      "sectionNo": "21",
+      "title": "Assignability and transmissibility of registered layout-design.",
+      "content": "Notwithstanding anything in\nany other law to the contrary, a registered layout-design shall, subject to the provisions of this Chapter, be\nassignable and transmissible whether with or without the goodwill of the business concerned."
+    },
+    {
+      "sectionNo": "22",
+      "title": "Conditions for assignment otherwise than in connection with the goodwill of a business.",
+      "content": "Where an assignment of a registered layout-design is made otherwise than in connection with the\ngoodwill of business in which such layout-design has been or is used, the assignment shall not take effect unless the assignee, not later than the expiration of six months from the date on which the assignment is\nmade or within such extended period, if any, not exceeding three months in the aggregate, as the Registrar\nmay allow, apply to the Registrar for directions with respect to the advertisement of the assignment, and\nadvertises it in such form and manner and within such period as the Registrar may direct."
+    },
+    {
+      "sectionNo": "23",
+      "title": "Registration of assignments and transmissions.",
+      "content": "(1) Where a person becomes entitled by\nassignment or transmission to a registered layout-design, he shall apply in the prescribed manner to the\nRegistrar to register his title, and the Registrar shall, on receipt of the application and on proof of his title\nto his satisfaction, register him as the proprietor of the layout-design and shall cause particulars of the\nassignment or transmission to be entered on the register:\n\nProvided that where the validity of an assignment of transmission is in dispute between the parties,\nthe Registrar may refuse to register the assignment or transmission until the rights of the party have been\ndetermined by a competent court.\n\n(2) Except for the purpose of an application before the Registrar under sub-section (1) or an appeal\nfrom an order thereon, or an application under section 30 or an appeal from an order thereon, a document\nor instrument in respect of which no entry has been made in the register in accordance with sub-section\n(1), shall not be admitted in evidence by the Registrar or the Appellate Board or any court in proof of title\nto the layout-design by assignment or transmission unless the Registrar or the Appellate Board or the\ncourt, as the case may be, otherwise directs."
+    },
+    {
+      "sectionNo": "24",
+      "title": "Registered users.",
+      "content": "Subject to the provisions of section 25, a person other than the registered\nproprietor of a layout-design may be registered as a registered user thereof."
+    },
+    {
+      "sectionNo": "25",
+      "title": "Registration as registered user.",
+      "content": "(1) Where it is proposed that a person should be registered as\na registered user of a layout-design, the registered proprietor and the proposed registered user shall jointly\napply in writing to the Registrar in the prescribed manner and every such application shall be\naccompanied by--\n\n(a) the agreement in writing or a duly authenticated copy thereof, entered into between the\nregistered proprietor and the proposed registered user with respect to the permitted use of the layout-design;\nand\n\n(b) an affidavit made by the registered proprietor or by some person authorised to the satisfaction\nof Registrar to act on his behalf--\n\n(i) giving particulars of the relationship, existing or proposed, between the registered\nproprietor and the proposed registered user, including particulars showing the degree of control\nby the proprietor over the permitted use which the relationship will confer and whether it is a\nterm of their relationship that the proposed registered user shall be sole registered user or that\nthere shall be any other restriction as to persons for whose registration as registered user\napplication may be made;\n\n(ii) stating the conditions or restrictions, if any, proposed with respect to the place of\npermitted use or any other matter;\n\n(iii) stating whether the permitted use to be for a period or without limit of period, and, if for\na period, the duration thereof; and\n\n(c) such further documents or other evidence as may be required by the Registrar or as may be\nprescribed.\n\n(2) Where the requirement of sub-section (1) have been complied with, the Registrar shall register the\nproposed registered user.\n\n(3) The Registrar shall issue notice in the prescribed manner of the registration of a person as a\nregistered user to other registered users of the layout-design, if any.\n\n(4) The Registrar shall, if so requested by the applicant, take steps of securing that information given\nfor the purposes of an application under this section (other than matters entered in the register) is not\ndisclosed to rivals in trade."
+    },
+    {
+      "sectionNo": "26",
+      "title": "Power of Registrar for cancellation of registration as registered user.",
+      "content": "(1) Without prejudice\nto the provisions of section 30, the registration of a person as registered user--\n\n(a) may be cancelled by the Registrar on application in writing in the prescribed manner of the\nregistered proprietor or of the registered user or of any other registered user of the layout-design;\n\n(b) may be cancelled by the Registrar on the application in writing in the prescribed manner of\nany person on any of the following grounds, namely:--\n\n(i) that the registered user has used the layout-design otherwise than in accordance with the\nagreement under clause (a) of sub-section (1) of section 25;\n\n(ii) that the proprietor or the registered user misrepresented, or failed to disclose, some fact\nmaterial to the application for registration which if accurately represented or disclosed would not\nhave justified the registration of the registered user;\n\n(iii) that the circumstances have changed since the date of registration in such a way that at\nthe date of such application for cancellation they would not have justified registration of the\nregistered user;\n\n(iv) that the registration ought not to have been effected having regard to right vested in the\napplicant by virtue of a contract in the performance of which he is interested;\n\n(c) may be cancelled by the Registrar on his own motion or on the application in writing in the\nprescribed manner by any person on the ground that any stipulation in the agreement between the\nregistered proprietor and the registered user regarding the topographical dimensions of the layout design\nis either not being enforced or is not being complied with;\n\n(d) may be cancelled by the Registrar if the layout-design is no longer registered.\n\n(2) The Registrar shall issue notice in the prescribed manner in respect of every application under this\nsection to the registered proprietor and each registered user (not being the applicant) of the layout-design.\n\n(3) The procedure for cancelling a registration shall be such as may be prescribed:\n\nProvided that before cancelling of registration, the registered proprietor shall be given a reasonable\nopportunity of being heard."
+    },
+    {
+      "sectionNo": "27",
+      "title": "Power of Registrar to call for information relating to agreement in respect of registered users.",
+      "content": "(1) The Registrar may, at any time during the continuance of the registration of the registered\nuser, by notice in writing, require the registered proprietor to confirm to him within one month that the\nagreement filed under clause (a) of sub-section (1) of section 25 continues to be in force.\n\n(2) If the registered proprietor fails to furnish the confirmation within one month as required under\nsub-section (1), the registered user shall cease to be the registered user on the day immediately after the\nexpiry of said period and the Registrar shall notify the same."
+    },
+    {
+      "sectionNo": "28",
+      "title": "Right of registered user to take proceedings against infringement.",
+      "content": "Subject to any agreement\nsubsisting between the parties, a registered user may make complaint before the competent criminal court\nfor the infringement in his own name as if he were the registered proprietor."
+    },
+    {
+      "sectionNo": "29",
+      "title": "Registered user not to have right of assignment or transmission.",
+      "content": "Nothing in this Act shall\nconfer on a registered user of a layout-design any assignable or transmissible right to the use thereof.\n\nExplanation I.--The right of a registered user of a layout-design shall not deem to have been\nassigned or transmitted within the meaning of this section in the following cases, namely:--\n\n(a) where the registered user being an individual enters into a partnership with any other person\nfor carrying on the business concerned; but in any such case the firm may use the layout-design, if\notherwise in force, only for so long as the registered user is a member of the firm;\n\n(b) where the registered user being a firm subsequently undergoes a change in its constitution; but\nin any such case the reconstituted firm may use the layout-design, if otherwise in force, only for so\nlong as any partner of the original firm at the time of its registration as registered user, continues to be\na partner of the reconstituted firm.\n\nExplanation II.--For the purposes of Explanation I, \"firm\" has the same meaning as in the Indian\nPartnership Act, 1932 (9 of 1932)."
+    },
+    {
+      "sectionNo": "30",
+      "title": "Power to rectify the register.",
+      "content": "(1) Any person aggrieved by the absence or omission from the\nregister of any entry, or by any entry made in the register without sufficient cause, or by any entry\nwrongly remaining on the register, or by any error or defect in any entry in the register, may apply in the\nprescribed manner to the Appellate Board or to the Registrar, and the Appellate Board or the Registrar, as\nthe case may be, may make such order for making, expunging or varying the entry as it may think it.\n\n(2) The Appellate Board or the Registrar may in any proceedings under this section decide any\nquestion that may be necessary or expedient to decide in connection with the rectification of the register.\n\n(3) The Appellate Board or the Registrar, of its own motion, may, after giving notice in the prescribed\nmanner to the parties concerned and after giving them an opportunity of being heard, make any order\nreferred to in sub-section (1).\n\n(4) Any order of the Appellate Board rectifying the register shall direct that notice of the rectification\nshall be served upon the Registrar in the prescribed manner who shall upon receipt of such notice, rectify\nthe register accordingly."
+    },
+    {
+      "sectionNo": "31",
+      "title": "Correction of register.",
+      "content": "(1) The Registrar may, on application made in the prescribed manner by\nthe registered proprietor,--\n\n(a) correct any error in the name, address or description of the registered proprietor of a layoutdesign,\nor any other entry relating to the layout-design;\n\n(b) enter any change in the name, address or description of the person who is registered as\nproprietor of a layout-design;\n\n(c) cancel the entry of a layout-design on the register,\n\nand may make any consequential amendment or alteration in the certificate of registration, and for that\npurpose, may require the certificate of registration to be produced to him.\n\n(2) The Registrar may, on application made in the prescribed manner by a registered user of a layoutdesign,\nand after notice to the registered proprietor, correct any error, or enter any change in the name,\naddress or description of the registered user."
+    },
+    {
+      "sectionNo": "32",
+      "title": "Establishment of Layout-Design Appellate Board.",
+      "content": "The Central Government shall, by\nnotification in the Official Gazette, establish an Appellate Board to be known as the Layout-Design\nAppellate Board to exercise the jurisdiction, powers and authority conferred on it by or under this Act."
+    },
+    {
+      "sectionNo": "33",
+      "title": "Composition of Appellate Board.",
+      "content": "(1) The Appellate Board shall consist of a Chairperson,\nVice-Chairperson, and such other Members as the Central Government may deem fit and, subject to the\nother provisions of this Act, the jurisdiction, powers and authority of the Appellate Board may be\nexercised by a Bench thereof.\n\n(2) Subject to the other provisions of this Act, a Bench shall consist of one Judicial Member and one\nTechnical Member and shall sit at such place as the Central Government may, by notification in the\nOfficial Gazette, specify.\n\n(3) Notwithstanding anything contained in sub-section (2), the Chairperson--\n\n(a) may, in addition to discharging the functions of the Judicial Member or Technical Member of\nthe Bench to which he is appointed, discharge the function of the Judicial Member or, as the case may\nbe, the Technical Member, of any other Bench;\n\n(b) may transfer a Member from one Bench to another Bench;\n\n(c) may authorise Vice-Chairperson, the Judicial Member or the Technical Member appointed to\none Bench to discharge also the functions of the Judicial Member or the Technical Member, as the\ncase may be, of another Bench.\n\n(4) Where any Benches are constituted, the Central Government may, from time to time, by\nnotification, make provisions as to the distribution of the business of the Appellate Board amongst the\nBenches and specify the matters which may be dealt by each Bench.\n\nExplanation.-- For the removal of doubts, it is hereby declared that the expression \"matter\" includes\nan application or appeal under section 40 or section 42.\n\n(5) If the Members of a Bench differ in opinion on any point, they shall state the point or points on\nwhich they differ, and make a reference to the Chairperson who shall either hear the point or points\nhimself or refer the case for hearing on such point or points by one or more of the other Members and\nsuch point or points shall be decided according to the opinion of the majority of the Members who have\nheard the case including those who first heard it."
+    },
+    {
+      "sectionNo": "34",
+      "title": "Qualifications for appointment as Chairperson, Vice-Chairperson, or other Members.",
+      "content": "(1)A person shall not be qualified for appointment as Chairperson unless he--\n\n(a) is, or has been, a Judge of a High Court; or\n\n(b) has, for at least two years, held the office of a Vice-Chairperson.\n\n(2) A person shall not be qualified for appointment as a Vice-Chairperson, unless he--\n\n(a) has, for at least two years, held the office of a Judicial Member or a Technical Member; or\n\n(b) has been a member of the Indian Legal Service and has held a post in Grade I of that Service\nor any higher post for at least five years.\n\n(3) A person shall not be qualified for appointment as a Judicial Member unless he--\n\n(a) has been a member of the Indian Legal Service and has held the post in Grade I of that Service\nfor at least three years; or\n\n(b) has, for at least ten years, held a civil judicial office.\n\n(4) A person shall not be qualified for appointment as a Technical Member, unless he possesses a\nMaster's Degree in Physics or Bachelor's Degree in Electronics Engineering or Electrical Engineering or\nComputer Engineering from an University or Institution established under law for the time being in force\nand has held a post equivalent to the post of Joint Secretary to the Government of India or any higher post\nfor at least five years and possesses at least five years' experience in the area of semiconductors.\n\n(5) Subject to the provisions of sub-section (6), the Chairperson, Vice-Chairperson and every other\nMember shall be appointed by the President of India.\n\n(6) No appointment of a person as the Chairperson shall be made except after consultation with the\nChief Justice of India."
+    },
+    {
+      "sectionNo": "35",
+      "title": "Term of office of Chairperson, Vice-Chairperson and Members.",
+      "content": "The Chairperson, ViceChairperson\nor other Member shall hold office as such for a term of five years from the date on which he\nenters upon his office or until he attains,--\n\n(a) in the case of Chairperson and Vice-Chairperson, the age of sixty-five years; and\n\n(b) in the case of Member, the age of sixty-two years, whichever is earlier."
+    },
+    {
+      "sectionNo": "36",
+      "title": "Vice-Chairperson or senior-most Member to act as Chairperson or discharge his function in certain circumstances.",
+      "content": "(1) In the event of occurrence of any vacancy in the office of the Chairperson\nby reason of his death, resignation or otherwise, the Vice-Chairperson and in his absence the senior-most\nMember shall act as Chairperson until the date on which a new Chairperson, appointed in accordance\nwith the provisions of this Act to fill such vacancy, enters upon his office.\n\n(2) When the Chairperson in unable to discharge his functions owing to his absence, illness or any\nother cause, the Vice-Chairperson and in his absence the senior-most Member shall discharge the\nfunctions of the Chairperson until the date on which the Chairperson resumes his duty."
+    },
+    {
+      "sectionNo": "37",
+      "title": "Salaries, allowances and other terms and conditions of service of Chairperson, Vice-Chairperson and other Members.",
+      "content": "(1) The salaries and allowance payable to, and other terms and\nconditions of service (including pension, gratuity and other retirement benefits) of, the Chairperson,\nVice-Chairperson and other Members shall be such as may be prescribed.\n\n(2) Notwithstanding anything contained in sub-section (1), a person who, immediately before the date\nof assuming office as the Chairperson, Vice-Chairperson or other Member, was in service of Government\nshall be deemed to have retired from service on the date on which he enters upon as the Chairperson,\nVice-Chairperson or other Member, as the case may be."
+    },
+    {
+      "sectionNo": "38",
+      "title": "Resignation and removal.",
+      "content": "(1) The Chairperson, Vice-Chairperson and any other Member may,\nby notice in writing under his hand addressed to the President of India, resign his office:\n\nProvided that the Chairperson, Vice-Chairperson or any other Member shall, unless he is permitted by\nthe President of India to relinquish his office sooner, continue to hold office until the expiry of three months from the date of receipt of such notice or until a person duly appointed as his successor enters\nupon his office or until the expiry of his term of office, whichever is earlier.\n\n(2) The Chairperson, Vice-Chairperson or any other Member shall not be removed from his office\nexcept by an order by the President of India on the ground of proved misbehaviour or incapacity after an\nenquiry made by a Judge of the Supreme Court in which the Chairperson, Vice-Chairperson or other\nMember has been informed of the charges against him and given a reasonable opportunity of being heard\nin respect of those charges.\n\n(3) The Central Government may, by rules, regulate the procedure for the investigation of\nmisbehaviour or incapacity of the Chairperson, Vice-Chairperson or other Member referred to in\nsub-section (2)."
+    },
+    {
+      "sectionNo": "39",
+      "title": "Staff of Appellate Board.",
+      "content": "(1) The Central Government shall determine the nature and\ncategories of the officers and other employees required to assist the Appellate Board in the discharge of\nits functions and provide the Appellate Board with such officers and other employees as it may think fit.\n\n(2) The salaries and other allowances and conditions of service of the officers and other employees of\nthe Appellate Board shall be such as may be prescribed.\n\n(3) The officers and other employees of the Appellate Board shall discharge their functions under the\ngeneral superintendence of the Chairperson in the manner as may be prescribed."
+    },
+    {
+      "sectionNo": "40",
+      "title": "Application to the Appellate Board to determine royalty.",
+      "content": "(1) The registered proprietor of a\nregistered layout-design may make an application to the Appellate Board for determination of royalty\nunder sub-section (5) of section 18.\n\n(2) Every application under sub-section (1) shall be in such form and be accompanied by such\naffidavits, documents or any other evidence and by such fee in respect of the filing of such application\nand by such other fees for the service or execution of processes as may be prescribed.\n\n(3) On receipt of an application under sub-section (1), the Appellate Board shall, after giving notice to\nthe opposite party to file opposition within the prescribed time and manner and after giving opportunity of\nbeing heard to the applicant and the opposite party, dispose of the application.\n\n(4) An order or decision made by the Appellate Board in disposing of the application under subsection\n(3) shall be executable by a civil court having local jurisdiction as if it were a decree made by that\ncourt."
+    },
+    {
+      "sectionNo": "41",
+      "title": "Power of the Board to cancel registration.",
+      "content": "(1) Any person may make an application, in the\nprescribed form accompanied by prescribed fee, to the Appellate Board for cancellation of the registration\nof a layout-design registered under this Act or registration of assignment or transmission relating thereto,\nas the case may be, on the ground that--\n\n(a) in the case of the registration of a layout-design, the layout-design is prohibited for being\nregistered under section 7; or\n\n(b) in the case of the registration of assignment or transmission relating to a registered layoutdesign,\nsuch assignment or transmission is contrary to any provision of the law for the time being in\nforce.\n\n(2) The Appellate Board shall, on receipt of an application under sub-section (1), give notice to the\nopposite parties in the prescribed manner and after giving them an opportunity of being heard, make such\norder as it may deem fit regarding cancellation of registration:\n\nProvided that where the ground of cancellation has been established with respect only to a part of a\nlayout-design, the Board shall cancel only such part and the remaining part of the layout-design if capable\nof performing as a semiconductor integrated circuit shall be retained as registered on the register in the\nname of the registered proprietor of such layout-design.\n\n(3) Any cancellation of the registration of a layout-design either in whole or in part under sub-section\n(2) shall be deemed to be effective on the date from which the period of ten years referred to in section 15\nis countable in respect of that layout-design.\n\n(4) The Appellate Board shall, without delay after making any order of cancellation under sub-section\n(2), send a copy of such order to the Registrar who shall correct the register to give effect to such order."
+    },
+    {
+      "sectionNo": "42",
+      "title": "Appeal to Appellate Board.",
+      "content": "(1) Any person aggrieved by an order or decision of the Registrar\nunder this Act, or the rules made thereunder may prefer an appeal to the Appellate Board within three\nmonths from the date on which the order or decision sought to be appealed against is communicated to\nsuch person preferring the appeal.\n\n(2) No appeal shall be admitted if it is preferred after the expiry of the period specified under subsection\n(1):\n\nProvided that an appeal may be admitted after the expiry of the period specified therefor, if the\nappellant satisfies the Appellate Board that he had sufficient cause for not preferring the appeal within the\nspecified period.\n\n(3) An appeal to the Appellate Board shall be in the prescribed form and shall be verified in the\nprescribed manner and shall be accompanied by a copy of the order or decision appealed against and by\nsuch fees as may be prescribed."
+    },
+    {
+      "sectionNo": "43",
+      "title": "Procedure and powers of Appellate Board.",
+      "content": "(1) The Appellate Board shall not be bound by the\nprocedure laid down in the Code of Civil Procedure, 1908 (5 of 1908) but shall be guided by principles of\nnatural justice and, subject to the provisions of this Act and the rules made thereunder, the Appellate\nBoard shall have powers to regulate its own procedure including the fixing of places and times of its\nhearing.\n\n(2) The Appellate Board shall have, for the purpose of discharging its functions under this Act, the\nsame powers as are vested in a civil court under the Code of Civil Procedure, 1908 (5 of 1908) while\ntrying a suit in respect of the following matters, namely:--\n\n(a) receiving evidence;\n\n(b) issuing commissions for examination of witnesses;\n\n(c) requisitioning any public record; and\n\n(d) any other matter which may be prescribed.\n\n(3) Any proceeding before the Appellate Board shall be deemed to be a judicial proceeding within the\nmeaning of sections 193 and 228, and for the purpose of section 196 of the Indian Penal Code (45 of\n1860), and the Appellate Board shall be deemed to be a civil court for all the purposes of section 195 and\nChapter XXVI of the Code of Criminal Procedure, 1973 (2 of 1974)."
+    },
+    {
+      "sectionNo": "44",
+      "title": "Bar of jurisdiction of courts, etc.",
+      "content": "No court or other authority shall have or, be entitled to,\nexercise any jurisdiction, powers or authority in relation to the matters referred to in sub-section (1) of\nsection 40 or sub-section (1) of section 42."
+    },
+    {
+      "sectionNo": "45",
+      "title": "Bar to appear before Appellate Board.",
+      "content": "On ceasing to hold office, the Chairperson, ViceChairperson\nor other Members shall not appear before the Appellate Board or the Registrar."
+    },
+    {
+      "sectionNo": "46",
+      "title": "Conditions as to making of interim order.",
+      "content": "Notwithstanding anything contained in any other\nprovisions of this Act or in any other law for the time being in force, no interim order (whether by way of\ninjunction or stay or any other manner) shall be made on, or in any proceedings relating to, an appeal\nunless--\n\n(a) copies of such appeal and of all documents in support of the plea for such interim order are\nfurnished to the party against whom such appeal is made or proposed to be made; and\n\n(b) opportunity is given to such party to be heard in the matter."
+    },
+    {
+      "sectionNo": "47",
+      "title": "Power of Chairperson to transfer cases from one Bench to another.",
+      "content": "On the application of\nany of the parties and after notice to the parties, and after hearing such of them as he may desire to be\nheard, or on his own motion without such notice, the Chairperson may transfer any case pending before\none Bench, for disposal, to any other Bench."
+    },
+    {
+      "sectionNo": "48",
+      "title": "Procedure for application for rectification, etc., before Appellate Board.",
+      "content": "(1) An application\nfor rectification of the register made to the Appellate Board under section 30 shall be in such form as may\nbe prescribed.\n\n(2) A certified copy of every order or judgment of the Appellate Board relating to a registered layoutdesign\nunder this Act shall be communicated to the Registrar by the Board and the Registrar shall give\neffect to the order of the Board and shall, when so directed, amend the entries in, or rectify, the register in\naccordance with such order."
+    },
+    {
+      "sectionNo": "49",
+      "title": "Appearance of Registrar in legal proceedings.",
+      "content": "(1) The Registrar shall have the right to appear\nand be heard--\n\n(a) in any legal proceedings before the Appellate Board in which the relief sought includes\nalteration or rectification of the register or in which any question relating to the practice of the\nSemiconductor Integrated Circuit Layout-Design Registry is raised;\n\n(b) in any appeal to the Board from an order of the Registrar on an application for registration of\na layout-design--\n\n(i) which is not opposed, and the application is either refused by the Registrar or is accepted\nby him subject to any amendments or modifications, or\n\n(ii) which has been opposed and the Registrar considers that his appearance is necessary in\nthe public interest,\n\nand the Registrar shall appear in any case if so directed by the Board.\n\n(2) Unless the Appellate Board otherwise directs, the Registrar may, in lieu of appearing, submit a\nstatement in writing signed by him, giving such particulars as he thinks proper of the proceedings before\nhim relating to the matter in issue or of the grounds of any decision given by him affecting it, or of the\npractice of the Semiconductor Integrated Circuits Layout-Design Registry in like cases, or of other\nmatters relevant to the issues and within his knowledge as Registrar, and such statement shall be evidence\nin the proceeding."
+    },
+    {
+      "sectionNo": "50",
+      "title": "Registrar to refer certain disputes to the Board.",
+      "content": "If any question arises in any proceedings\nbefore Registrar, whether a layout-design has been commercially exploited for more than two years\nanywhere in a convention country for the purpose of registration of such layout-design under this Act, the\nRegistrar shall refer such question to the Appellate Board, and the decision of the Board thereon shall be\nfinal."
+    },
+    {
+      "sectionNo": "51",
+      "title": "Power of the Board to permit certain uses.",
+      "content": "(1) Notwithstanding anything contained in this\nAct, the Appellate Board may on an application made in the prescribed manner before it on behalf of the\nGovernment or by any person authorised by the Government and after giving notice of such application to\nthe registered proprietor of a layout-design and providing the opportunity of being heard to the parties\nconcerned permit the use of such registered layout-design by the Government or by such person so\nauthorised, as the case may be, subject to any or all of the following conditions as the Board deems fit\nunder the circumstances of such use, namely:--\n\n(a) that the use of the layout-design shall be for non-commercial public purposes or for the\npurposes relating to national emergency or of extreme public urgency;\n\n(b) that the duration of the use of the layout-design shall be limited for a period specified by the\nBoard.\n\n(c) that the use of the layout-design shall be non-assignable and non-transmissible;\n\n(d) that the use of the layout-design shall be to the extent which the Board deems necessary to\nremedy the anti-competitive practice;\n\n(e) that the use of the layout-design shall be predominantly for the supply of semiconductor\nintegrated circuits or articles incorporating semiconductor integrated circuits in domestic market of\nIndia:\n\nProvided that Board shall not permit the use of a registered layout-design, by any such person\nauthorised by the Government, under this sub-section unless the Board is satisfied that such person so\nauthorised has made efforts to enter into agreement with the registered proprietor of such layout-design\non reasonable commercial terms and conditions for permitted use of such layout-design and such efforts\nhad not been successful within prescribed period:\n\nProvided further that the first proviso shall not be applicable in a case where the person so authorised\nproduces to the Board a certificate issued by the Government to the effect that such use is required due to\nnational emergency or any other circumstances which the Government considers to be of extreme urgency\nor of public non-commercial use.\n\n(2) The Appellate Board shall, while granting the permission for the use of a registered layout-design\nunder sub-section (1), determine the amount of royalty to be paid by the Government or the person\nauthorised by the Government, as the case may be, to the registered proprietor of such layout-design for\nsuch permitted use.\n\n(3) The Appellate Board may, on the application of the registered proprietor of a layout-design\nreferred to in sub-section (1), may review the permission granted under that sub-section and, after giving\nnotice and opportunity of hearing to the parties concerned in the prescribed manner, cancel or amend such\npermission if the Board is satisfied that any of the conditions subject to which the permission was granted\nhas not been observed or the circumstances which led to the granting of such permission has ceased to\nexist or substantially altered."
+    },
+    {
+      "sectionNo": "52",
+      "title": "Costs of Registrar in proceedings before Appellate Board.",
+      "content": "In all proceedings under this Act\nbefore the Appellate Board the costs of the Registrar shall be in the discretion of the Board, but the\nRegistrar shall not be ordered to pay the costs of any of the parties."
+    },
+    {
+      "sectionNo": "53",
+      "title": "Appeal.",
+      "content": "(1) Any person aggrieved by any decision or order of the Appellate Board under this\nAct may, within the prescribed period appeal to the High Court within whose the jurisdiction of head\noffice or the branch office of the Semiconductor Integrated Circuits Layout-Design Registry against the\ndecision or order of which the appeal arises is situated.\n\n(2) Every such appeal shall be preferred by petition in writing and shall be in such form and shall\ncontain such particulars as may be prescribed.\n\n(3) Subject to the provisions of this Act and the rules made thereunder, the provisions of the Code of\nCivil Procedure, 1908 (5 of 1908) shall apply to appeals before a High Court under this Act."
+    },
+    {
+      "sectionNo": "54",
+      "title": "Powers of High Courts to make rules.",
+      "content": "The High Court may make rules consistent with this\nAct as to the conduct and procedure of all proceeding under this Act before it."
+    },
+    {
+      "sectionNo": "55",
+      "title": "Transitional provisions.",
+      "content": "Notwithstanding anything contained in this Act, till the establishment\nof the Appellate Board under section 32, the Intellectual Property Appellate Board establishment under\nsection 83 of the Trade Marks Act, 1999 (47 of 1999) shall exercise the jurisdiction, powers and authority\nconferred on the Appellate Board under this Act subject to the modification that in any Bench of such\nIntellectual Property Appellate Board constituted for the purposes of this section, for the Technical\nMember referred to in sub-section (2) of section 84 of the Trade Marks Act, 1999, the Technical Member\nshall be appointed under this Act and he shall be deemed to be the Technical Member for constituting the\nBench under the said sub-section (2) of section 84 for the purposes of this Act."
+    },
+    {
+      "sectionNo": "56",
+      "title": "Penalty for infringement of layout-design.",
+      "content": "Any person who contravenes knowingly and\nwilfully any of the provisions of section 18 shall be punishable with imprisonment for a term which may\nextend to three years, or with fine which shall not be less than fifty thousand rupees but which may extend\nto ten lakh rupees, or with both."
+    },
+    {
+      "sectionNo": "57",
+      "title": "Penalty for falsely representing a layout-design as registered.",
+      "content": "(1) No person shall make any\nrepresentation with respect to a layout-design not being a registered layout-design, to the effect that it is a\nregistered layout-design.\n\n(2) If any person contravenes the provisions of sub-section (1), he shall be punishable with\nimprisonment for a term which may extend to six months, or with fine which may extend to fifty\nthousand rupees, or with both.\n\n(3) For the purposes of this section, the use in India in relation to a layout-design of the word\n\"registered\", or of any other expression referring whether expressly or impliedly to registration, shall be\ndeemed to import a reference to registration in the register, except--\n\n(a) where that word or other expression, is used in direct association with other words delineated\nin characters at least as large as those in which that word or other expression is delineated and\nindicating that the reference is to registration as a layout-design under the law of a country outside\nIndia being a country under the law of which the registration referred to is in fact in force; or\n\n(b) where that other expression is of itself such as to indicate that the reference is to such\nregistration as is mentioned in clause (a); or\n\n(c) where that word is used in relation to a layout-design registered as a layout-design under the\nlaw of a country outside India and in relation solely to such layout-design."
+    },
+    {
+      "sectionNo": "58",
+      "title": "Penalty for improperly describing a place of business as connected with the Semiconductor Integrated Circuits Layout-Design Registry.",
+      "content": "If any person uses on his place of business, or on any\ndocument issued by him, or otherwise, words which would reasonably lead to the belief that his place of\nbusiness is, or is officially connected with, the Semiconductor Integrated Circuits Layout-Design Registry, he shall be punishable with imprisonment for a term which may extend to six months, or with\nfine, or with both."
+    },
+    {
+      "sectionNo": "59",
+      "title": "Penalty for falsification of entries in the register.",
+      "content": "If any person makes, or causes to be made,\na false entry in the register, or a writing falsely purporting to be a copy of an entry in the register, or\nproduces or tenders, or causes to be produced or tendered, in evidence any such writing, knowing the\nentry or writing to be false, he shall be punishable with imprisonment for a term which may extend to two\nyears, or with fine, or with both."
+    },
+    {
+      "sectionNo": "60",
+      "title": "Forfeiture of goods.",
+      "content": "(1) Where a person is convicted of an offence under section 56, the court\nconvicting him may direct the forfeiture to Government of all goods and things by means of, or in relation\nto, which the offence has been committed.\n\n(2) When a forfeiture is directed on a conviction and an appeal lies against the conviction, an appeal\nshall lie against the forfeiture also.\n\n(3) When a forfeiture is directed on a conviction, the court, before whom the person is convicted, may\norder any forfeited articles to be destroyed or otherwise disposed of as the court thinks fit."
+    },
+    {
+      "sectionNo": "61",
+      "title": "Exemption of certain persons employed in ordinary course of business.",
+      "content": "Where a person\naccused of an offence under section 56 proves--\n\n(a) that in the case which is the subject of the charge he was so employed that it relates to the\nduty of his employment, and was not interested in the profit accruing from such commission of\noffence except the duty of his employment; and\n\n(b) that, having taken all reasonable precautions against committing the offence charged, he had,\nat the time of commission of the alleged offence, no reason to suspect the genuineness of the\nregistered layout-design or a semiconductor integrated circuit in which such layout-design is\nincorporated; and\n\n(c) that, on demand made by or on behalf of the prosecutor, he gave all the information in his\npower with respect to the commission of such offence,\n\nhe shall be acquitted."
+    },
+    {
+      "sectionNo": "62",
+      "title": "Procedure where invalidity of registration is pleaded by the accused.",
+      "content": "(1) Where the offence\ncharged under section 56 is in relation to a registered layout-design and the accused pleads that the\nregistration of the layout-design is invalid, the following procedure shall be followed:--\n\n(a) if the court is satisfied that such defence is prima facie tenable, it shall not proceed with the\ncharge but shall adjourn the proceeding for three months from the date on which the plea of accused\nis recorded to enable the accused to file an application before the Appellate Board under this Act, for\nthe rectification of the register on the ground that the registration is invalid;\n\n(b) if the accused proves to the court that he has made such application within the time so limited\nor within such further time as the time court may for sufficient cause may allow, the further\nproceedings in the prosecution shall stand stayed till the disposal of such application for rectification;\n\n(c) if within a period of three months or within such extended time as may be allowed by the\ncourt the accused fails to apply to the Appellate Board for rectification of the register, the court shall\nproceed with the case as if the registration were valid .\n\n(2) Where before the institution of a complaint of an offence referred to in sub-section (1), any\napplication for the rectification of the register concerning the layout-design in question on the ground of\ninvalidity of the registration thereof has already been properly made to and is pending before the Appellate Board or the Registrar, the Court shall stay the further proceedings in the prosecution pending\nthe disposal of the application aforesaid and shall determine the charge against the accused in conformity\nwith the result of the application for rectification in so far as the complainant relies upon the registration\nof his layout-design."
+    },
+    {
+      "sectionNo": "63",
+      "title": "Offences by companies.",
+      "content": "(1) If the person committing an offence under this Act is a company,\nthe company as well as every person in charge of, and responsible to, the company for the conduct of its\nbusiness at the time of the commission of the offence shall be deemed to be guilty of the offence and shall\nbe liable to be proceeded against and punished accordingly:\n\nProvided that nothing contained in this sub-section shall render any such person liable to any\npunishment if he proves that the offence was committed without his knowledge or that he exercised all\ndue diligence to prevent the commission of such offence.\n\n(2) Notwithstanding anything contained in sub-section (1), where an offence under this Act has been\ncommitted by a company and it is proved that the offence has been committed with the consent or\nconnivance of, or that the commission of the offence is attributable to any neglect on the part of, any\ndirector, manager, secretary or other officer of the company, such director, manager, secretary or other\nofficer shall also be deemed to be guilty of that offence and shall be liable to be proceeded against and\npunished accordingly.\n\nExplanation.--For the purposes of this section--\n\n(a) \"company\" means any body corporate and includes a firm or other association or individuals;\nand\n\n(b) \"director\", in relation to a firm, means a partner in the firm."
+    },
+    {
+      "sectionNo": "64",
+      "title": "Cognizance of certain offences.",
+      "content": "No court shall take cognizance--\n\n(a) of an offence under section 56 or section 57 except on the complaint in writing made by the\nregistered proprietor or the registered user of a layout-design in respect of which the offence has been\ncommitted;\n\n(b) of an offence under section 58 or section 59 except on complaint in writing made by the\nRegistrar or any officer authorised by him in writing."
+    },
+    {
+      "sectionNo": "65",
+      "title": "Costs of defence or prosecution.",
+      "content": "In any prosecution under this Act, the court may order such\ncosts to be paid by the accused to the complainant, or by the complainant to the accused, as the court\ndeemed reasonable having regard to all the circumstances of the case and the conduct of the parties. Costs\nso awarded shall be recoverable as if they were a fine."
+    },
+    {
+      "sectionNo": "66",
+      "title": "Information as to commission of offence.",
+      "content": "An officer of the Government whose duty it is to\ntake part in the enforcement of the provisions of this Chapter, shall not be compelled in any court to say\nwhen he got any information as to the commission of any offence against this Act."
+    },
+    {
+      "sectionNo": "67",
+      "title": "Punishment of abetment in India of acts done out of India.",
+      "content": "If any person, being within India,\nabets the commission, without India, of any act which, if committed in India, would, under this Act, be an\noffence, he may be tried for such abetment in any place in India in which he may be found, and be\npunished therefor with the punishment to which he would be liable if he had himself committed in that\nplace the act which he abetted."
+    },
+    {
+      "sectionNo": "68",
+      "title": "Protection of security of India.",
+      "content": "Notwithstanding anything contained in this Act, the Registrar\nshall--\n\n(a) not disclose any information relating to the registration of a layout-design or any application\nrelating to the registration of a layout-design under this Act which the Central Government considers\nprejudicial to the interest of the security of India; and\n\n(b) take any action, including the cancellation of registration of a layout-design registered under\nthis Act, which the Central Government may, by notification in the Official Gazette, specify in the\ninterest of security of India.\n\nExplanation.--For the purposes of this section, the expression \"interest of the security of India\"\nmeans any action necessary for the security of India which relates to the use of a layout-design or a\nsemiconductor integrated circuit incorporating a layout-design or an article incorporating such\nsemiconductor integrated circuit and which\"\n\n(a) relates to fissionable materials or the materials from which they are derived; or\n\n(b) relates to the traffic in arms, ammunition and implements of war and to such traffic in other\ngoods and materials as is carried on directly or indirectly for the purpose of supplying a military\nestablishment; or\n\n(c) is taken in time of war or other emergency in international relations."
+    },
+    {
+      "sectionNo": "69",
+      "title": "Protection of action taken in good faith.",
+      "content": "No suit or other legal proceedings shall lie against\nany person in respect of anything which is in good faith done or intended to be done in pursuance of this\nAct."
+    },
+    {
+      "sectionNo": "70",
+      "title": "Certain persons to be public servants.",
+      "content": "Every person appointed, under this Act and every\nMember of the Appellate Board shall be deemed to be a public servant within the meaning of section 21\nof the Indian Penal Code (45 of 1860)."
+    },
+    {
+      "sectionNo": "71",
+      "title": "Implied warranty on sale of layout-design, etc.",
+      "content": "Where a registered layout-design, or a\nsemiconductor integrated circuit in which a registered layout-design is incorporated, or an article\nincorporating such a semiconductor integrated circuit is sold or has been contracted for sale, the seller\nshall be deemed to warrant that the registration, of such layout-design or the layout-design so\nincorporated is genuine within the meaning of this Act unless the contrary is expressed in writing signed\nby or on behalf of the seller and delivered at the time of the sale or contract to sell of such layout-design,\nor semiconductor integrated circuit or article, as the case may be, and accepted by the buyer."
+    },
+    {
+      "sectionNo": "72",
+      "title": "Powers of Registrar.",
+      "content": "In all proceedings under this Act before the Registrar,--\n\n(a) the Registrar shall have all the powers, of a civil court for the purposes of receiving evidence,\nadministering oaths, enforcing the attendance of witnesses, compelling the discovery and production\nof documents and issuing commissions for the examination of witnesses;\n\n(b) the Registrar may, subject to any rules in this behalf, made under section 96 make such orders\nas to costs as he considers reasonable, and any such order shall be executable as decree to a civil\ncourt;\n\n(c) the Registrar may, on an application made in the prescribed manner, review his own decision."
+    },
+    {
+      "sectionNo": "73",
+      "title": "Exercise of discretionary power by Registrar.",
+      "content": "Subject to the provisions of section 76, the\nRegistrar shall not exercise any discretionary or other power vested in him by this Act or the rules made\nthereunder adversely to a person applying for the exercise of the power without (if so required by that\nperson within the prescribed time) giving to the person an opportunity of being heard."
+    },
+    {
+      "sectionNo": "74",
+      "title": "Evidence before Registrar.",
+      "content": "In any proceeding under this Act before the Registrar, evidence\nshall be given by affidavit:\n\nProvided that the Registrar may, if he thinks fit, take oral evidence in lieu of, or in addition to, such\nevidence by affidavit."
+    },
+    {
+      "sectionNo": "75",
+      "title": "Death of party to a proceeding.",
+      "content": "If a person who is a party to a proceeding under this Act (not\nbeing a proceeding before the Appellate Board or a court) dies pending the proceeding, the Registrar may,\non request, and on proof to his satisfaction of the transmission of the interest of the deceased person,\nsubstitute in the proceeding his successor in interest in his place, or, if the Registrar is of opinion that the\ninterest of the deceased person is sufficiently represented by the surviving parties, permit the proceeding\nto continue without the substitution of his successor in interest."
+    },
+    {
+      "sectionNo": "76",
+      "title": "Extention of time.",
+      "content": "(1) If the Registrar is satisfied, on application made to him in the prescribed\nmanner and accompanied by the prescribed fee, that there is sufficient cause for extending the time for\ndoing any act (not being a time expressly provided in the Act), whether the time so specified has expired\nor not, he may, subject to such conditions as he may think fit to impose, extend the time and inform the\nparties accordingly.\n\n(2) Nothing in sub-section (1) shall be deemed to require the Registrar to hear the parties, before\ndisposing of an application for extension of time and no appeal shall lie from any order of the Registrar\nunder this section."
+    },
+    {
+      "sectionNo": "77",
+      "title": "Abandonment.",
+      "content": "Where, in the opinion of the Registrar, an applicant is in default in the\nprosecution of an application filed under this Act, the Registrar may, by notice require the applicant to\nremedy the default within a time specified and after giving him, if so desired, an opportunity of being\nheard, treat the application as abandoned, unless the default is remedied within the time specified in the\nnotice."
+    },
+    {
+      "sectionNo": "78",
+      "title": "Preliminary advice by the Registrar.",
+      "content": "(1) The Registrar may, on application made to him in the\nprescribed manner by any person who proposes to apply for the registration of a layout-design, give\nadvice as to whether the layout-design appears to him prima facie to be original.\n\n(2) If, on an application for the registration of a layout-design as to which the Registrar has given\nadvice as aforesaid in the affirmative made within three months after the advice was given, the Registrar,\nafter further investigation or consideration, gives notice, to the applicant of objection on the ground that\nthe layout-design is not original, the applicant shall be entitled, on giving notice of withdrawal of the\napplication within the prescribed period, to have repaid to him any fee paid on the filing of the\napplication."
+    },
+    {
+      "sectionNo": "79",
+      "title": "Registered user to be impleaded in certain proceedings.",
+      "content": "(1) In every proceeding under\nChapter VII or under section 42, every registered user of a layout-design, who is not himself an applicant\nin respect of any proceeding under that Chapter or section shall be made a party to the proceeding.\n\n(2) Notwithstanding anything contained in any other law, a registered user so made a party to the\nproceeding shall not be liable for any costs unless he enters an appearance and takes part in the\nproceeding."
+    },
+    {
+      "sectionNo": "80",
+      "title": "Evidence of entries in register, etc., and things done by the Registrar.",
+      "content": "(1) A copy of any\nentry in the register or of any document referred to in sub-section (1) of section 87 purporting to becertified by the Registrar and sealed with the seal of the Semiconductor Integrated Circuits Layout-Design\nRegistry shall be admitted in evidence in all courts and in all proceedings without further proof or\nproduction of the original.\n\n(2) A certificate purporting to be under the hand of the Registrar as to any entry, matter or thing that\nhe is authorised by this Act or the rules to make or do shall be prima facie evidence of the entry having\nbeen made, and of the contents thereof, or of the matter or things having been done or not done."
+    },
+    {
+      "sectionNo": "81",
+      "title": "Registrar and other officers not compellable to produce register, etc.",
+      "content": "The Registrar or any\nother officer of the Semiconductor Integrated Circuits Layout-Design Registry shall not, in any legal\nproceedings to which he is not a party, be compellable to produce the register or any other document in\nhis custody, the contents of which can be proved by the production of a certified copy issued under this\nAct or to appear as a witness to prove the matters therein recorded unless by order of the court made or\nspecial cause."
+    },
+    {
+      "sectionNo": "82",
+      "title": "Certificate of validity.",
+      "content": "If in any legal proceeding for rectification of the register before the\nAppellate Board a decision is on contest given in favour of the registered proprietor of the layout-design\non the issue as to the validity of the registration of the layout-design, the Appellate Board may grant a\ncertificate to that effect, and if such a certificate is granted, then, in any subsequent legal proceedings in\nwhich the said validity comes into question, the said proprietor on obtaining a final order or judgment in\nhis favour affirming validity of the registration of the layout-design shall, unless the said final order or\njudgment for sufficient reason directs otherwise, be entitled to his full cost, charges and expenses as\nbetween legal practitioner and client."
+    },
+    {
+      "sectionNo": "83",
+      "title": "Address for service.",
+      "content": "An address for service stated in an application or notice of opposition\nshall, for the purposes of the application or notice of opposition, be deemed to be the address of the\napplicant or opponent, as the case may be, and all documents in relation to the application or notice of\nopposition may be served by leaving them at or sending them by post to the address for service of the\napplicant or opponent, as the case may be."
+    },
+    {
+      "sectionNo": "84",
+      "title": "Agents.",
+      "content": "Where, by or under this Act, any act, other then the making of an affidavit, is required\nto be done before the Registrar by any person, the act may, subject to the rules made in this behalf, be\ndone, instead of by that person himself, by a person duly authorised in the prescribed manner, who is--\n\n(a) a legal practitioner, or\n\n(b) a person registered in the prescribed manner as a layout-design agent, or\n\n(c) a person in the sole and regular employment of the principal."
+    },
+    {
+      "sectionNo": "85",
+      "title": "Layout-design registered by an agent or representative without authority.",
+      "content": "If an agent or a\nrepresentative of the proprietor of a registered layout-design, without authority uses or attempts to register\nor registers the layout-design in his own name, the proprietor shall be entitled to oppose the registration\napplied for or secure its cancellation or rectification of the register so as to bring him as the registered\nproprietor of the said layout-design by assignment in his favour:\n\nProvided that such action shall be taken within three years of the registered proprietor of the layoutdesign\nbecoming aware of the conduct of the agent or representative."
+    },
+    {
+      "sectionNo": "86",
+      "title": "Indexes.",
+      "content": "There shall be kept under the direction and supervision of the Registrar--\n\n(a) an index of registered layout-designs,\n\n(b) an index of layout-designs in respect of which applications for registration are pending.\n(c) an index of the names of the proprietors of registered layout-designs, and\n\n(d) an index of the names of registered users."
+    },
+    {
+      "sectionNo": "87",
+      "title": "Documents open to public inspection.",
+      "content": "(1) Save as otherwise provided in sub-section (4) of\nsection 25,--\n\n(a) the register and any document upon which any entry in the register is based;\n\n(b) every notice of opposition to the registration of a layout-design application for rectification\nbefore the Registrar, counter-statement thereto, and any affidavit or document filed by the parties in\nany proceedings before the Registrar; and\n\n(c) the indexes mentioned in section 86 and such other documents as the Central Government\nmay, by notification in the Official Gazette, specify;\n\nshall, subject to such conditions as may be prescribed, be open to public inspection at the Semiconductor\nIntegrated Circuits Layout-Design Registry.\n\n(2) Any person may, on an application to the Registrar and on payment of such fees as may be\nprescribed, obtain a certified copy of any entry in the register or any document referred to in\nsub-section (1)."
+    },
+    {
+      "sectionNo": "88",
+      "title": "Reports of Registrar to be placed before Parliament.",
+      "content": "The Central Government shall cause to\nbe placed before both Houses of Parliament once a year a report respecting the execution by or under the\nRegistrar of this Act."
+    },
+    {
+      "sectionNo": "89",
+      "title": "Fees and surcharge.",
+      "content": "(1) There shall be paid in respect of applications and registration and other\nmatters under this Act such fees and surcharge as may be prescribed by the Central Government.\n\n(2) Where a fee is payable in respect of the doing of an act by the Registrar, the Registrar shall not do\nthat act until the fee has been paid.\n\n(3) Where a fee is payable in respect of the filing of a document at the Semiconductor Integrated\nCircuits Layout-Design Registry, the document shall be deemed not to have been filed at the Registry\nuntil the fee has been paid."
+    },
+    {
+      "sectionNo": "90",
+      "title": "Savings in respect of Chapter IX.",
+      "content": "Nothing in Chapter IX shall be construed so as to render\nliable to any prosecution or punishment any servant of a master resident in India who in good faith acts in\nobedience to the instructions of such master, and, on demand made by or on behalf of prosecutor, has\ngiven full information as to his master and as to the instructions which he has received from his master."
+    },
+    {
+      "sectionNo": "91",
+      "title": "Declaration as to ownership of layout-design not registerable under the Registration Act, 1908.",
+      "content": "Notwithstanding anything contained in the Registration Act, 1908 (16 of 1908), no document\ndeclaring or purporting to declare the ownership or title of a person to a layout-design other than a\nregistered layout-design shall be registered under that Act."
+    },
+    {
+      "sectionNo": "92",
+      "title": "Government to be bound.",
+      "content": "The provisions of this Act shall be binding on the Government."
+    },
+    {
+      "sectionNo": "93",
+      "title": "Convention countries.",
+      "content": "With a view to the fulfilment of a treaty, convention or arrangement\nwith any country outside India which affords to citizens of India similar privileges as granted to its own\ncitizens, the Central Government may, by notification in the Official Gazette, specify such country to be a\nconvention country for providing the citizens of such convention country the similar privileges as granted\nto the citizens of India under this Act.\n\nExplanation.--For the purposes of this section \"country\" includes any group of countries or union of\ncountries or inter-governmental organisation and the expression \"convention country\" shall be construed\naccordingly."
+    },
+    {
+      "sectionNo": "94",
+      "title": "Provision as to reciprocity.",
+      "content": "Where any country specified by the Central Government in this\nbehalf by notification in the Official Gazette under section 93 does not accord to citizens of India the\nsame rights in respect of registration and protection of layout-design as it accords to its own nationals, no\nnational of such country shall be entitled, either solely or jointly with any other person,--\n\n(a) to apply for the registration of, or be registered as the proprietor of, a layout-design;\n\n(b) to be registered as the assignee of the proprietor of a registered layout-design; or\n\n(c) to apply for registration or be registered as a registered user of a layout-design under\nsection 25."
+    },
+    {
+      "sectionNo": "95",
+      "title": "Power of Central Government to remove difficulties.",
+      "content": "(1) If any difficulty arises in giving\neffect to the provisions of this Act, the Central Government may, by order published in the Official\nGazette, make such provisions not inconsistent with the provisions of this Act as may appear to be\nnecessary for removing the difficulty:\n\nProvided that no order shall be made under this section after the expiry of five years from the\ncommencement of this Act.\n\n(2) Every order made under this section shall, as soon as may be after it is made, be laid before each\nHouse of Parliament."
+    },
+    {
+      "sectionNo": "96",
+      "title": "Power to make rules.",
+      "content": "(1) The Central Government may, by notification in the Official Gazette,\nmake rules to carry out the provisions of this Act.\n\n(2) In particular, and without prejudice to the generality of the foregoing power, such rules may\nprovide for all or any of the following matters, namely:--\n\n(a) the other matters relating to the registered layout-designs to be entered in the register under\nsub-section (1) of section 6;\n\n(b) the manner of applying to the Registrar for registration under sub-section (1) of section 8;\n\n(c) the manner of advertising the application under sub-section (1) of section 10;\n\n(d) the manner of notifying the correction or amendment in application under sub-section (2) of\nsection 10;\n\n(e) the manner of making application, the fee to be paid and the manner of giving notice under\nsub-section (1) of section 11;\n\n(f) the manner of sending counter statement under sub-section (2) of section 11;\n\n(g) the manner of submitting evidence under sub-section (4) of section 11;\n\n(h) the form of issuing certificate under sub-section (2) of section 13;\n\n(i) the manner of giving notice under sub-section (3) of section 13;\n\n(j) the manner of making applications to register the title under sub-section (1) of section 23;\n\n(k) the manner of applying to Registrar under sub-section (1) of section 25;\n\n(l) the document to be prescribed under clause (c) of sub-section (1) of section 25;\n\n(m) the manner of issuing notice under sub-section (3) of section 25;\n\n(n) the manner of applications under clause (a) of sub-section (1) of section 26;\n\n(o) the manner of making applications under clause (b) of sub-section (1) of section 26;\n\n(p) the manner of making applications under clause (c) of sub-section (1) of section 26;\n\n(q) the manner of issuing notice under sub-section (2) of section 26;\n\n(r) the procedure of cancelling registration under sub-section (3) of section 26;\n\n(s) the manner of applying to the Appellate Board under sub-section (1) of section 30;\n\n(t) the manner of giving notice under sub-section (3) of section 30;\n\n(u) the manner of serving notice under sub-section (4) of section 30;\n\n(v) the manner of making application under sub-section (1) of section 31;\n\n(w) the manner of making application under sub-section (2) of section 31;\n\n(x) the salaries and allowances payable to and other terms and conditions of service of the\nChairperson, Vice-Chairperson and other Members under sub-section (1) of section 37;\n\n(y) the procedure for investigation of misbehaviour or incapacity of the Chairperson,\nVice-Chairperson and other Members under sub-section (3) of section 38;\n\n(z) the salaries and allowances and other conditions of service of the officers and other employees\nof the Appellate Board under sub-section (2) of section 39;\n\n(za) the manner of general superintendence by the Chairperson under sub-section (3) of\nsection 39;\n\n(zb) the form of application, the affidavit, documents and other evidence and fee payable in\nrespect of, filing of such application and other fees for the services or execution of process to be\naccompanied therewith under sub-section (2) of section 40;\n\n(zc) the time limit for filing the opposition under sub-section (3) of section 40;\n\n(zd) the form of making application and the fee to be a accompanied therewith under sub-section\n(1) of section 41;\n\n(ze) the manner of giving notice under sub-section (2) of section 41;\n\n(zf) the form of appeal, the manner of verification of such appeal and the fee to be accompanied\ntherewith under sub-section (3) of section 42;\n\n(zg) any other matter to be prescribed under clause (d) of sub-section (2) of section 43;\n\n(zh) the form of application under sub-section (1) of section 48;\n\n(zi) the manner of making application under sub-section (1) of section 51;\n\n(zj) the period to be prescribed under the first proviso to sub-section (1) of section 51;\n\n(zk) the manner of giving notice and opportunity of hearing to the parties under sub-section (3) of\nsection 51;\n\n(zl) the period to be prescribed under sub-section (1) of section 53;\n\n(zm) the form of petition and particulars to be contained therein under sub-section (2) of\nsection 53;\n\n(zn) the manner of reviewing decisions by the registrar under clause (c) of section 72;\n\n(zo) the time to be prescribed under section 73;\n\n(zp) the manner of making application and the fee to be accompanied therewith under\nsub-section (1) of section 76;\n\n(zq) the manner of making application under sub-section (1) of section 78;\n\n(zr) the period of giving notice of withdrawal of application under sub-section (2) of section 78;\n\n(zs) the manner of authorising a person under section 84;\n\n(zt) the manner of registering a person as a layout-design agent under clause (b) of section 84;\n\n(zu) the conditions to be prescribed under sub-section (1) of section 87;\n\n(zv) the fee payable under sub-section (2) of section 87;\n\n(zw) the fees and the surcharge to be paid under sub-section (1) of section 89;\n\n(zx) any other matter which is required to be or may be prescribed.\n\n(3) Every rule made by the Central Government under this Act shall be laid, as soon as may be after it\nis made, before each House of Parliament, while it is in session for a total period of thirty days which may\nbe comprised in one session or in two or more successive sessions, and if, before the expiry of the session\nimmediately following the session or the successive sessions aforesaid, both Houses agree in making any\nmodification in the rule or both Houses agree that the rule should not be made, the rule shall thereafter\nhave effect only in such modified form or be of no effect, as the case may be; so, however, that any such\nmodification or annulment shall be without prejudice to the validity of anything previously done under\nthat rule."
+    }
+  ]
+}

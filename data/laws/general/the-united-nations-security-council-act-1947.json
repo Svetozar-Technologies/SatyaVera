@@ -1,0 +1,25 @@
+{
+  "slug": "the-united-nations-security-council-act-1947",
+  "title": "The United Nations (Security Council) Act, 1947",
+  "hindiTitle": "संयुक्‍त राष्‍ट्र (सुरक्षा परिषद्) अधिनियम,1947",
+  "actNumber": 43,
+  "actYear": 1947,
+  "ministry": "Ministry of External Affairs",
+  "categories": [
+    "general"
+  ],
+  "primaryCategory": "general",
+  "sectionCount": 2,
+  "sections": [
+    {
+      "sectionNo": "1",
+      "title": "Short title.",
+      "content": "This Act may be called the United Nations (Security Council) Act, 1947."
+    },
+    {
+      "sectionNo": "2",
+      "title": "Measures under Art 41 of the Charter of the United Nations.",
+      "content": "If, under Article 41 of the\nCharter of the United Nations signed at San Francisco on the 26th day of June 1945 the Security Council\nof the United Nations calls upon the Central Government to apply any measures, not involving the use of\narmed force, to give effect to any decision of that Council, the Central Government may, by order\npublished in the Official Gazette, make such provisions (including provisions having extra-territorial\noperation) as appear to it necessary or expedient for enabling those measures to be effectively applied,\nand without prejudice to the generality of the foregoing power, provision may be made for the\npunishment of persons offending against the order."
+    }
+  ]
+}

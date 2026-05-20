@@ -1,0 +1,32 @@
+{
+  "slug": "the-majority-act-1875",
+  "title": "The Majority Act, 1875",
+  "hindiTitle": "वयस्‍कता अधिनियम, 1875",
+  "actNumber": 9,
+  "actYear": 1875,
+  "ministry": "Ministry of Law and Justice",
+  "department": "Legislative Department",
+  "categories": [
+    "civil",
+    "general"
+  ],
+  "primaryCategory": "civil",
+  "sectionCount": 3,
+  "sections": [
+    {
+      "sectionNo": "1",
+      "title": "Short title.",
+      "content": "(1) This Act may be called the Limitation Act, 1963.\n\n(2) It extends to the whole of India ^1***.\n\n(3) It shall come into force on such date2\nas the Central Government may, by notification in the\nOfficial Gazette, appoint."
+    },
+    {
+      "sectionNo": "2",
+      "title": "Saving.",
+      "content": "Nothing herein contained shall affect:\n\n(a) the capacity of any persons to act in the following matters (namely), marriage, dower,\ndivorce and adoption;\n\n(b) the religion or religious rites and usages of any class of ^1\n[citizens of India]; or\n\n(c) the capacity of any person who before this Act comes into force has attained majority under\nthe law applicable to him."
+    },
+    {
+      "sectionNo": "3",
+      "title": "Age of majority of persons domiciled in India.",
+      "content": "^1[3. Age of majority of persons domiciled in India.(1) Every person domiciled in India shall\nattain the age of majority on his completing the age of eighteen years and not before.\n\n(2) In computing the age of any person, the day on which he was born is to be included as a whole\nday and he shall be deemed to have attained majority at the beginning of the eighteenth anniversary of\nthat day.]"
+    }
+  ]
+}

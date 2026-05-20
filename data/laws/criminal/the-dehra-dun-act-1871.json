@@ -1,0 +1,36 @@
+{
+  "slug": "the-dehra-dun-act-1871",
+  "title": "The Dehra Dun Act, 1871",
+  "hindiTitle": "देहरादून",
+  "actNumber": 21,
+  "actYear": 1871,
+  "ministry": "Ministry of Home Affairs",
+  "department": "Department of States",
+  "categories": [
+    "criminal"
+  ],
+  "primaryCategory": "criminal",
+  "sectionCount": 4,
+  "sections": [
+    {
+      "sectionNo": "1",
+      "title": "Extension of Regulations and Acts in force in Saharanpur to Dehra Dun.",
+      "content": "The Regulations\nand Acts now in force in the district of Saharanpur are hereby declared to extend to the said district of Dehra\nDun ^1***."
+    },
+    {
+      "sectionNo": "2",
+      "title": "Jurisdiction of High Court and Board of Revenue over Dehra Dun.",
+      "content": "The High Court and\nthe Board of Revenue of ^1[Uttar Pradesh] shall exercise ^2*** respectively, in the said district, all the powers\nwhich the said High Court or Board of Revenue are at present, respectively, authorized to exercise in any\npart of ^1[Agra]."
+    },
+    {
+      "sectionNo": "3",
+      "title": "District Court of Saharanpur to be District Court of Dehra Dun.",
+      "content": "The District Court of\nSaharanpur shall be ^1*** the District Court of such district until the State Government otherwise directs\n^2***."
+    },
+    {
+      "sectionNo": "4",
+      "title": "Exemption of Jaunsar Bawar.",
+      "content": "Nothing in this Act shall apply to that portion of the Dehra Dun\ndistrict called ^1Jaunsar Bawar ^2***"
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "slug": "the-police-agra-act-1854",
+  "title": "The Police, Agra Act, 1854",
+  "hindiTitle": "undefined",
+  "actNumber": 16,
+  "actYear": 1854,
+  "ministry": "Ministry of Home Affairs",
+  "department": "Department of States",
+  "categories": [
+    "criminal"
+  ],
+  "primaryCategory": "criminal",
+  "sectionCount": 3,
+  "sections": [
+    {
+      "sectionNo": "1",
+      "title": "Sections III. and VII., Regulation XI. 1831, repealed",
+      "content": "Section III. and VII., Regulation XI.\n1831 of the Bengal Code are hereby repealed."
+    },
+    {
+      "sectionNo": "2",
+      "title": "Darogahs of Police to be subject to Tehseeldars.",
+      "content": "Wherever any Tehseeldar shall have Police\njurisdiction under the provisions of Section II. of the said Regulation XI. 1831, every Darogah of Police\nhereafter appointed within the local limits of the police jurisdiction of such Tehseeldar, shall be\nsubordinate to, and subject to the control of such Tehseeldar, in his capacity of Chief Police Thannadar."
+    },
+    {
+      "sectionNo": "3",
+      "title": "Regulation XI. 1831, as amended, extended to Benares.",
+      "content": "Regulation XI. 1831, as amended\nby this Act, shall extend to the whole of the Province of Benares, and all powers vested by the said\nRegulation in the Governor General in Council, may be exercised by the Lieutenant-Governor of the\nNorth-Western Provinces."
+    }
+  ]
+}

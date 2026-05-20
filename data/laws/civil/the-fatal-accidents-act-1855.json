@@ -1,0 +1,42 @@
+{
+  "slug": "the-fatal-accidents-act-1855",
+  "title": "The Fatal Accidents Act, 1855",
+  "hindiTitle": "घातक दुर्घटना अधिनियम,1855",
+  "actNumber": 13,
+  "actYear": 1855,
+  "ministry": "Ministry of Law and Justice",
+  "department": "Legislative Department",
+  "categories": [
+    "civil",
+    "general"
+  ],
+  "primaryCategory": "civil",
+  "sectionCount": 5,
+  "sections": [
+    {
+      "sectionNo": "1",
+      "title": "Short title and extent.",
+      "content": "^1[1. Short title and extent.--(1) This Act may be called the Fatal Accidents Act, 1855.\n\n(2) It extends to the whole of India ^2***.]"
+    },
+    {
+      "sectionNo": "1A",
+      "title": "Suit for compensation to the family of a person for loss occasioned to it by his death by actionable wrong.",
+      "content": "^1[1A.] Suit for compensation to the family of a person for loss occasioned to it by his death by\nactionable wrong.--Whenever the death of a person shall be caused by wrongful act, neglect or\ndefault, and the act, neglect or default is such as would (if death had not ensured) have entitled the\nparty injured to maintain an action and recover damages in respect thereof, the party who would have\nbeen liable if death had not ensued shall be liable to an action or suit for damages, notwithstanding the\ndeath of the person injured, and although the death shall have been caused under such circumstances as\namount in law to felony or other crime.\n\n^2** * Every such action or suit shall be for the benefit of the wife, husband, parent and child, if any,\nof the person whose death shall have been so caused, and shall be brought by and in the name of the\nexecutor, administrator or representative of the person deceased;\n\nand in every such action the Court may give such damages as it may think proportioned to\nthe loss resulting from such death to the parties respectively, for whom and for whose benefit\nsuch action shall be brought; and the amount so recovered, after deducting all costs and\nexpenses, including the costs not recovered from the defendant, shall be divided amongst the\nbefore-mentioned parties, or any of them, a such shares as the Court by its judgment or decree\nshall direct."
+    },
+    {
+      "sectionNo": "2",
+      "title": "Not more than one suit to be brought.",
+      "content": "Provided always that not more than one action or suit\nshall be brought for, and in respect of the same subject-matter of complaint ^1\n***:\n\nClaim for loss to estate may be added.--Provided that, in any such action or suit, the executor, administrator or representative of the deceased may insert a claim for and recover any pecuniary loss to the estate of the deceased occasioned by such wrongful act, neglect or default, which sum, when recovered, shall be deemed part of the assets of the estate of the deceased."
+    },
+    {
+      "sectionNo": "3",
+      "title": "Plaintiff shall deliver particulars, etc.",
+      "content": "The plaint in any such action or suit shall give a\nfull particular of the person or persons for whom, or on whose behalf, such action or suit shall be\nbrought, and of the nature of the claim in respect of which damages shall be sought to be\nrecovered."
+    },
+    {
+      "sectionNo": "4",
+      "title": "Interpretation-clause.",
+      "content": "The following words and expressions are intended to have the meanings\nhereby assigned to them respectively, so far as such meanings are not excluded by the context or by the nature of the subject-matter; that is to say ^1*** the word \"person\", shall apply to bodies politic and\ncorporate; and the word \"parent\" shall include father and mother^2\nand grand-father and grand-mother;\nand the word \"child\" shall include son and daughter and grand-son and grand-daughter and step-son and\nstep-daughter."
+    }
+  ]
+}

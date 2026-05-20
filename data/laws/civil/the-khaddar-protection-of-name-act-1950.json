@@ -1,0 +1,32 @@
+{
+  "slug": "the-khaddar-protection-of-name-act-1950",
+  "title": "The Khaddar (Protection of Name) Act, 1950",
+  "hindiTitle": "खद्दर (नाम संरक्षण) अधिनियम, 1950",
+  "actNumber": 78,
+  "actYear": 1950,
+  "ministry": "Ministry of Law and Justice",
+  "department": "Legislative Department",
+  "categories": [
+    "civil",
+    "general"
+  ],
+  "primaryCategory": "civil",
+  "sectionCount": 3,
+  "sections": [
+    {
+      "sectionNo": "1",
+      "title": "Short title and extent.",
+      "content": "(1) This Act may be called the Khaddar (Protection of Name) Act, 1950.\n\n(2) It extends to the whole of India except the State of Jammu and Kashmir*."
+    },
+    {
+      "sectionNo": "2",
+      "title": "The words Khaddar and Khadi to be trade description",
+      "content": "The words \"Khaddar\" and\n\"Khadi\", whether in Hindi or in any other Indian language or in English, when applied to any woven\nmaterial, shall be deemed to be a trade description within the meaning of the Indian Merchandise Marks\nAct, 1889 (40 of 1889), indicating that such material is cloth woven on handlooms in India from cotton,\nsilk or woolen yarn hand-spun in India or from a mixture of any two or all of such yarns."
+    },
+    {
+      "sectionNo": "3",
+      "title": "Repealed.",
+      "content": "[Repealed].--Rep. by the Repealing and Amending Act, 1957 (36 of 1957) s. 2 and First Schedule."
+    }
+  ]
+}

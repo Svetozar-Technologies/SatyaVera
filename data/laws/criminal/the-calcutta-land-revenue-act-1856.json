@@ -1,0 +1,21 @@
+{
+  "slug": "the-calcutta-land-revenue-act-1856",
+  "title": "The Calcutta Land-Revenue Act, 1856",
+  "actNumber": 18,
+  "actYear": 1856,
+  "ministry": "Ministry of Home Affairs",
+  "department": "Department of States",
+  "categories": [
+    "criminal",
+    "property"
+  ],
+  "primaryCategory": "criminal",
+  "sectionCount": 1,
+  "sections": [
+    {
+      "sectionNo": "3",
+      "title": "Collector may entrust any part of his duties to his Deputy.",
+      "content": "It shall be lawful for the Collector\nof Calcutta to employ any Deputy Collector subordinate to him, in the performance of any part of the duties\nof his office under the said Regulation, or under Act XI of 1849, or Act XXIII of 1850; and all Rules,\nRegulations, and Acts relating to the office of Deputy Collector, shall be of the same force within the Town\nof Calcutta as in other parts of the territories subject to the Presidency of Fort William in Bengal."
+    }
+  ]
+}

@@ -1,0 +1,98 @@
+{
+  "totalLaws": 846,
+  "totalSections": 35685,
+  "exportedAt": "2026-05-20T06:32:24.959Z",
+  "categories": {
+    "criminal": {
+      "label": "Criminal",
+      "labelHi": "आपराधिक",
+      "icon": "shield",
+      "lawCount": 218,
+      "sectionCount": 9102
+    },
+    "civil": {
+      "label": "Civil",
+      "labelHi": "दीवानी",
+      "icon": "scale",
+      "lawCount": 75,
+      "sectionCount": 1733
+    },
+    "constitutional": {
+      "label": "Constitutional",
+      "labelHi": "संवैधानिक",
+      "icon": "flag",
+      "lawCount": 31,
+      "sectionCount": 1289
+    },
+    "property": {
+      "label": "Property",
+      "labelHi": "संपत्ति",
+      "icon": "home",
+      "lawCount": 72,
+      "sectionCount": 2973
+    },
+    "family": {
+      "label": "Family",
+      "labelHi": "परिवार",
+      "icon": "heart",
+      "lawCount": 36,
+      "sectionCount": 1985
+    },
+    "labour": {
+      "label": "Labour",
+      "labelHi": "श्रम",
+      "icon": "users",
+      "lawCount": 16,
+      "sectionCount": 732
+    },
+    "consumer": {
+      "label": "Consumer",
+      "labelHi": "उपभोक्ता",
+      "icon": "shield",
+      "lawCount": 39,
+      "sectionCount": 1477
+    },
+    "women": {
+      "label": "Women",
+      "labelHi": "महिला",
+      "icon": "heart",
+      "lawCount": 14,
+      "sectionCount": 357
+    },
+    "corporate": {
+      "label": "Corporate",
+      "labelHi": "कॉर्पोरेट",
+      "icon": "template",
+      "lawCount": 146,
+      "sectionCount": 7093
+    },
+    "tax": {
+      "label": "Tax",
+      "labelHi": "कर",
+      "icon": "doc",
+      "lawCount": 9,
+      "sectionCount": 1511
+    },
+    "environment": {
+      "label": "Environment",
+      "labelHi": "पर्यावरण",
+      "icon": "map",
+      "lawCount": 10,
+      "sectionCount": 533
+    },
+    "cyber": {
+      "label": "Cyber",
+      "labelHi": "साइबर",
+      "icon": "bolt",
+      "lawCount": 3,
+      "sectionCount": 219
+    },
+    "general": {
+      "label": "General",
+      "labelHi": "सामान्य",
+      "icon": "book",
+      "lawCount": 177,
+      "sectionCount": 6681
+    }
+  }
+}

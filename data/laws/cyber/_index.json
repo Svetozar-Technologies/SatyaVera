@@ -1,0 +1,32 @@
+[
+  {
+    "slug": "the-digital-personal-data-protection-act-2023",
+    "title": "The Digital Personal Data Protection Act, 2023.",
+    "hindiTitle": "undefined",
+    "actYear": 2023,
+    "sectionCount": 44,
+    "categories": [
+      "cyber"
+    ]
+  },
+  {
+    "slug": "the-indian-institutes-of-information-technology-act-2014",
+    "title": "The Indian Institutes of Information Technology Act, 2014",
+    "hindiTitle": "भारतीय सूचना प्रौद्योगिकी संस्थाधनअधिनियम, 2014",
+    "actYear": 2014,
+    "sectionCount": 50,
+    "categories": [
+      "cyber"
+    ]
+  },
+  {
+    "slug": "the-information-technology-act-2000",
+    "title": "The Information Technology Act, 2000",
+    "hindiTitle": "सूचना प्रौद्योगिकी अधिनियम, 2000",
+    "actYear": 2000,
+    "sectionCount": 125,
+    "categories": [
+      "cyber"
+    ]
+  }
+]

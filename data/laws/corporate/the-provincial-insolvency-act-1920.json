@@ -1,0 +1,451 @@
+{
+  "slug": "the-provincial-insolvency-act-1920",
+  "title": "The Provincial Insolvency Act, 1920",
+  "hindiTitle": "undefined",
+  "actNumber": 5,
+  "actYear": 1920,
+  "ministry": "Ministry of Corporate Affairs",
+  "department": "undefined",
+  "categories": [
+    "corporate"
+  ],
+  "primaryCategory": "corporate",
+  "sectionCount": 87,
+  "sections": [
+    {
+      "sectionNo": "1",
+      "title": "Short title and extent.",
+      "content": "obj_root_law_sections_1_content"
+    },
+    {
+      "sectionNo": "2",
+      "title": "Definitions.",
+      "content": "obj_root_law_sections_2_content"
+    },
+    {
+      "sectionNo": "3",
+      "title": "Insolvency jurisdiction.",
+      "content": "obj_root_law_sections_3_content"
+    },
+    {
+      "sectionNo": "4",
+      "title": "Power of Court to decide all questions arising in insolvency.",
+      "content": "obj_root_law_sections_4_content"
+    },
+    {
+      "sectionNo": "5",
+      "title": "General powers of Courts.",
+      "content": "obj_root_law_sections_5_content"
+    },
+    {
+      "sectionNo": "6",
+      "title": "Act of insolvency.",
+      "content": "obj_root_law_sections_6_content"
+    },
+    {
+      "sectionNo": "7",
+      "title": "Petition and adjudication.",
+      "content": "obj_root_law_sections_7_content"
+    },
+    {
+      "sectionNo": "8",
+      "title": "Exemption of corporation, etc., from insolvency proceedings.",
+      "content": "obj_root_law_sections_8_content"
+    },
+    {
+      "sectionNo": "9",
+      "title": "Conditions on which creditor may petition.",
+      "content": "obj_root_law_sections_9_content"
+    },
+    {
+      "sectionNo": "10",
+      "title": "Conditions on which debtor may petition.",
+      "content": "obj_root_law_sections_10_content"
+    },
+    {
+      "sectionNo": "11",
+      "title": "Court to which petition shall be presented.",
+      "content": "obj_root_law_sections_11_content"
+    },
+    {
+      "sectionNo": "12",
+      "title": "Verification of petition.",
+      "content": "obj_root_law_sections_12_content"
+    },
+    {
+      "sectionNo": "13",
+      "title": "Contents of petition.",
+      "content": "obj_root_law_sections_13_content"
+    },
+    {
+      "sectionNo": "14",
+      "title": "Withdrawal of petitions.",
+      "content": "obj_root_law_sections_14_content"
+    },
+    {
+      "sectionNo": "15",
+      "title": "Consolidation of petitions.",
+      "content": "obj_root_law_sections_15_content"
+    },
+    {
+      "sectionNo": "16",
+      "title": "Power to change carriage of proceedings.",
+      "content": "obj_root_law_sections_16_content"
+    },
+    {
+      "sectionNo": "17",
+      "title": "Continuance of proceedings on death of debtor.",
+      "content": "obj_root_law_sections_17_content"
+    },
+    {
+      "sectionNo": "18",
+      "title": "Procedure for administration of petition.",
+      "content": "obj_root_law_sections_18_content"
+    },
+    {
+      "sectionNo": "19",
+      "title": "Procedure on admission of petition.",
+      "content": "obj_root_law_sections_19_content"
+    },
+    {
+      "sectionNo": "20",
+      "title": "Appointment of interim receiver.",
+      "content": "obj_root_law_sections_20_content"
+    },
+    {
+      "sectionNo": "21",
+      "title": "Interim proceedings against debtor.",
+      "content": "obj_root_law_sections_21_content"
+    },
+    {
+      "sectionNo": "22",
+      "title": "Duties of debtors.",
+      "content": "obj_root_law_sections_22_content"
+    },
+    {
+      "sectionNo": "23",
+      "title": "Release of debtor.",
+      "content": "obj_root_law_sections_23_content"
+    },
+    {
+      "sectionNo": "24",
+      "title": "Procedure at hearing.",
+      "content": "obj_root_law_sections_24_content"
+    },
+    {
+      "sectionNo": "25",
+      "title": "Dismissal of petition.",
+      "content": "obj_root_law_sections_25_content"
+    },
+    {
+      "sectionNo": "26",
+      "title": "Award of compensation.",
+      "content": "obj_root_law_sections_26_content"
+    },
+    {
+      "sectionNo": "27",
+      "title": "Order of adjudication.",
+      "content": "obj_root_law_sections_27_content"
+    },
+    {
+      "sectionNo": "28",
+      "title": "Effect of an order of adjudication.",
+      "content": "obj_root_law_sections_28_content"
+    },
+    {
+      "sectionNo": "28A",
+      "title": "Insolvent's property to comprise certain capacity.",
+      "content": "obj_root_law_sections_28_a_content"
+    },
+    {
+      "sectionNo": "29",
+      "title": "Stay of pending proceeding.",
+      "content": "obj_root_law_sections_29_content"
+    },
+    {
+      "sectionNo": "30",
+      "title": "Publication of order of adjudication.",
+      "content": "obj_root_law_sections_30_content"
+    },
+    {
+      "sectionNo": "31",
+      "title": "Protection of order.",
+      "content": "obj_root_law_sections_31_content"
+    },
+    {
+      "sectionNo": "32",
+      "title": "Power to arrest after adjudication.",
+      "content": "obj_root_law_sections_32_content"
+    },
+    {
+      "sectionNo": "33",
+      "title": "Schedule of creditors.",
+      "content": "obj_root_law_sections_33_content"
+    },
+    {
+      "sectionNo": "34",
+      "title": "Debts provable under the Act.",
+      "content": "obj_root_law_sections_34_content"
+    },
+    {
+      "sectionNo": "35",
+      "title": "Power to annul adjudication of insolvency.",
+      "content": "obj_root_law_sections_35_content"
+    },
+    {
+      "sectionNo": "36",
+      "title": "Power to cancel one of concurrent orders of adjudication.",
+      "content": "obj_root_law_sections_36_content"
+    },
+    {
+      "sectionNo": "37",
+      "title": "Proceedings on annulment.",
+      "content": "obj_root_law_sections_37_content"
+    },
+    {
+      "sectionNo": "38",
+      "title": "Compositions and schemes of arrangement.",
+      "content": "obj_root_law_sections_38_content"
+    },
+    {
+      "sectionNo": "39",
+      "title": "Order on approval.",
+      "content": "obj_root_law_sections_39_content"
+    },
+    {
+      "sectionNo": "40",
+      "title": "Power to re-adjudge debtor insolvent.",
+      "content": "obj_root_law_sections_40_content"
+    },
+    {
+      "sectionNo": "41",
+      "title": "Discharge.",
+      "content": "obj_root_law_sections_41_content"
+    },
+    {
+      "sectionNo": "42",
+      "title": "Cases in which Court must refuse an absolute discharge.",
+      "content": "obj_root_law_sections_42_content"
+    },
+    {
+      "sectionNo": "43",
+      "title": "Adjudication to be annulled on failure to apply for discharge.",
+      "content": "obj_root_law_sections_43_content"
+    },
+    {
+      "sectionNo": "44",
+      "title": "Effect of order of discharge.",
+      "content": "obj_root_law_sections_44_content"
+    },
+    {
+      "sectionNo": "45",
+      "title": "Debt payable at a future time.",
+      "content": "obj_root_law_sections_45_content"
+    },
+    {
+      "sectionNo": "46",
+      "title": "Mutual dealings and setoff.",
+      "content": "obj_root_law_sections_46_content"
+    },
+    {
+      "sectionNo": "47",
+      "title": "Secured creditors.",
+      "content": "obj_root_law_sections_47_content"
+    },
+    {
+      "sectionNo": "48",
+      "title": "Interest.",
+      "content": "obj_root_law_sections_48_content"
+    },
+    {
+      "sectionNo": "49",
+      "title": "Mode of proof.",
+      "content": "obj_root_law_sections_49_content"
+    },
+    {
+      "sectionNo": "50",
+      "title": "Disallowance and reduction of entries in schedule.",
+      "content": "obj_root_law_sections_50_content"
+    },
+    {
+      "sectionNo": "51",
+      "title": "Restriction of rights of creditor under execution.",
+      "content": "obj_root_law_sections_51_content"
+    },
+    {
+      "sectionNo": "52",
+      "title": "Duties of Court executing decree as to property taken in execution.",
+      "content": "obj_root_law_sections_52_content"
+    },
+    {
+      "sectionNo": "53",
+      "title": "Avoidance of voluntary transfer.",
+      "content": "obj_root_law_sections_53_content"
+    },
+    {
+      "sectionNo": "54",
+      "title": "Avoidance of preference in certain cases.",
+      "content": "obj_root_law_sections_54_content"
+    },
+    {
+      "sectionNo": "54A",
+      "title": "By whom petitions for annulment may be made.",
+      "content": "obj_root_law_sections_54_a_content"
+    },
+    {
+      "sectionNo": "55",
+      "title": "Protection of bona fide transactions.",
+      "content": "obj_root_law_sections_55_content"
+    },
+    {
+      "sectionNo": "56",
+      "title": "Appointment of Receiver.",
+      "content": "obj_root_law_sections_56_content"
+    },
+    {
+      "sectionNo": "57",
+      "title": "Power to appoint Official Receivers.",
+      "content": "obj_root_law_sections_57_content"
+    },
+    {
+      "sectionNo": "58",
+      "title": "Powers of Court if no receiver appointed.",
+      "content": "obj_root_law_sections_58_content"
+    },
+    {
+      "sectionNo": "59",
+      "title": "Duties and powers of receiver.",
+      "content": "obj_root_law_sections_59_content"
+    },
+    {
+      "sectionNo": "59A",
+      "title": "Power to require information regarding insolvent's property.",
+      "content": "obj_root_law_sections_59_a_content"
+    },
+    {
+      "sectionNo": "60",
+      "title": "Special provisions in regard to immovable property.",
+      "content": "obj_root_law_sections_60_content"
+    },
+    {
+      "sectionNo": "61",
+      "title": "Priority of debts.",
+      "content": "obj_root_law_sections_61_content"
+    },
+    {
+      "sectionNo": "62",
+      "title": "Calculation of dividends.",
+      "content": "obj_root_law_sections_62_content"
+    },
+    {
+      "sectionNo": "63",
+      "title": "Right of creditor who has not proved debt before declaration of a dividend.",
+      "content": "obj_root_law_sections_63_content"
+    },
+    {
+      "sectionNo": "64",
+      "title": "Final dividend.",
+      "content": "obj_root_law_sections_64_content"
+    },
+    {
+      "sectionNo": "65",
+      "title": "No suit for dividend.",
+      "content": "obj_root_law_sections_65_content"
+    },
+    {
+      "sectionNo": "66",
+      "title": "Management by and allowance to insolvent.",
+      "content": "obj_root_law_sections_66_content"
+    },
+    {
+      "sectionNo": "67",
+      "title": "Right of insolvent to surplus.",
+      "content": "obj_root_law_sections_67_content"
+    },
+    {
+      "sectionNo": "67A",
+      "title": "Committee of inspection.",
+      "content": "obj_root_law_sections_67_a_content"
+    },
+    {
+      "sectionNo": "68",
+      "title": "Appeal to Court against receiver.",
+      "content": "obj_root_law_sections_68_content"
+    },
+    {
+      "sectionNo": "69",
+      "title": "Offences by debtors.",
+      "content": "obj_root_law_sections_69_content"
+    },
+    {
+      "sectionNo": "70",
+      "title": "Procedure on charge under section 69.",
+      "content": "obj_root_law_sections_70_content"
+    },
+    {
+      "sectionNo": "71",
+      "title": "Criminal liability after discharge or composition.",
+      "content": "obj_root_law_sections_71_content"
+    },
+    {
+      "sectionNo": "72",
+      "title": "Undischarged insolvent obtaining credit.",
+      "content": "obj_root_law_sections_72_content"
+    },
+    {
+      "sectionNo": "73",
+      "title": "Disqualifications of insolvent.",
+      "content": "obj_root_law_sections_73_content"
+    },
+    {
+      "sectionNo": "74",
+      "title": "Summary administration.",
+      "content": "obj_root_law_sections_74_content"
+    },
+    {
+      "sectionNo": "75",
+      "title": "Appeals.",
+      "content": "obj_root_law_sections_75_content"
+    },
+    {
+      "sectionNo": "76",
+      "title": "Costs.",
+      "content": "obj_root_law_sections_76_content"
+    },
+    {
+      "sectionNo": "77",
+      "title": "Courts to be auxiliary to each other.",
+      "content": "obj_root_law_sections_77_content"
+    },
+    {
+      "sectionNo": "78",
+      "title": "Limitation.",
+      "content": "obj_root_law_sections_78_content"
+    },
+    {
+      "sectionNo": "79",
+      "title": "Power to make rules Power to make rules.",
+      "content": "obj_root_law_sections_79_content"
+    },
+    {
+      "sectionNo": "80",
+      "title": "Delegation of powers to Official Receivers.",
+      "content": "obj_root_law_sections_80_content"
+    },
+    {
+      "sectionNo": "81",
+      "title": "Power of State Government to bar application of certain provisions to certain Courts.",
+      "content": "obj_root_law_sections_81_content"
+    },
+    {
+      "sectionNo": "82",
+      "title": "Savings.",
+      "content": "obj_root_law_sections_82_content"
+    },
+    {
+      "sectionNo": "83",
+      "title": "Repeals.",
+      "content": "obj_root_law_sections_83_content"
+    }
+  ]
+}

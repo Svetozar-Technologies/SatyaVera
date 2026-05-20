@@ -1,0 +1,38 @@
+{
+  "slug": "the-contingency-fund-of-india-act-1950",
+  "title": "The Contingency Fund of India Act, 1950",
+  "hindiTitle": "भारत की आकस्मिुकता निधि अधिनियम, 1950",
+  "actNumber": 49,
+  "actYear": 1950,
+  "ministry": "Ministry of Finance",
+  "department": "Department of Economic Affairs",
+  "categories": [
+    "tax",
+    "corporate",
+    "family"
+  ],
+  "primaryCategory": "family",
+  "sectionCount": 4,
+  "sections": [
+    {
+      "sectionNo": "1",
+      "title": "Short title.",
+      "content": "This Act may be called the Contingency Fund of India Act, 1950."
+    },
+    {
+      "sectionNo": "2",
+      "title": "Establishment of the Contingency Fund of India.",
+      "content": "^1[(1)] There shall be established a Contingency Fund in the nature of an impress entitled the Contingency Fund of India, into which shall be paid from and out of the Consolidated Fund of India a sum of ^2[fifty crores of rupees.]\n\n^3[(2) On and from the date on which the Finance Bill, 2005 receives the assent of the president, the sum which shall be paid from and out of the Consolidated Fund of India into the Contingency Fund of India under sub-section (1) shall stand enhanced to five hundred crores of rupees.]\n\n^4[(3) On and from the date on which the Finance Bill, 2021 receives the assent of the President, the sum which shall be paid from and out of the Consolidated Fund of India into the Contingency Fund of India under sub-section (2) shall stand enhanced to thirty thousand crores of rupees.]\n\n^5[Provided that during the period beginning on the 28th day of July, 1999 and ending on the 31st day of March, 2000, this section shall have effect subject to the modification that for the words “fifty crores of rupees”, the words “five hundred and fifty crores of rupees” shall be substituted:\n\nProvided further that during the period beginning on the 24th day of January, 1998 and ending on the 31st day of March, 1998, this section shall have effect subject to the modification that for the words “fifty crores of rupees”, the words “thirty-two thousand four hundred and ninety crores of rupees” shall be substituted.]"
+    },
+    {
+      "sectionNo": "3",
+      "title": "Custody of the Contingency Fund and withdrawals therefrom.",
+      "content": "The Contingency Fund of\nIndia shall be held on behalf of the President by a Secretary to the Government of India in the\nMinistry of Finance, and no advances shall be made out of such fund except for the purposes of\nmeeting unforeseen expenditure pending authorisation of such expenditure by Parliament under\nappropriations made by law."
+    },
+    {
+      "sectionNo": "4",
+      "title": "Power to make rules.",
+      "content": "^1[(1)] For the purpose of carrying out the objects of this Act, the\nCentral Government may, 6\nby notification in the Official Gazette, make rules regulating all matters\nconnected with or ancillary to the custody of, the payment of moneys into and the withdrawal of\nmoneys from, the Contingency Fund of India.\n\n^2[(2) Every rule made under this section shall be laid, as soon as may be after it is made, before\neach House of Parliament, while it is in session, for a total period of thirty days which may be\ncomprised in one session or in two or more successive sessions, and if, before the expiry of the\nsession immediately following the session or the successive sessions aforesaid, both Houses agree in\nmaking any modification in the rule or both Houses agree that the rule should not be made, the rule\nshall thereafter have effect only in such modified form or be of no effect, as the case may be; so,\nhowever, that any such modification or annulment shall be without prejudice to the validity of\nanything previously done under that rule.]"
+    }
+  ]
+}

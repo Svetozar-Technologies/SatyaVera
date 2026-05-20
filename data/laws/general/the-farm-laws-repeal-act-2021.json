@@ -1,0 +1,31 @@
+{
+  "slug": "the-farm-laws-repeal-act-2021",
+  "title": "The Farm Laws Repeal Act, 2021",
+  "hindiTitle": "कृषि विधि निरसन अधिनियम, 2021",
+  "actNumber": 40,
+  "actYear": 2021,
+  "ministry": "Ministry of Agriculture and Farmers Welfare",
+  "department": "Department of Agriculture, Cooperation and Farmers Welfare",
+  "categories": [
+    "general"
+  ],
+  "primaryCategory": "general",
+  "sectionCount": 3,
+  "sections": [
+    {
+      "sectionNo": "1",
+      "title": "Short title.",
+      "content": "This Act may be called the Farm Laws Repeal Act, 2021."
+    },
+    {
+      "sectionNo": "2",
+      "title": "Repeal of Acts 20 of 2020, 21 of 2020 and 22 of 2020.",
+      "content": "The Farmers (Empowerment and\nProtection) Agreement on Price Assurance and Farm Services Act, 2020, the Farmers' Produce Trade and\nCommerce (Promotion and Facilitation) Act, 2020 and the Essential Commodities (Amendment) Act, 2020\nare hereby repealed."
+    },
+    {
+      "sectionNo": "3",
+      "title": "Amendment of Act 10 of 1955",
+      "content": "In section 3 of the Essential Commodities Act, 1955,\nsub-section (1A) shall be omitted."
+    }
+  ]
+}

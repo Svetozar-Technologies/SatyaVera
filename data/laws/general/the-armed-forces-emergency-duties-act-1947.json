@@ -1,0 +1,31 @@
+{
+  "slug": "the-armed-forces-emergency-duties-act-1947",
+  "title": "The Armed Forces (Emergency Duties) Act, 1947",
+  "hindiTitle": "सशस्‍त्र बल (आपात कर्तव्य)अधिनियम, 1947",
+  "actNumber": 15,
+  "actYear": 1947,
+  "ministry": "Ministry of Defence",
+  "department": "Department of Military Affairs",
+  "categories": [
+    "general"
+  ],
+  "primaryCategory": "general",
+  "sectionCount": 3,
+  "sections": [
+    {
+      "sectionNo": "1",
+      "title": "Short title and extend",
+      "content": "^1* * * This Act may be called the Armed Forces (Emergency Duties)\nAct, 1947.\n\n^2* * * * * *"
+    },
+    {
+      "sectionNo": "2",
+      "title": "Emergency duties of Armed Forces",
+      "content": "(1) The Central Government may, by notification in the\nOfficial Gazette, declare any specified service ^1[in a State] to be a service of vital importance to the\ncommunity:\n\nProvided that such notification shall remain in force for one month in the first instance, but may be\nextended, from time to time, by a like notification.\n\n(2) Upon a declaration being made under sub-section (1) and until it is rescinded, it shall be the duty\nof every person subject to ^2[the Army Act, 1950 (46 of 1950) or the Air Force Act, 1950 (45 of 1950)],\nor ^3* * * ^4[the Navy Act, 1957 (62 of 1957)], to obey any command given by any superior officer in\nrelation to employment upon or in connection with the service specified in the declaration; and every such\ncommand shall be deemed to be a lawful command within the meaning and for the purposes of the\nsaid Acts."
+    },
+    {
+      "sectionNo": "3",
+      "title": "Validation of certain past commands.",
+      "content": "Every command given, alter the 30th day of September,\n1946, and before the commencement of this Act, to any person referred to in sub-section (2) of section 2\nby any superior officer in relation to employment upon or in connection with any such service as the\ncentral Government may, by notification in the Official Gazette, specify in his behalf, shall be deemed to\nhave been a lawful command within the meaning and for the purposes of the Acts referred to in that\nsub-section, so, however, that no such person shall be punished by reason only of his not having obeyed\nany such command."
+    }
+  ]
+}
