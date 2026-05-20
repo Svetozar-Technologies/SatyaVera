@@ -2,20 +2,21 @@
 // Build the Next.js app as a static export suitable for GitHub Pages.
 //
 // The full Next.js tree contains routes that require a server (Route
-// Handlers under `src/app/api`, dashboard/login screens that hit
+// Handlers under `js/src/app/api`, dashboard/login screens that hit
 // firebase-admin at request time). `output: 'export'` rejects those at
 // build time. For the GitHub Pages variant we only need the `/app` SPA
 // shell (issue #3 R2), so this script temporarily relocates the
-// server-only routes out of `src/app/`, runs `next build`, and restores
-// them — even if the build fails.
+// server-only routes out of `js/src/app/`, runs `next build`, and
+// restores them — even if the build fails.
 
 import { existsSync, renameSync, mkdirSync, rmSync } from "node:fs";
 import { spawnSync } from "node:child_process";
 import { join, resolve } from "node:path";
 
-const repoRoot = resolve(new URL(".", import.meta.url).pathname, "..");
-const appDir = join(repoRoot, "src", "app");
-const stashDir = join(repoRoot, ".static-export-stash");
+// This script lives at `js/scripts/`; the JS project root is one level up.
+const jsRoot = resolve(new URL(".", import.meta.url).pathname, "..");
+const appDir = join(jsRoot, "src", "app");
+const stashDir = join(jsRoot, ".static-export-stash");
 
 // Anything under src/app/ that we do NOT want in the static export.
 // Folder names match exactly what's on disk; route groups keep their
@@ -59,7 +60,7 @@ try {
   const result = spawnSync("npx", ["next", "build"], {
     stdio: "inherit",
     env: { ...process.env, STATIC_EXPORT: "1" },
-    cwd: repoRoot,
+    cwd: jsRoot,
   });
   exitCode = result.status ?? 1;
 } catch (err) {

@@ -23,14 +23,16 @@ codebase.
 
 **Implemented in this PR**
 
-- `next.config.ts` now reads `STATIC_EXPORT`, `BASE_PATH`, and
+- `js/next.config.ts` now reads `STATIC_EXPORT`, `BASE_PATH`, and
   `NEXT_PUBLIC_BASE_PATH` env vars. When `STATIC_EXPORT=1` it sets
   `output: 'export'`, `images.unoptimized: true`, and applies
   `basePath`/`assetPrefix` so the bundle works under `/<repo>/`.
-- A new `.github/workflows/deploy-pages.yml` workflow builds with
-  `STATIC_EXPORT=1`, copies `out/` to a Pages artifact, and deploys via
-  `actions/deploy-pages@v5`.
-- README documents both deployment paths.
+- `.github/workflows/js.yml` builds for the Firebase target and (with
+  `STATIC_EXPORT=1`) for the GitHub Pages target as part of the same
+  build matrix; on push to `main` the Pages artifact is uploaded and a
+  dedicated `pages-deploy` job publishes it via `actions/deploy-pages@v4`.
+- README documents both deployment paths and the Firebase App Hosting
+  "Root directory: `js`" configuration step.
 
 **Deferred** — Some existing pages still depend on `firebase-admin`
 (server-only). For the static export build, those pages need a
@@ -42,11 +44,11 @@ PRs once `/app` is the universal-app shell.
 
 **Candidates**
 
-1. Add a single `src/app/app/page.tsx` client-only page that mounts a
+1. Add a single `js/src/app/app/page.tsx` client-only page that mounts a
    minimal SPA shell.
-2. Add `src/app/app/[[...slug]]/page.tsx` (catch-all) so all client
+2. Add `js/src/app/app/[[...slug]]/page.tsx` (catch-all) so all client
    routing happens beneath `/app/*` without filesystem-level pages.
-3. Build a separate Vite SPA in `js/app/` and embed it via an iframe.
+3. Build a separate Vite SPA in `js/spa/` and embed it via an iframe.
 
 **Chosen:** option 2 — catch-all client route. Lets the SPA own its own
 router (hash or path) while staying inside the Next.js app for now. We can
@@ -55,12 +57,12 @@ tree without changing the import graph.
 
 **Implemented in this PR**
 
-- `src/app/app/page.tsx` — landing route for `/app` that re-exports the
+- `js/src/app/app/page.tsx` — landing route for `/app` that re-exports the
   same client shell.
-- `src/app/app/[[...slug]]/page.tsx` — catch-all SPA entry point that
+- `js/src/app/app/[[...slug]]/page.tsx` — catch-all SPA entry point that
   forces static rendering (`dynamic = 'force-static'`) and uses `'use
   client'` for the actual UI.
-- `src/app/app/_components/SpaShell.tsx` — the client component. Starts
+- `js/src/app/app/_components/SpaShell.tsx` — the client component. Starts
   with a placeholder home view and a tiny hash-based router so it works
   identically on `index.html` (Pages), inside Electron, and inside Capacitor.
 
@@ -74,28 +76,36 @@ tree without changing the import graph.
 3. Mixed: move only the genuinely new code into `./js` / `./rust`, and
    migrate the existing `src/` folder incrementally.
 
-**Chosen:** option 2 — scaffold + documented plan. A bulk rename in this
-PR would create thousands of conflicts against in-flight branches, would
-require a simultaneous overhaul of `tsconfig.json`, `next.config.ts`,
-ESLint rules, Tailwind PostCSS paths, the Firestore ingestion scripts, and
-every `import` path. The migration plan in `plan.md` lists the staged
-sub-PRs that complete R3 over time.
+**Chosen:** option 1 — full move, in this PR. After the initial scaffold
+landed, PR #4 review explicitly requested completing the move now:
+*"All JavaScript from root `./src` folder should moved to `./js/src`, as
+we use in our templates."* Doing it in one commit minimises the time the
+repo lives with a half-migrated tree and matches the upstream JS
+template's flat layout.
 
 **Implemented in this PR**
 
-- `./js/README.md` — explains how the existing `src/`, `public/`,
-  `scripts/` map onto the long-term `js/web/`, `js/spa/`, `js/scripts/`,
-  `js/shared/` layout.
-- `./rust/` Cargo workspace skeleton (see R5 below).
-- Workflows treat both `./js` and `./rust` as first-class trees with
-  their own change-detection paths.
+- All previously root-level JavaScript artefacts are now under `./js/`:
+  `js/src`, `js/public`, `js/scripts`, `js/data`, `js/package.json`,
+  `js/package-lock.json`, `js/tsconfig.json`, `js/next.config.ts`,
+  `js/postcss.config.mjs`, `js/eslint.config.mjs`, `js/apphosting.yaml`,
+  `js/.prettierrc`, `js/.prettierignore`, `js/.jscpd.json`,
+  `js/.secretlintrc.json`.
+- `js/scripts/build-static-export.mjs` was updated to use the local
+  `js/` root rather than the repo root when stashing server-only routes
+  during static export.
+- The Rust workspace (`./rust`) keeps the `satyavera-db` crate as
+  scaffolded in the initial PR (see R5 below).
+- Workflows treat `./js` and `./rust` as first-class trees with
+  separate `js.yml` and `rust.yml` pipelines.
 
 ## R4 — GitHub-hosted distribution
 
 **Implemented**
 
-- GitHub Pages deploy workflow (`deploy-pages.yml`) covers R4.1.
-- Rust workflow (`rust-ci.yml`) builds the future server crate on every
+- GitHub Pages publishing is part of `js.yml` (`build` + `pages-deploy`
+  jobs), which covers R4.1.
+- Rust workflow (`rust.yml`) builds the future server crate on every
   PR/push, ensuring the Rust target stays green.
 
 **Deferred**
@@ -145,17 +155,22 @@ and gives us full control over the journal format for R5.2/R5.3.
 
 **Implemented**
 
-- New `.github/workflows/ci.yml` — replaces the previous minimal CI with:
-  detect-changes, lint, build (JS), file-size limit, secret scan,
-  documentation validation, and the test job (no tests yet → conditional
-  skip with a TODO comment). Drives Next.js, not npm publishing.
-- `.github/workflows/rust-ci.yml` — mirrors the Rust template's
-  `lint`/`test` jobs (matrix Linux/macOS/Windows, cache, `cargo fmt`,
-  `cargo clippy`, `cargo test`, `RUSTFLAGS=-Dwarnings`).
-- `.github/workflows/deploy-pages.yml` — Next.js static export → Pages.
-- `.github/workflows/links.yml` — lychee link checker (adapted from JS template).
-- Hygiene files: `.prettierrc`, `.prettierignore`, `.jscpd.json`,
-  `.secretlintrc.json`, `.lycheeignore`.
+- `.github/workflows/js.yml` — single JS CI/CD pipeline modelled on
+  `link-foundation/js-ai-driven-development-pipeline-template`. Jobs:
+  detect-changes, file-line-limit, lint (ESLint + advisory Prettier /
+  jscpd + secretlint), build matrix `[firebase, pages]`, `pages-deploy`
+  (runs on push to `main`), validate-docs. All `npm` steps target the
+  `js/` working directory.
+- `.github/workflows/rust.yml` — mirrors the Rust template's `lint` /
+  `test` jobs (matrix Linux/macOS/Windows, cache, `cargo fmt`,
+  `cargo clippy`, `cargo test`, `RUSTFLAGS=-Dwarnings`). Triggered only
+  on `rust/**` changes.
+- `.github/workflows/links.yml` — lychee link checker (adapted from JS
+  template).
+- Hygiene files (now colocated with the Next.js project root): `js/.prettierrc`,
+  `js/.prettierignore`, `js/.jscpd.json`, `js/.secretlintrc.json`. The
+  repo-wide `.lycheeignore` stays at the root because lychee scans the
+  whole tree.
 
 **Reported gaps in upstream templates** — captured in `research.md` § "Gaps".
 Filing them upstream is a follow-up item in `plan.md`.

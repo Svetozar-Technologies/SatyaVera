@@ -13,9 +13,14 @@
 # testing
 /coverage
 
-# next.js
+# next.js (now lives under /js/, but keep root globs for tooling that
+# accidentally drops them at the workspace root)
 /.next/
 /out/
+/js/.next/
+/js/out/
+/js/build/
+/js/dist/
 
 # production
 /build
@@ -52,3 +57,4 @@ ui-debug.log
 
 # static-export build helper
 .static-export-stash/
+/js/.static-export-stash/

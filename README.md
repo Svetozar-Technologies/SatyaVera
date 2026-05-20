@@ -28,31 +28,50 @@ An AI-powered legal assistant that explains your rights in plain Hindi and Engli
 
 ## Project Structure
 
+All JavaScript / Next.js code lives under [`./js/`](./js/README.md); all Rust
+code lives under `./rust/`. See [issue #3](https://github.com/Svetozar-Technologies/SatyaVera/issues/3)
+and [`docs/case-studies/issue-3/`](./docs/case-studies/issue-3/README.md).
+
 ```
-src/
-  app/                    # Next.js pages (21 pages, 27 routes)
-    (public)/             # Landing, login, signup, pricing
-    (dashboard)/          # Auth-guarded citizen & lawyer dashboards
-    api/                  # Chat streaming, document generation
-  components/
-    ui/                   # Button, Card, Chip, Icon, Field, etc.
-    layout/               # PublicNav, AppNav, Sidebar, Footer
-  lib/
-    firebase/             # config, admin, auth, firestore helpers
-    ai/                   # Multi-provider AI service, law search (RAG)
-    i18n/                 # Context + translation JSONs (en, hi)
-  contexts/               # AuthProvider
-  types/                  # TypeScript interfaces
-scripts/
-  ingest-laws.ts          # Parse .lino files → Firestore (846 acts)
-  parse-lino.ts           # Links Notation parser
-  law-categories.ts       # Auto-categorization (13 categories)
+js/                       # Next.js project root (web + future SPA basis)
+  package.json
+  next.config.ts          # STATIC_EXPORT / BASE_PATH gates
+  apphosting.yaml         # Firebase App Hosting backend config
+  src/
+    app/                  # Next.js App Router (21 pages, 27 routes)
+      (public)/           # Landing, login, signup, pricing
+      (dashboard)/        # Auth-guarded citizen & lawyer dashboards
+      app/                # /app SPA shell (universal-app basis)
+      api/                # Chat streaming, document generation
+    components/
+      ui/                 # Button, Card, Chip, Icon, Field, etc.
+      layout/             # PublicNav, AppNav, Sidebar, Footer
+    lib/
+      firebase/           # config, admin, auth, firestore helpers
+      ai/                 # Multi-provider AI service, law search (RAG)
+      i18n/               # Context + translation JSONs (en, hi)
+    contexts/             # AuthProvider
+    types/                # TypeScript interfaces
+  scripts/
+    ingest-laws.ts        # Parse .lino files → Firestore (846 acts)
+    parse-lino.ts         # Links Notation parser
+    law-categories.ts     # Auto-categorization (13 categories)
+    build-static-export.mjs  # Build helper for GitHub Pages target
+  data/laws/              # JSON snapshots used by the ingestion scripts
+rust/                     # Cargo workspace
+  db/                     # satyavera-db crate (TransactionalStore + journal)
+docs/case-studies/issue-3/  # Deep-dive analysis for the issue
+.github/workflows/
+  js.yml                  # JavaScript CI + GitHub Pages publish
+  rust.yml                # Rust lint + cross-OS test matrix
+  links.yml               # lychee link checker
 ```
 
 ## Getting Started
 
 ```bash
-# Install
+# All JavaScript commands run from ./js/
+cd js
 npm install
 
 # Set up environment
@@ -65,16 +84,35 @@ npm run dev
 
 Open http://localhost:3000
 
+### GitHub Pages target (universal-app SPA shell)
+
+```bash
+cd js
+BASE_PATH="/SatyaVera" NEXT_PUBLIC_BASE_PATH="/SatyaVera" \
+  npm run build:pages
+```
+
+This produces `js/out/`. CI publishes it automatically on push to `main` —
+see `.github/workflows/js.yml`.
+
+### Firebase App Hosting
+
+`js/apphosting.yaml` drives the App Hosting backend. **Reminder**: after
+this migration the backend's *Root directory* setting (Firebase console →
+App Hosting → backend → Settings) must be set to `js`.
+
 ## Indian Laws Database
 
 The app includes 846 Indian Central Acts with full section text, sourced from [India Code](https://www.indiacode.nic.in/) via the [indian-law](https://github.com/Svetozar-Technologies/indian-law) repository.
 
 ```bash
-# Clone the laws repo
+# Clone the laws repo (next to this repo)
 git clone https://github.com/Svetozar-Technologies/indian-law.git
 
+cd js  # all npm scripts run from the Next.js project root
+
 # Ingest all laws into Firestore
-npm run ingest-laws -- --repo-path ../indian-law
+npm run ingest-laws -- --repo-path ../../indian-law
 
 # Dry run (parse only, no Firestore writes)
 npm run ingest-laws:dry
@@ -83,7 +121,7 @@ npm run ingest-laws:dry
 npm run ingest-laws:test
 
 # Re-ingest (update existing)
-npm run ingest-laws -- --repo-path ../indian-law --force
+npm run ingest-laws -- --repo-path ../../indian-law --force
 ```
 
 Laws are auto-categorized into: Criminal, Civil, Constitutional, Property, Family, Labour, Consumer, Women, Corporate, Tax, Environment, Cyber, General.

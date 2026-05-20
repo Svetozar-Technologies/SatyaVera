@@ -1,0 +1,309 @@
+name: JS
+
+# JavaScript / Next.js CI/CD for SatyaVera.
+#
+# Adapted from link-foundation/js-ai-driven-development-pipeline-template
+# (`.github/workflows/example-app.yml`) and folded together with the previous
+# `ci.yml` + `deploy-pages.yml` per issue #3 / PR #4 review feedback:
+# "All JavaScript CI/CD should be in js.yml as we use in our templates
+# (including GitHub Pages publish). And Rust CI/CD should go to into
+# rust.yml."
+#
+# Project layout: all JavaScript lives under ./js (see js/README.md).
+# Every npm step uses `working-directory: js`.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    types: [opened, synchronize, reopened]
+  workflow_dispatch:
+
+# Cancel older runs for the same branch only on main; queue PR runs so a
+# force-push doesn't drop in-flight checks. Mirrors the JS template.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.ref == 'refs/heads/main' }}
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  detect-changes:
+    name: Detect Changes
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    outputs:
+      js-changed: ${{ steps.changes.outputs.js-changed }}
+      docs-changed: ${{ steps.changes.outputs.docs-changed }}
+      workflow-changed: ${{ steps.changes.outputs.workflow-changed }}
+      any-code-changed: ${{ steps.changes.outputs.any-code-changed }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Detect changes
+        id: changes
+        env:
+          GITHUB_EVENT_NAME: ${{ github.event_name }}
+          GITHUB_BASE_REF: ${{ github.base_ref }}
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          if [[ "${GITHUB_EVENT_NAME}" == "pull_request" ]]; then
+            git fetch --no-tags --depth=50 origin "${GITHUB_BASE_REF}"
+            BASE="origin/${GITHUB_BASE_REF}"
+          else
+            BASE="HEAD~1"
+          fi
+
+          # Compute the diff; first push to a fresh branch may not have HEAD~1
+          if ! git rev-parse --verify "${BASE}" >/dev/null 2>&1; then
+            echo "Base ref ${BASE} not found; treating everything as changed."
+            CHANGED="$(git ls-files)"
+          else
+            CHANGED="$(git diff --name-only "${BASE}"...HEAD)"
+          fi
+
+          echo "Changed files:"
+          echo "${CHANGED}"
+
+          js_changed=false
+          docs_changed=false
+          workflow_changed=false
+          any_code_changed=false
+
+          while IFS= read -r f; do
+            [[ -z "${f}" ]] && continue
+            case "${f}" in
+              .github/workflows/js.yml) workflow_changed=true; any_code_changed=true ;;
+              docs/*|*.md) docs_changed=true ;;
+              js/*) js_changed=true; any_code_changed=true ;;
+            esac
+          done <<< "${CHANGED}"
+
+          {
+            echo "js-changed=${js_changed}"
+            echo "docs-changed=${docs_changed}"
+            echo "workflow-changed=${workflow_changed}"
+            echo "any-code-changed=${any_code_changed}"
+          } >> "$GITHUB_OUTPUT"
+
+  check-file-line-limits:
+    name: Check File Line Limits
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    needs: [detect-changes]
+    if: |
+      github.event_name == 'push' ||
+      github.event_name == 'workflow_dispatch' ||
+      needs.detect-changes.outputs.js-changed == 'true' ||
+      needs.detect-changes.outputs.workflow-changed == 'true'
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Enforce 1500-line limit on tracked JS/TS files
+        shell: bash
+        run: |
+          set -euo pipefail
+          LIMIT=1500
+          FAILURES=()
+
+          while IFS= read -r -d '' file; do
+            lines=$(wc -l < "${file}")
+            if [[ "${lines}" -gt "${LIMIT}" ]]; then
+              echo "::error file=${file}::has ${lines} lines (limit ${LIMIT})"
+              FAILURES+=("${file} (${lines} lines)")
+            fi
+          done < <(git ls-files -z -- \
+            'js/**/*.ts' 'js/**/*.tsx' 'js/**/*.js' 'js/**/*.jsx' \
+            'js/**/*.mjs' 'js/**/*.cjs' \
+            ':!:**/CHANGELOG.md' ':!:js/data/**' ':!:js/package-lock.json')
+
+          if [[ "${#FAILURES[@]}" -gt 0 ]]; then
+            printf 'Files exceeding %s-line limit:\n' "${LIMIT}"
+            printf '  %s\n' "${FAILURES[@]}"
+            exit 1
+          fi
+
+          echo "All tracked JS/TS source files are within the ${LIMIT}-line limit."
+
+  lint:
+    name: Lint and Format Check
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    needs: [detect-changes]
+    if: |
+      github.event_name == 'push' ||
+      github.event_name == 'workflow_dispatch' ||
+      needs.detect-changes.outputs.js-changed == 'true' ||
+      needs.detect-changes.outputs.workflow-changed == 'true'
+    defaults:
+      run:
+        working-directory: js
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: js/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run ESLint
+        run: npm run lint
+
+      # Prettier and jscpd are advisory while we land the CI baseline; the
+      # legacy tree predates this PR and has not been formatted yet. Each
+      # follow-up slice will format the files it touches, after which these
+      # can be flipped to hard gates.
+      - name: Check formatting (advisory)
+        continue-on-error: true
+        run: npx --yes prettier@3 --check "**/*.{ts,tsx,js,mjs,cjs,json,md,yml,yaml}" \
+            "!**/node_modules/**" "!**/.next/**" "!**/out/**" "!**/dist/**" \
+            "!package-lock.json" "!data/**" "!CHANGELOG.md"
+
+      - name: Check code duplication (advisory)
+        continue-on-error: true
+        run: npx --yes jscpd@4 .
+
+      - name: Check for secrets
+        run: npx --yes -p secretlint -p @secretlint/secretlint-rule-preset-recommend \
+            secretlint "**/*" --secretlintignore .gitignore
+
+  build:
+    name: Build (${{ matrix.target }})
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    needs: [detect-changes, lint, check-file-line-limits]
+    if: |
+      !cancelled() &&
+      (needs.lint.result == 'success' || needs.lint.result == 'skipped') &&
+      (needs.check-file-line-limits.result == 'success' || needs.check-file-line-limits.result == 'skipped') &&
+      (github.event_name == 'push' ||
+        github.event_name == 'workflow_dispatch' ||
+        needs.detect-changes.outputs.js-changed == 'true')
+    strategy:
+      fail-fast: false
+      matrix:
+        target: [firebase, pages]
+    defaults:
+      run:
+        working-directory: js
+    env:
+      # Provide harmless defaults so `next build` doesn't throw on missing env;
+      # real values live in Firebase / Pages secrets. See js/apphosting.yaml.
+      NEXT_PUBLIC_FIREBASE_API_KEY: ${{ secrets.NEXT_PUBLIC_FIREBASE_API_KEY || 'ci-placeholder' }}
+      NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN: ${{ secrets.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN || 'example.firebaseapp.com' }}
+      NEXT_PUBLIC_FIREBASE_PROJECT_ID: ${{ secrets.NEXT_PUBLIC_FIREBASE_PROJECT_ID || 'example' }}
+      NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET: ${{ secrets.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET || 'example.appspot.com' }}
+      NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID: ${{ secrets.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID || '0' }}
+      NEXT_PUBLIC_FIREBASE_APP_ID: ${{ secrets.NEXT_PUBLIC_FIREBASE_APP_ID || '1:0:web:0' }}
+      NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID: ${{ secrets.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID || 'G-XXXXXXX' }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: js/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: "Build for Firebase App Hosting (output: standalone)"
+        if: matrix.target == 'firebase'
+        run: npm run build
+
+      - name: "Build for GitHub Pages (output: export)"
+        if: matrix.target == 'pages'
+        env:
+          BASE_PATH: "/${{ github.event.repository.name }}"
+          NEXT_PUBLIC_BASE_PATH: "/${{ github.event.repository.name }}"
+        run: npm run build:pages
+
+      - name: Add .nojekyll
+        if: matrix.target == 'pages' && github.event_name == 'push' && github.ref == 'refs/heads/main'
+        run: touch out/.nojekyll
+
+      - name: Upload Pages artifact
+        if: matrix.target == 'pages' && github.event_name == 'push' && github.ref == 'refs/heads/main'
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: js/out
+
+  pages-deploy:
+    name: Deploy to GitHub Pages
+    needs: [build]
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+
+  validate-docs:
+    name: Validate Documentation
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    needs: [detect-changes]
+    if: |
+      github.event_name == 'push' ||
+      github.event_name == 'workflow_dispatch' ||
+      needs.detect-changes.outputs.docs-changed == 'true'
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Documentation file size limit
+        shell: bash
+        run: |
+          set -euo pipefail
+          LIMIT=2500
+          FAILURES=()
+
+          if [[ -d docs ]]; then
+            while IFS= read -r -d '' file; do
+              lines=$(wc -l < "${file}")
+              if [[ "${lines}" -gt "${LIMIT}" ]]; then
+                echo "::error file=${file}::has ${lines} lines (limit ${LIMIT})"
+                FAILURES+=("${file}")
+              fi
+            done < <(find docs -name '*.md' -type f -print0)
+          fi
+
+          if [[ "${#FAILURES[@]}" -gt 0 ]]; then
+            printf 'Documentation files exceeding %s-line limit:\n' "${LIMIT}"
+            printf '  %s\n' "${FAILURES[@]}"
+            exit 1
+          fi
+
+      - name: Required documentation files
+        shell: bash
+        run: |
+          set -euo pipefail
+          REQUIRED=(README.md AGENTS.md docs/case-studies/issue-3/README.md)
+          MISSING=()
+          for f in "${REQUIRED[@]}"; do
+            if [[ ! -f "${f}" ]]; then
+              echo "::error::Missing required documentation file: ${f}"
+              MISSING+=("${f}")
+            fi
+          done
+          if [[ "${#MISSING[@]}" -gt 0 ]]; then
+            exit 1
+          fi

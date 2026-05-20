@@ -1,25 +1,27 @@
-name: Rust CI
+name: Rust
 
-# Mirrors link-foundation/rust-ai-driven-development-pipeline-template
-# (.github/workflows/release.yml) but trimmed to lint + test against the
-# ./rust workspace introduced for issue #3. Publishing to crates.io is left
-# to a follow-up PR once the first crate is actually ready to ship.
+# Adapted from link-foundation/rust-ai-driven-development-pipeline-template
+# (`.github/workflows/release.yml`), trimmed to lint + test against the
+# `./rust` workspace introduced for issue #3. Per PR #4 review feedback,
+# all Rust CI/CD lives here in `rust.yml`; the JS pipeline lives in
+# `js.yml`. Publishing to crates.io is a follow-up PR once the first
+# crate is actually ready to ship.
 
 on:
   push:
     branches: [main]
     paths:
       - "rust/**"
-      - ".github/workflows/rust-ci.yml"
+      - ".github/workflows/rust.yml"
   pull_request:
     types: [opened, synchronize, reopened]
     paths:
       - "rust/**"
-      - ".github/workflows/rust-ci.yml"
+      - ".github/workflows/rust.yml"
   workflow_dispatch:
 
 concurrency:
-  group: rust-ci-${{ github.ref }}
+  group: rust-${{ github.ref }}
   cancel-in-progress: ${{ github.ref == 'refs/heads/main' }}
 
 env:

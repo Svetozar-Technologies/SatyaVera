@@ -21,12 +21,29 @@ components/libraries that solve adjacent problems.
 
 ## TL;DR for reviewers
 
-1. Reintroduce a comprehensive CI workflow modelled on
-   [`link-foundation/js-ai-driven-development-pipeline-template`](https://github.com/link-foundation/js-ai-driven-development-pipeline-template/blob/main/.github/workflows/release.yml).
-2. Add a GitHub Pages deploy workflow that statically exports the Next.js app and ships the `/app` SPA route as the entry point for the
-   future web/mobile/desktop universal app.
-3. Begin the migration of frontend code into `./js` and backend logic into `./rust`. The PR introduces:
-   - a scaffold `./rust` workspace that depends on `link-cli` as a library and adds a separate transactional change log file,
-   - a placeholder `./js` README that maps existing `src/`, `public/`, `scripts/` content onto the planned long-term layout.
-4. Add cross-template best practices that were missing here: link checking, format checks, code duplication checks, secret scanning,
-   file-line-limit checks, fresh-merge simulation, and dependency caching.
+1. **`js.yml`** — single JavaScript CI/CD workflow that runs detect-changes,
+   file-line-limit, ESLint, Prettier / jscpd (advisory), secret scanning,
+   builds the Next.js app for both Firebase App Hosting (`output: standalone`)
+   and GitHub Pages (`output: export`) and, on push to `main`, publishes the
+   GitHub Pages artifact. Modelled on
+   [`link-foundation/js-ai-driven-development-pipeline-template`](https://github.com/link-foundation/js-ai-driven-development-pipeline-template).
+2. **`rust.yml`** — separate Rust CI workflow (lint + cross-OS test matrix)
+   for the `./rust` workspace. Adapted from
+   [`link-foundation/rust-ai-driven-development-pipeline-template`](https://github.com/link-foundation/rust-ai-driven-development-pipeline-template).
+3. **`links.yml`** — broken-link checker (lychee) for all Markdown / HTML.
+4. **All frontend code lives in `./js`** (issue R3.1, restated in PR #4
+   review): `js/src`, `js/public`, `js/scripts`, `js/data`, `js/package.json`,
+   `js/next.config.ts`, `js/apphosting.yaml`. The `/app` route remains the SPA
+   shell shipped to GitHub Pages.
+5. **All backend / database code lives in `./rust`** (issue R3.2). The PR
+   introduces the `satyavera-db` crate which depends on `link-cli` as a
+   library and adds a replayable transactional journal alongside it.
+6. Cross-template best practices that were missing here are now in place:
+   link checking, format checks, code duplication checks, secret scanning,
+   file-line-limit checks, and dependency caching.
+
+> **Operational note for the Firebase App Hosting deployment**: because
+> `apphosting.yaml`, `package.json` and `next.config.ts` now live under
+> `./js`, the Firebase App Hosting backend's *Root directory* setting must be
+> updated to `js` in the Firebase console. The CI build target
+> (`output: standalone`) and `apphosting.yaml` contents are unchanged.
