@@ -5,6 +5,7 @@ import Image from "next/image";
 import { useI18n } from "@/lib/i18n/context";
 import { LangToggle } from "@/components/ui/lang-toggle";
 import { Button } from "@/components/ui/button";
+import { assetPath } from "@/lib/assets";
 
 interface PublicNavProps {
   active?: string;
@@ -24,7 +25,14 @@ export function PublicNav({ active = "home" }: PublicNavProps) {
   return (
     <nav className="flex items-center gap-7 px-8 bg-paper border-b border-ink-100 h-16 sticky top-0 z-40">
       <Link href="/" className="flex items-center gap-2.5">
-        <Image src="/logo.png" alt="SatyaVera" width={32} height={32} className="object-contain" />
+        <Image
+          src={assetPath("/logo.svg")}
+          alt="SatyaVera"
+          width={32}
+          height={32}
+          className="object-contain"
+          unoptimized
+        />
         <span className="font-serif font-semibold text-lg text-navy-900 tracking-[0.2px]">
           Satya<span className="text-saffron-600">Vera</span>
         </span>

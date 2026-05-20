@@ -6,6 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "build:pages": "node scripts/build-static-export.mjs",
+    "test:brand-assets": "node scripts/verify-brand-assets.mjs",
     "start": "next start",
     "lint": "eslint",
     "ingest-laws": "tsx scripts/ingest-laws.ts",
@@ -16,7 +17,8 @@
     "seed-templates": "tsx scripts/seed-templates.ts",
     "seed-quizzes": "tsx scripts/seed-quizzes.ts",
     "seed-all": "tsx scripts/seed-guides.ts && tsx scripts/seed-dictionary.ts && tsx scripts/seed-templates.ts && tsx scripts/seed-quizzes.ts",
-    "set-admin": "tsx scripts/set-admin.ts"
+    "set-admin": "tsx scripts/set-admin.ts",
+    "generate-brand-assets": "node scripts/generate-brand-assets.mjs"
   },
   "dependencies": {
     "@ai-sdk/anthropic": "^3.0.78",

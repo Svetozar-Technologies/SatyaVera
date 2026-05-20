@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { I18nProvider } from "@/lib/i18n/context";
 import { AuthProvider } from "@/contexts/auth-context";
+import { assetPath } from "@/lib/assets";
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -10,7 +11,7 @@ const jsonLd = {
       "@type": "Organization",
       name: "SatyaVera",
       url: "https://satyavera.in",
-      logo: "https://satyavera.in/logo.png",
+      logo: "https://satyavera.in/icons/android-chrome-512x512.png",
       description:
         "AI-powered legal assistant for India that explains rights in plain Hindi and English with cited law sections.",
     },
@@ -45,7 +46,30 @@ export const metadata: Metadata = {
     "FIR draft", "RTI", "bail application", "tenant rights",
     "consumer rights", "women rights india", "free legal aid",
   ],
-  manifest: "/manifest.json",
+  manifest: assetPath("/manifest.json"),
+  icons: {
+    icon: [
+      { url: assetPath("/favicon.ico"), sizes: "any" },
+      { url: assetPath("/icon.svg"), type: "image/svg+xml" },
+      {
+        url: assetPath("/icons/favicon-32x32.png"),
+        sizes: "32x32",
+        type: "image/png",
+      },
+      {
+        url: assetPath("/icons/favicon-16x16.png"),
+        sizes: "16x16",
+        type: "image/png",
+      },
+    ],
+    apple: [
+      {
+        url: assetPath("/apple-icon.png"),
+        sizes: "180x180",
+        type: "image/png",
+      },
+    ],
+  },
   openGraph: {
     title: "SatyaVera — AI Legal Assistant for India",
     description: "Every Indian has rights. Most don't know them. SatyaVera explains your rights in plain Hindi & English with cited law sections.",

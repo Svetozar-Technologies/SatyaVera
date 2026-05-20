@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useI18n } from "@/lib/i18n/context";
-import { Icon } from "@/components/ui/icons";
+import { assetPath } from "@/lib/assets";
 
 export function Footer() {
   const { t } = useI18n();
@@ -43,7 +43,13 @@ export function Footer() {
       <div className="flex flex-col md:flex-row gap-12 justify-between max-w-7xl mx-auto mb-6">
         <div className="flex flex-col gap-3 max-w-[280px]">
           <Link href="/" className="flex items-center gap-2.5">
-            <Image src="/logo.png" alt="SatyaVera" width={28} height={28} />
+            <Image
+              src={assetPath("/logo.svg")}
+              alt="SatyaVera"
+              width={28}
+              height={28}
+              unoptimized
+            />
             <span className="font-serif font-semibold text-base text-navy-900">
               Satya<span className="text-saffron-600">Vera</span>
             </span>
