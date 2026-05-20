@@ -69,7 +69,9 @@ async function main() {
       const filePath = path.join(cacheDir, file);
       const raw = fs.readFileSync(filePath, "utf-8");
       const parsed = parseLinoFile(raw);
-      const law: ParsedLaw = extractLaw(parsed, file.replace(".lino", ""));
+      const law = extractLaw(parsed);
+      if (!law) continue;
+      if (!law.slug) law.slug = file.replace(".lino", "");
 
       if (!law.title) continue;
 

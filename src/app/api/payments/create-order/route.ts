@@ -1,5 +1,6 @@
 import { razorpay, PLANS, type PlanKey, type BillingCycle } from "@/lib/payments/razorpay";
 import { authRequired, apiError, apiResponse } from "@/lib/api/helpers";
+import { rateLimit } from "@/lib/api/rate-limiter";
 import type { DecodedIdToken } from "firebase-admin/auth";
 
 export async function POST(req: Request) {
@@ -7,6 +8,10 @@ export async function POST(req: Request) {
     const auth = await authRequired(req);
     if (auth instanceof Response) return auth;
     const decoded = auth as DecodedIdToken;
+
+    // Rate limit: max 3 payment order creations per minute per user
+    const { allowed } = rateLimit(`payments-create-order-${decoded.uid}`, 3);
+    if (!allowed) return apiError("Too many requests", 429);
 
     if (!razorpay) {
       return apiError("Payment service is not configured", 503);

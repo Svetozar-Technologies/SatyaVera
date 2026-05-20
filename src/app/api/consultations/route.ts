@@ -1,5 +1,6 @@
 import { adminDb, verifyAuthToken } from "@/lib/firebase/admin";
 import { apiResponse, apiError } from "@/lib/api/helpers";
+import { rateLimit } from "@/lib/api/rate-limiter";
 import { FieldValue } from "firebase-admin/firestore";
 
 export async function GET(req: Request) {
@@ -35,6 +36,10 @@ export async function POST(req: Request) {
   try {
     const decoded = await verifyAuthToken(req);
     if (!decoded) return apiError("Unauthorized", 401);
+
+    // Rate limit: max 5 consultation requests per minute per user
+    const { allowed } = rateLimit(`consultations-${decoded.uid}`, 5);
+    if (!allowed) return apiError("Too many requests", 429);
 
     const body = await req.json();
     if (!body.lawyerId || !body.topic) {

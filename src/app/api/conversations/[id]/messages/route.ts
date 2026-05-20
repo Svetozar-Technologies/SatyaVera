@@ -19,8 +19,30 @@ export async function POST(
       return apiError("Unauthorized", 403);
 
     const body = await req.json();
-    if (!body.role || !body.content) {
-      return apiError("role and content are required", 400);
+
+    // Validate role
+    if (!body.role || (body.role !== "user" && body.role !== "assistant")) {
+      return apiError('role must be "user" or "assistant"', 400);
+    }
+
+    // Validate content
+    if (!body.content || typeof body.content !== "string") {
+      return apiError("content must be a non-empty string", 400);
+    }
+    if (body.content.length > 10000) {
+      return apiError("content must be at most 10000 characters", 400);
+    }
+
+    // Validate citations if present
+    if (body.citations !== undefined) {
+      if (!Array.isArray(body.citations)) {
+        return apiError("citations must be an array", 400);
+      }
+      for (const citation of body.citations) {
+        if (typeof citation !== "string") {
+          return apiError("each citation must be a string", 400);
+        }
+      }
     }
 
     const msgRef = await adminDb

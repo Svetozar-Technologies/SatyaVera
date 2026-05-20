@@ -26,6 +26,37 @@ export async function POST(
       .get();
 
     const questions = questionsSnap.docs.map((doc) => doc.data());
+
+    // Validate answers length matches questions length
+    if (body.answers.length !== questions.length) {
+      return apiError(
+        `Expected ${questions.length} answers but received ${body.answers.length}`,
+        400
+      );
+    }
+
+    // Validate each answer is a non-negative integer within bounds
+    for (let i = 0; i < body.answers.length; i++) {
+      const answer = body.answers[i];
+      if (
+        typeof answer !== "number" ||
+        !Number.isInteger(answer) ||
+        answer < 0
+      ) {
+        return apiError(
+          `Answer at index ${i} must be a non-negative integer`,
+          400
+        );
+      }
+      const optionsLength = questions[i].options?.length ?? 0;
+      if (answer >= optionsLength) {
+        return apiError(
+          `Answer at index ${i} is out of bounds (max ${optionsLength - 1})`,
+          400
+        );
+      }
+    }
+
     let score = 0;
     const results = questions.map((q, i) => {
       const correct = body.answers[i] === q.correctIndex;

@@ -7,7 +7,8 @@ import { Icon } from "@/components/ui/icons";
 import { Chip } from "@/components/ui/chip";
 import { Button } from "@/components/ui/button";
 import { GandhiAvatar } from "@/components/ui/gandhi-avatar";
-import { getLaws, getLawSections, type LawDoc, type LawSectionDoc } from "@/lib/firebase/firestore";
+import { useApi } from "@/hooks/use-api";
+import type { LawDoc, LawSectionDoc } from "@/lib/firebase/firestore";
 
 const CATEGORIES = [
   { id: "all", label: "All" }, { id: "criminal", label: "Criminal" }, { id: "constitutional", label: "Constitutional" },
@@ -22,37 +23,36 @@ type SectionWithId = LawSectionDoc & { id: string };
 
 export default function BareActsPage() {
   const { t } = useI18n();
-  const [laws, setLaws] = useState<LawWithMeta[]>([]);
-  const [sections, setSections] = useState<SectionWithId[]>([]);
   const [selectedLaw, setSelectedLaw] = useState<string | null>(null);
   const [selectedSection, setSelectedSection] = useState<string | null>(null);
   const [activeCategory, setActiveCategory] = useState("all");
   const [searchQuery, setSearchQuery] = useState("");
-  const [loading, setLoading] = useState(true);
-  const [sectionsLoading, setSectionsLoading] = useState(false);
 
-  useEffect(() => {
-    getLaws().then((result) => {
-      setLaws(result as LawWithMeta[]);
-      setLoading(false);
-    }).catch(() => setLoading(false));
-  }, []);
+  // Fetch laws via API route
+  const lawsUrl = "/api/laws" + (activeCategory !== "all" ? `?category=${activeCategory}` : "");
+  const { data: lawsData, loading } = useApi<{ laws: LawWithMeta[] }>(lawsUrl);
+  const laws = lawsData?.laws ?? [];
 
+  // Fetch sections via API route when a law is selected
+  const sectionsUrl = selectedLaw ? `/api/laws/${selectedLaw}/sections` : null;
+  const { data: sectionsData, loading: sectionsLoading } = useApi<{ sections: SectionWithId[] }>(sectionsUrl);
+  const sections = sectionsData?.sections ?? [];
+
+  // Auto-select first section when sections load
   useEffect(() => {
-    if (!selectedLaw) { setSections([]); return; }
-    setSectionsLoading(true);
-    getLawSections(selectedLaw).then((result) => {
-      const s = result as SectionWithId[];
-      setSections(s);
-      if (s.length > 0) setSelectedSection(s[0].id);
-      setSectionsLoading(false);
-    }).catch(() => setSectionsLoading(false));
+    if (sections.length > 0 && !selectedSection) {
+      setSelectedSection(sections[0].id);
+    }
+  }, [sections, selectedSection]);
+
+  // Reset selected section when law changes
+  useEffect(() => {
+    setSelectedSection(null);
   }, [selectedLaw]);
 
   const filtered = laws.filter((law) => {
-    const matchesCat = activeCategory === "all" || law.categories?.includes(activeCategory) || law.primaryCategory === activeCategory;
     const matchesSearch = !searchQuery || law.title.toLowerCase().includes(searchQuery.toLowerCase()) || law.hindiTitle?.includes(searchQuery);
-    return matchesCat && matchesSearch;
+    return matchesSearch;
   });
 
   const currentLaw = laws.find((l) => l.slug === selectedLaw);

@@ -34,12 +34,53 @@ export async function PATCH(
       return apiError("Unauthorized", 403);
     }
 
+    // Role-based status authorization
+    const isLawyer = data.lawyerId === decoded.uid;
+    const isCitizen = data.citizenId === decoded.uid;
+
+    if (
+      (body.status === "ACCEPTED" || body.status === "DECLINED") &&
+      !isLawyer
+    ) {
+      return apiError(
+        "Only the advocate can accept or decline a consultation",
+        403
+      );
+    }
+
+    if (body.status === "COMPLETED" && !isCitizen && !isLawyer) {
+      return apiError(
+        "Only a party to this consultation can mark it as completed",
+        403
+      );
+    }
+
+    // Validate scheduledAt as ISO date string if present
+    if (body.scheduledAt !== undefined) {
+      if (
+        typeof body.scheduledAt !== "string" ||
+        isNaN(Date.parse(body.scheduledAt))
+      ) {
+        return apiError("scheduledAt must be a valid ISO date string", 400);
+      }
+    }
+
+    // Validate notes as string, max 1000 chars
+    if (body.notes !== undefined) {
+      if (typeof body.notes !== "string") {
+        return apiError("notes must be a string", 400);
+      }
+      if (body.notes.length > 1000) {
+        return apiError("notes must be at most 1000 characters", 400);
+      }
+    }
+
     const updates: Record<string, unknown> = {
       status: body.status,
       updatedAt: FieldValue.serverTimestamp(),
     };
     if (body.scheduledAt) updates.scheduledAt = body.scheduledAt;
-    if (body.notes) updates.notes = body.notes;
+    if (body.notes !== undefined) updates.notes = body.notes;
 
     await adminDb.collection("consultationRequests").doc(id).update(updates);
 

@@ -40,36 +40,56 @@ export async function POST(req: Request) {
     // Fetch the order to get plan details from notes
     const order = await razorpay.orders.fetch(razorpay_order_id);
     const notes = order.notes as Record<string, string>;
-    const planKey = notes.plan as PlanKey;
-    const billing = notes.billing as "monthly" | "yearly";
 
-    if (!planKey || !(planKey in PLANS)) {
-      return apiError("Invalid plan in order", 400);
+    // 1. Get plan and billing from order notes
+    const planKey = notes.plan as PlanKey;
+    const billingCycle = notes.billing || "monthly";
+
+    // 2. Validate amount matches expected
+    const planConfig = PLANS[planKey as keyof typeof PLANS];
+    if (!planConfig) {
+      return apiError("Invalid plan", 400);
+    }
+
+    const expectedAmount = billingCycle === "yearly" ? planConfig.yearlyAmount : planConfig.monthlyAmount;
+    if (Number(order.amount) !== expectedAmount) {
+      return apiError("Payment amount mismatch", 400);
+    }
+
+    // 3. Check idempotency - prevent replay
+    const existingSub = await adminDb.collection("subscriptions").doc(decoded.uid).get();
+    if (existingSub.exists && existingSub.data()?.razorpayPaymentId === razorpay_payment_id) {
+      return apiResponse({ success: true, plan: planKey, message: "Already processed" });
     }
 
     // Calculate subscription period
     const now = new Date();
     const periodEnd = new Date(now);
-    if (billing === "yearly") {
+    if (billingCycle === "yearly") {
       periodEnd.setFullYear(periodEnd.getFullYear() + 1);
     } else {
       periodEnd.setMonth(periodEnd.getMonth() + 1);
     }
 
-    // Update Firestore subscription
+    // 4. Update subscription with payment ID for future idempotency checks
+    const subscriptionData = {
+      plan: planKey,
+      status: "active",
+      razorpaySubscriptionId: razorpay_payment_id,
+      razorpayOrderId: razorpay_order_id,
+      currentPeriodStart: FieldValue.serverTimestamp(),
+      currentPeriodEnd: periodEnd,
+      billingCycle,
+      updatedAt: FieldValue.serverTimestamp(),
+    };
+
     await adminDb
       .collection("subscriptions")
       .doc(decoded.uid)
       .set(
         {
-          plan: planKey,
-          status: "active",
-          razorpaySubscriptionId: razorpay_payment_id,
-          razorpayOrderId: razorpay_order_id,
-          currentPeriodStart: FieldValue.serverTimestamp(),
-          currentPeriodEnd: periodEnd,
-          billingCycle: billing,
-          updatedAt: FieldValue.serverTimestamp(),
+          ...subscriptionData,
+          razorpayPaymentId: razorpay_payment_id,
         },
         { merge: true }
       );

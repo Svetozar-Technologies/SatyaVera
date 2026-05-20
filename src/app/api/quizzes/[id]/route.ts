@@ -21,10 +21,19 @@ export async function GET(
       .orderBy("order", "asc")
       .get();
 
-    const questions = questionsSnap.docs.map((doc) => ({
-      id: doc.id,
-      ...doc.data(),
-    }));
+    const questions = questionsSnap.docs.map((doc) => {
+      const data = doc.data();
+      return {
+        id: doc.id,
+        question: data.question,
+        questionHi: data.questionHi,
+        options: data.options,
+        optionsHi: data.optionsHi,
+        lawReference: data.lawReference,
+        order: data.order,
+        // DO NOT include correctIndex, explanation, explanationHi
+      };
+    });
 
     return apiResponse({
       quiz: { id: quizDoc.id, ...quizDoc.data() },
