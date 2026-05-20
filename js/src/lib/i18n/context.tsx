@@ -2,7 +2,7 @@
 
 import React, { createContext, useContext, useState, useCallback, useEffect, ReactNode, useMemo } from "react";
 import { createI18n } from "lino-i18n";
-import { catalogues, type Locale, type TranslationKey } from "./catalogues";
+import { catalogues, type Locale, type TranslationKey } from "./generated/catalogues";
 
 export type { Locale, TranslationKey };
 
