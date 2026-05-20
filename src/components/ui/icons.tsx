@@ -5,7 +5,8 @@ import {
   HelpCircle, User, LayoutGrid, Crown, Settings, Search, Send, Plus,
   ChevronRight, ChevronDown, Star, Check, Phone, Upload, Camera, Zap,
   Scale, Flag, Heart, Users, MapPin, Flame, Lock, Bell, Bookmark,
-  Edit, Download, Eye, List, Info, ArrowRight, Sparkles, File,
+  Edit, Download, Eye, List, Info, ArrowRight, Sparkles, File, Menu,
+  X, Clock, Award, TrendingUp, Globe, Loader2, Mail,
   type LucideProps
 } from "lucide-react";
 import { forwardRef } from "react";
@@ -51,6 +52,14 @@ const iconMap = {
   arrowR: ArrowRight,
   sparkles: Sparkles,
   paper: File,
+  menu: Menu,
+  x: X,
+  clock: Clock,
+  award: Award,
+  trending: TrendingUp,
+  globe: Globe,
+  loader: Loader2,
+  mail: Mail,
 } as const;
 
 export type IconName = keyof typeof iconMap;

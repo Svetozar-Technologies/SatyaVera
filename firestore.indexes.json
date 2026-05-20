@@ -41,6 +41,14 @@
       ]
     },
     {
+      "collectionGroup": "dictionaryEntries",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "letter", "order": "ASCENDING" },
+        { "fieldPath": "termEn", "order": "ASCENDING" }
+      ]
+    },
+    {
       "collectionGroup": "guides",
       "queryScope": "COLLECTION",
       "fields": [
@@ -49,11 +57,52 @@
       ]
     },
     {
+      "collectionGroup": "guides",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "featured", "order": "DESCENDING" },
+        { "fieldPath": "order", "order": "ASCENDING" }
+      ]
+    },
+    {
       "collectionGroup": "templates",
       "queryScope": "COLLECTION",
       "fields": [
         { "fieldPath": "category", "order": "ASCENDING" },
         { "fieldPath": "name", "order": "ASCENDING" }
+      ]
+    },
+    {
+      "collectionGroup": "templates",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "premium", "order": "ASCENDING" },
+        { "fieldPath": "category", "order": "ASCENDING" },
+        { "fieldPath": "order", "order": "ASCENDING" }
+      ]
+    },
+    {
+      "collectionGroup": "lawyerProfiles",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "city", "order": "ASCENDING" },
+        { "fieldPath": "rating", "order": "DESCENDING" }
+      ]
+    },
+    {
+      "collectionGroup": "lawyerProfiles",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "practiceAreas", "arrayConfig": "CONTAINS" },
+        { "fieldPath": "rating", "order": "DESCENDING" }
+      ]
+    },
+    {
+      "collectionGroup": "quizzes",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "category", "order": "ASCENDING" },
+        { "fieldPath": "order", "order": "ASCENDING" }
       ]
     }
   ],

@@ -10,13 +10,23 @@ import { Icon } from "@/components/ui/icons";
 interface AppNavProps {
   role: "citizen" | "lawyer";
   name: string;
+  onMenuToggle?: () => void;
 }
 
-export function AppNav({ role, name }: AppNavProps) {
+export function AppNav({ role, name, onMenuToggle }: AppNavProps) {
   const { t } = useI18n();
 
   return (
-    <nav className="flex items-center gap-7 px-8 bg-paper border-b border-ink-100 h-16 sticky top-0 z-40">
+    <nav className="flex items-center gap-4 md:gap-7 px-4 md:px-8 bg-paper border-b border-ink-100 h-16 sticky top-0 z-40">
+      {/* Mobile hamburger */}
+      <button
+        className="md:hidden p-1.5 rounded-md hover:bg-ink-50 transition-colors cursor-pointer"
+        onClick={onMenuToggle}
+        aria-label="Toggle menu"
+      >
+        <Icon name="menu" size={20} className="text-ink-700" />
+      </button>
+
       <Link href={role === "lawyer" ? "/advocate" : "/dashboard"} className="flex items-center gap-2.5">
         <Image src="/logo.png" alt="SatyaVera" width={32} height={32} className="object-contain" />
         <span className="font-serif font-semibold text-lg text-navy-900 tracking-[0.2px]">

@@ -1,0 +1,24 @@
+{
+  "name": "SatyaVera — AI Legal Assistant for India",
+  "short_name": "SatyaVera",
+  "description": "Know your rights. Draft legal documents. Find lawyers. All in Hindi and English.",
+  "start_url": "/dashboard",
+  "display": "standalone",
+  "background_color": "#fbfaf6",
+  "theme_color": "#1e3a5f",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/logo.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "lang": "en",
+  "categories": ["education", "legal"]
+}

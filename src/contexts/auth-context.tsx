@@ -63,11 +63,23 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     return () => unsubscribe();
   }, []);
 
+  // Refresh token every 10 minutes when the user is logged in
+  useEffect(() => {
+    if (!user) return;
+    const interval = setInterval(() => {
+      user.getIdToken(true);
+    }, 10 * 60 * 1000);
+    return () => clearInterval(interval);
+  }, [user]);
+
   const signInGoogle = async () => {
     try {
       setError(null);
-      await signInWithGoogle();
-      router.push("/dashboard");
+      const firebaseUser = await signInWithGoogle();
+      // Fetch the profile to determine the role for routing
+      const userProfile = await getUserProfile(firebaseUser.uid);
+      const route = userProfile?.role === "ADVOCATE" ? "/advocate" : "/dashboard";
+      router.push(route);
     } catch (err: unknown) {
       setError((err as Error).message || "Google sign-in failed");
     }
@@ -76,8 +88,11 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const signInEmail = async (email: string, password: string) => {
     try {
       setError(null);
-      await signInWithEmail(email, password);
-      router.push("/dashboard");
+      const firebaseUser = await signInWithEmail(email, password);
+      // Fetch the profile to determine the role for routing
+      const userProfile = await getUserProfile(firebaseUser.uid);
+      const route = userProfile?.role === "ADVOCATE" ? "/advocate" : "/dashboard";
+      router.push(route);
     } catch (err: unknown) {
       const msg = (err as { code?: string }).code;
       if (msg === "auth/invalid-credential") setError("Invalid email or password");
@@ -97,7 +112,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         language: "en",
         ...extra,
       });
-      router.push("/dashboard");
+      const route = extra?.role === "ADVOCATE" ? "/advocate" : "/dashboard";
+      router.push(route);
     } catch (err: unknown) {
       const msg = (err as { code?: string }).code;
       if (msg === "auth/email-already-in-use") setError("An account with this email already exists");

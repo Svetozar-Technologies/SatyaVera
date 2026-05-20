@@ -1,11 +1,11 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import { useI18n } from "@/lib/i18n/context";
-import { PublicNav } from "@/components/layout/public-nav";
-import { Card } from "@/components/ui/card";
+import { useAuth } from "@/contexts/auth-context";
 import { Button } from "@/components/ui/button";
 import { Chip } from "@/components/ui/chip";
 import { Icon } from "@/components/ui/icons";
@@ -29,13 +29,88 @@ const defaultSelected = ["Criminal", "Family", "Property"];
 
 export default function SignUpPage() {
   const { t } = useI18n();
+  const { user, loading, error, clearError, signUpEmail, signInGoogle } = useAuth();
+  const router = useRouter();
+
   const [tab, setTab] = useState<"citizen" | "advocate">("citizen");
+  const [submitting, setSubmitting] = useState(false);
+
+  // Citizen form fields
+  const [citizenName, setCitizenName] = useState("");
+  const [citizenMobile, setCitizenMobile] = useState("");
+  const [citizenEmail, setCitizenEmail] = useState("");
+  const [citizenPassword, setCitizenPassword] = useState("");
+  const [citizenLanguage, setCitizenLanguage] = useState("English");
+  const [citizenState, setCitizenState] = useState("Select State");
+  const [citizenCity, setCitizenCity] = useState("Select City");
+
+  // Advocate form fields
+  const [advName, setAdvName] = useState("");
+  const [advEmail, setAdvEmail] = useState("");
+  const [advPassword, setAdvPassword] = useState("");
+  const [advMobile, setAdvMobile] = useState("");
+  const [advBarCouncil, setAdvBarCouncil] = useState("");
+  const [advStateBarCouncil, setAdvStateBarCouncil] = useState("Select Bar Council");
+  const [advYears, setAdvYears] = useState("Select Years");
   const [selectedSpecs, setSelectedSpecs] = useState<string[]>(defaultSelected);
+  const [advCity, setAdvCity] = useState("Select City");
+  const [advCourt, setAdvCourt] = useState("Select Court");
+
+  useEffect(() => {
+    if (!loading && user) {
+      router.push("/dashboard");
+    }
+  }, [user, loading, router]);
 
   const toggleSpec = (spec: string) => {
     setSelectedSpecs((prev) =>
       prev.includes(spec) ? prev.filter((s) => s !== spec) : [...prev, spec]
     );
+  };
+
+  const handleCitizenSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    clearError();
+    setSubmitting(true);
+    try {
+      await signUpEmail(citizenEmail, citizenPassword, citizenName, {
+        role: "CITIZEN",
+        language: citizenLanguage,
+        state: citizenState === "Select State" ? undefined : citizenState,
+        city: citizenCity === "Select City" ? undefined : citizenCity,
+        phone: citizenMobile,
+      });
+    } finally {
+      setSubmitting(false);
+    }
+  };
+
+  const handleAdvocateSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    clearError();
+    setSubmitting(true);
+    try {
+      await signUpEmail(advEmail, advPassword, advName, {
+        role: "ADVOCATE",
+        barCouncilNumber: advBarCouncil,
+        yearsOfPractice: advYears !== "Select Years" ? parseInt(advYears) : undefined,
+        specializations: selectedSpecs,
+        city: advCity === "Select City" ? undefined : advCity,
+        phone: advMobile,
+      });
+    } finally {
+      setSubmitting(false);
+    }
+  };
+
+  const handleGoogle = async () => {
+    clearError();
+    setSubmitting(true);
+    try {
+      await signInGoogle();
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -116,7 +191,7 @@ export default function SignUpPage() {
           {/* Tab Switcher */}
           <div className="bg-ink-50 rounded-lg p-1 flex mb-8">
             <button
-              onClick={() => setTab("citizen")}
+              onClick={() => { setTab("citizen"); clearError(); }}
               className={`flex-1 py-2.5 text-sm font-semibold rounded-md transition-colors ${
                 tab === "citizen"
                   ? "bg-white text-navy-900 shadow-sm"
@@ -126,7 +201,7 @@ export default function SignUpPage() {
               I&apos;m a Citizen
             </button>
             <button
-              onClick={() => setTab("advocate")}
+              onClick={() => { setTab("advocate"); clearError(); }}
               className={`flex-1 py-2.5 text-sm font-semibold rounded-md transition-colors ${
                 tab === "advocate"
                   ? "bg-white text-navy-900 shadow-sm"
@@ -137,42 +212,86 @@ export default function SignUpPage() {
             </button>
           </div>
 
+          {error && (
+            <div className="bg-red-50 border border-red-200 rounded-lg px-4 py-3 text-sm text-red-700 mb-5">
+              {error}
+            </div>
+          )}
+
           {/* Citizen Form */}
           {tab === "citizen" && (
-            <form className="flex flex-col gap-5" onSubmit={(e) => e.preventDefault()}>
-              <Field label="Full Name" placeholder="Enter your full name" />
+            <form className="flex flex-col gap-5" onSubmit={handleCitizenSubmit}>
+              <Field
+                label="Full Name"
+                placeholder="Enter your full name"
+                value={citizenName}
+                onChange={(e) => setCitizenName(e.target.value)}
+              />
+
+              <Field
+                label="Email"
+                placeholder="you@example.com"
+                type="email"
+                value={citizenEmail}
+                onChange={(e) => setCitizenEmail(e.target.value)}
+              />
+
+              <Field
+                label="Password"
+                placeholder="At least 6 characters"
+                type="password"
+                value={citizenPassword}
+                onChange={(e) => setCitizenPassword(e.target.value)}
+              />
 
               <div className="flex gap-3">
-                <Field label="Mobile Number" placeholder="+91 98765 43210" prefix="+91" className="flex-1" />
+                <Field
+                  label="Mobile Number"
+                  placeholder="+91 98765 43210"
+                  prefix="+91"
+                  className="flex-1"
+                  value={citizenMobile}
+                  onChange={(e) => setCitizenMobile(e.target.value)}
+                />
                 <div className="flex flex-col justify-end">
-                  <Button variant="ghost" size="md" className="whitespace-nowrap mt-auto">
+                  <Button variant="ghost" size="md" className="whitespace-nowrap mt-auto" type="button">
                     Send OTP
                   </Button>
                 </div>
               </div>
-
-              <Field label="Email (optional)" placeholder="you@example.com" type="email" />
 
               <div className="flex gap-3">
                 <Field
                   label="Language"
                   options={["English", "Hindi", "Marathi", "Tamil", "Bengali", "Kannada", "Telugu"]}
                   className="flex-1"
+                  value={citizenLanguage}
+                  onChange={(e) => setCitizenLanguage(e.target.value)}
                 />
                 <Field
                   label="State"
                   options={["Select State", "Maharashtra", "Delhi", "Karnataka", "Tamil Nadu", "Uttar Pradesh", "West Bengal"]}
                   className="flex-1"
+                  value={citizenState}
+                  onChange={(e) => setCitizenState(e.target.value)}
                 />
                 <Field
                   label="City"
                   options={["Select City", "Mumbai", "Delhi", "Bangalore", "Chennai", "Kolkata", "Pune"]}
                   className="flex-1"
+                  value={citizenCity}
+                  onChange={(e) => setCitizenCity(e.target.value)}
                 />
               </div>
 
-              <Button variant="primary" size="lg" className="w-full justify-center mt-2">
-                Create Citizen Account
+              <Button
+                variant="primary"
+                size="lg"
+                className="w-full justify-center mt-2"
+                type="submit"
+                disabled={submitting}
+              >
+                {submitting ? "Creating account..." : "Create Citizen Account"}
               </Button>
 
               <div className="flex items-center gap-3 my-1">
@@ -181,7 +300,14 @@ export default function SignUpPage() {
                 <div className="flex-1 h-px bg-ink-100" />
               </div>
 
-              <Button variant="ghost" size="lg" className="w-full justify-center">
+              <Button
+                variant="ghost"
+                size="lg"
+                className="w-full justify-center"
+                type="button"
+                onClick={handleGoogle}
+                disabled={submitting}
+              >
                 <svg className="w-4 h-4 mr-1" viewBox="0 0 24 24">
                   <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" />
                   <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
@@ -202,33 +328,71 @@ export default function SignUpPage() {
 
           {/* Advocate Form */}
           {tab === "advocate" && (
-            <form className="flex flex-col gap-5" onSubmit={(e) => e.preventDefault()}>
+            <form className="flex flex-col gap-5" onSubmit={handleAdvocateSubmit}>
               <div className="flex gap-3">
-                <Field label="Full Name" placeholder="Adv. Full Name" className="flex-1" />
-                <Field label="Email" placeholder="advocate@example.com" type="email" className="flex-1" />
+                <Field
+                  label="Full Name"
+                  placeholder="Adv. Full Name"
+                  className="flex-1"
+                  value={advName}
+                  onChange={(e) => setAdvName(e.target.value)}
+                />
+                <Field
+                  label="Email"
+                  placeholder="advocate@example.com"
+                  type="email"
+                  className="flex-1"
+                  value={advEmail}
+                  onChange={(e) => setAdvEmail(e.target.value)}
+                />
               </div>
 
+              <Field
+                label="Password"
+                placeholder="At least 6 characters"
+                type="password"
+                value={advPassword}
+                onChange={(e) => setAdvPassword(e.target.value)}
+              />
+
               <div className="flex gap-3">
-                <Field label="Mobile Number" placeholder="+91 98765 43210" prefix="+91" className="flex-1" />
+                <Field
+                  label="Mobile Number"
+                  placeholder="+91 98765 43210"
+                  prefix="+91"
+                  className="flex-1"
+                  value={advMobile}
+                  onChange={(e) => setAdvMobile(e.target.value)}
+                />
                 <div className="flex flex-col justify-end">
-                  <Button variant="ghost" size="md" className="whitespace-nowrap mt-auto">
+                  <Button variant="ghost" size="md" className="whitespace-nowrap mt-auto" type="button">
                     Send OTP
                   </Button>
                 </div>
               </div>
 
               <div className="flex gap-3">
-                <Field label="Bar Council Enrollment No." placeholder="MH/1234/2020" className="flex-1" />
+                <Field
+                  label="Bar Council Enrollment No."
+                  placeholder="MH/1234/2020"
+                  className="flex-1"
+                  value={advBarCouncil}
+                  onChange={(e) => setAdvBarCouncil(e.target.value)}
+                />
                 <Field
                   label="State Bar Council"
                   options={["Select Bar Council", "Bar Council of Maharashtra & Goa", "Bar Council of Delhi", "Bar Council of Karnataka", "Bar Council of Tamil Nadu", "Bar Council of UP"]}
                   className="flex-1"
+                  value={advStateBarCouncil}
+                  onChange={(e) => setAdvStateBarCouncil(e.target.value)}
                 />
               </div>
 
               <Field
                 label="Years of Practice"
                 options={["Select Years", "0-2 years", "2-5 years", "5-10 years", "10-20 years", "20+ years"]}
+                value={advYears}
+                onChange={(e) => setAdvYears(e.target.value)}
               />
 
               {/* Specializations */}
@@ -256,11 +420,15 @@ export default function SignUpPage() {
                   label="City"
                   options={["Select City", "Mumbai", "Delhi", "Bangalore", "Chennai", "Kolkata", "Pune", "Hyderabad"]}
                   className="flex-1"
+                  value={advCity}
+                  onChange={(e) => setAdvCity(e.target.value)}
                 />
                 <Field
                   label="Court of Practice"
                   options={["Select Court", "Supreme Court", "High Court", "District Court", "Sessions Court", "Tribunal", "Consumer Forum"]}
                   className="flex-1"
+                  value={advCourt}
+                  onChange={(e) => setAdvCourt(e.target.value)}
                 />
               </div>
 
@@ -293,8 +461,14 @@ export default function SignUpPage() {
                 </p>
               </div>
 
-              <Button variant="primary" size="lg" className="w-full justify-center mt-1">
-                Submit for Verification
+              <Button
+                variant="primary"
+                size="lg"
+                className="w-full justify-center mt-1"
+                type="submit"
+                disabled={submitting}
+              >
+                {submitting ? "Submitting..." : "Submit for Verification"}
               </Button>
 
               <p className="text-[11px] text-ink-400 text-center leading-relaxed mt-1">

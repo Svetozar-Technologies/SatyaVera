@@ -9,17 +9,26 @@
     "lint": "eslint",
     "ingest-laws": "tsx scripts/ingest-laws.ts",
     "ingest-laws:dry": "tsx scripts/ingest-laws.ts --dry-run",
-    "ingest-laws:test": "tsx scripts/ingest-laws.ts --limit 5 --dry-run"
+    "ingest-laws:test": "tsx scripts/ingest-laws.ts --limit 5 --dry-run",
+    "seed-guides": "tsx scripts/seed-guides.ts",
+    "seed-dictionary": "tsx scripts/seed-dictionary.ts",
+    "seed-templates": "tsx scripts/seed-templates.ts",
+    "seed-quizzes": "tsx scripts/seed-quizzes.ts",
+    "seed-all": "tsx scripts/seed-guides.ts && tsx scripts/seed-dictionary.ts && tsx scripts/seed-templates.ts && tsx scripts/seed-quizzes.ts",
+    "set-admin": "tsx scripts/set-admin.ts"
   },
   "dependencies": {
     "@ai-sdk/anthropic": "^3.0.78",
     "@ai-sdk/google": "^3.0.75",
     "@ai-sdk/openai": "^3.0.64",
+    "@ai-sdk/react": "^3.0.187",
     "ai": "^6.0.185",
+    "dotenv": "^17.4.2",
     "firebase": "^12.13.0",
     "firebase-admin": "^13.10.0",
     "lucide-react": "^1.16.0",
     "next": "16.2.6",
+    "razorpay": "^2.9.6",
     "react": "19.2.4",
     "react-dom": "19.2.4",
     "zustand": "^5.0.13"

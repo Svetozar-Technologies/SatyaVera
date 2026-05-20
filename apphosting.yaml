@@ -34,3 +34,11 @@ env:
     secret: OPENAI_API_KEY
   - variable: GOOGLE_GENERATIVE_AI_API_KEY
     secret: GOOGLE_GENERATIVE_AI_API_KEY
+  - variable: NEXT_PUBLIC_RAZORPAY_KEY_ID
+    value: rzp_...
+  - variable: RAZORPAY_KEY_ID
+    value: rzp_...
+  - variable: RAZORPAY_KEY_SECRET
+    secret: razorpay-key-secret
+  - variable: RAZORPAY_WEBHOOK_SECRET
+    secret: razorpay-webhook-secret

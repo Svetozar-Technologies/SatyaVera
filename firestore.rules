@@ -11,12 +11,16 @@ service cloud.firestore {
       return isAuthenticated() && request.auth.uid == userId;
     }
 
+    function isAdmin() {
+      return isAuthenticated() && request.auth.token.admin == true;
+    }
+
     // Users
     match /users/{userId} {
-      allow read: if isOwner(userId);
+      allow read: if isOwner(userId) || isAdmin();
       allow create: if isOwner(userId);
       allow update: if isOwner(userId);
-      allow delete: if isOwner(userId);
+      allow delete: if isAdmin();
     }
 
     // Conversations
@@ -45,30 +49,47 @@ service cloud.firestore {
     // Laws — public read (laws are public domain)
     match /laws/{lawSlug} {
       allow read: if true;
-      allow write: if false;
+      allow write: if isAdmin();
 
       match /sections/{sectionId} {
         allow read: if true;
-        allow write: if false;
+        allow write: if isAdmin();
       }
     }
 
-    // Guides — public read
+    // Guides — public read, admin write
     match /guides/{guideId} {
       allow read: if true;
-      allow write: if false;
+      allow write: if isAdmin();
     }
 
-    // Templates — public read
+    // Templates — public read, admin write
     match /templates/{templateId} {
       allow read: if true;
-      allow write: if false;
+      allow write: if isAdmin();
     }
 
-    // Dictionary — public read
+    // Dictionary — public read, admin write
     match /dictionaryEntries/{entryId} {
       allow read: if true;
-      allow write: if false;
+      allow write: if isAdmin();
+    }
+
+    // Quizzes — public read, admin write
+    match /quizzes/{quizId} {
+      allow read: if true;
+      allow write: if isAdmin();
+
+      match /questions/{questionId} {
+        allow read: if isAuthenticated();
+        allow write: if isAdmin();
+      }
+    }
+
+    // Quiz attempts — user-owned
+    match /users/{userId}/quizAttempts/{attemptId} {
+      allow read: if isOwner(userId);
+      allow create: if isOwner(userId);
     }
 
     // Lawyer profiles — public read for marketplace
@@ -76,6 +97,7 @@ service cloud.firestore {
       allow read: if true;
       allow create: if isAuthenticated() && request.resource.data.userId == request.auth.uid;
       allow update: if isAuthenticated() && resource.data.userId == request.auth.uid;
+      allow delete: if isAdmin();
     }
 
     // Consultation requests
@@ -92,6 +114,12 @@ service cloud.firestore {
       allow read: if isOwner(userId);
       allow create: if isOwner(userId);
       allow update: if isOwner(userId);
+    }
+
+    // Metadata (law categories, stats, etc.)
+    match /meta/{docId} {
+      allow read: if true;
+      allow write: if isAdmin();
     }
   }
 }

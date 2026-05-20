@@ -3,7 +3,36 @@ import "./globals.css";
 import { I18nProvider } from "@/lib/i18n/context";
 import { AuthProvider } from "@/contexts/auth-context";
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      name: "SatyaVera",
+      url: "https://satyavera.in",
+      logo: "https://satyavera.in/logo.png",
+      description:
+        "AI-powered legal assistant for India that explains rights in plain Hindi and English with cited law sections.",
+    },
+    {
+      "@type": "WebApplication",
+      name: "SatyaVera",
+      url: "https://satyavera.in",
+      applicationCategory: "LegalService",
+      operatingSystem: "Any",
+      offers: {
+        "@type": "Offer",
+        price: "0",
+        priceCurrency: "INR",
+        description: "Free tier with limited queries per day",
+      },
+      inLanguage: ["en", "hi"],
+    },
+  ],
+};
+
 export const metadata: Metadata = {
+  metadataBase: new URL("https://satyavera.in"),
   title: {
     default: "SatyaVera — AI Legal Assistant for India",
     template: "%s | SatyaVera",
@@ -16,7 +45,7 @@ export const metadata: Metadata = {
     "FIR draft", "RTI", "bail application", "tenant rights",
     "consumer rights", "women rights india", "free legal aid",
   ],
-  metadataBase: new URL("https://satyavera.in"),
+  manifest: "/manifest.json",
   openGraph: {
     title: "SatyaVera — AI Legal Assistant for India",
     description: "Every Indian has rights. Most don't know them. SatyaVera explains your rights in plain Hindi & English with cited law sections.",
@@ -43,6 +72,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="h-full antialiased">
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body className="min-h-full flex flex-col bg-bone text-ink-900 font-sans">
         <AuthProvider>
           <I18nProvider>{children}</I18nProvider>

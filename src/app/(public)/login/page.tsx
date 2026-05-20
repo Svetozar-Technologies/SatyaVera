@@ -1,18 +1,50 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import { useI18n } from "@/lib/i18n/context";
-import { PublicNav } from "@/components/layout/public-nav";
-import { Card } from "@/components/ui/card";
+import { useAuth } from "@/contexts/auth-context";
 import { Button } from "@/components/ui/button";
-import { Chip } from "@/components/ui/chip";
 import { Icon } from "@/components/ui/icons";
 import { Field } from "@/components/ui/field";
 
 export default function LoginPage() {
   const { t } = useI18n();
+  const { user, loading, error, clearError, signInEmail, signInGoogle } = useAuth();
+  const router = useRouter();
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [submitting, setSubmitting] = useState(false);
+
+  useEffect(() => {
+    if (!loading && user) {
+      router.push("/dashboard");
+    }
+  }, [user, loading, router]);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    clearError();
+    setSubmitting(true);
+    try {
+      await signInEmail(email, password);
+    } finally {
+      setSubmitting(false);
+    }
+  };
+
+  const handleGoogle = async () => {
+    clearError();
+    setSubmitting(true);
+    try {
+      await signInGoogle();
+    } finally {
+      setSubmitting(false);
+    }
+  };
 
   return (
     <div className="min-h-screen flex flex-col lg:flex-row">
@@ -86,11 +118,13 @@ export default function LoginPage() {
             Sign in to your SatyaVera account to continue.
           </p>
 
-          <form className="flex flex-col gap-5" onSubmit={(e) => e.preventDefault()}>
+          <form className="flex flex-col gap-5" onSubmit={handleSubmit}>
             <Field
               label="Email or Mobile"
               placeholder="you@example.com or +91 98765 43210"
               type="text"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
             />
 
             <div className="flex flex-col gap-1">
@@ -98,17 +132,31 @@ export default function LoginPage() {
                 label="Password"
                 placeholder="Enter your password"
                 type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
               />
               <div className="flex justify-end mt-1">
-                <Link href="#" className="text-xs text-navy-700 font-medium hover:underline">
+                <Link href="/forgot-password" className="text-xs text-navy-700 font-medium hover:underline">
                   Forgot password?
                 </Link>
               </div>
             </div>
 
-            <Button variant="primary" size="lg" className="w-full justify-center mt-2">
+            {error && (
+              <div className="bg-red-50 border border-red-200 rounded-lg px-4 py-3 text-sm text-red-700">
+                {error}
+              </div>
+            )}
+
+            <Button
+              variant="primary"
+              size="lg"
+              className="w-full justify-center mt-2"
+              type="submit"
+              disabled={submitting}
+            >
               <Icon name="lock" size={16} />
-              Login
+              {submitting ? "Signing in..." : "Login"}
             </Button>
 
             <div className="flex items-center gap-3 my-1">
@@ -117,7 +165,14 @@ export default function LoginPage() {
               <div className="flex-1 h-px bg-ink-100" />
             </div>
 
-            <Button variant="ghost" size="lg" className="w-full justify-center">
+            <Button
+              variant="ghost"
+              size="lg"
+              className="w-full justify-center"
+              type="button"
+              onClick={handleGoogle}
+              disabled={submitting}
+            >
               <svg className="w-4 h-4 mr-1" viewBox="0 0 24 24">
                 <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" />
                 <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />

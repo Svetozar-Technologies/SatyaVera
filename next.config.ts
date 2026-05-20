@@ -12,7 +12,12 @@ const securityHeaders = [
 const nextConfig: NextConfig = {
   output: "standalone",
   images: {
-    unoptimized: true,
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "firebasestorage.googleapis.com",
+      },
+    ],
   },
   serverExternalPackages: ["firebase-admin"],
   async headers() {
