@@ -1,0 +1,73 @@
+import type { NextConfig } from "next";
+
+// Toggle: set STATIC_EXPORT=1 to build a fully static bundle for GitHub Pages
+// (issue #3, requirement R1). Without the flag we keep the existing
+// `output: 'standalone'` build used by Firebase App Hosting.
+const isStaticExport = process.env.STATIC_EXPORT === "1";
+
+// When deploying to GitHub Pages the site is served from
+// `https://<user>.github.io/<repo>/` so basePath + assetPrefix must be set.
+// The deploy workflow injects BASE_PATH; locally you can override it.
+const basePath =
+  process.env.BASE_PATH && process.env.BASE_PATH !== "" ? process.env.BASE_PATH : undefined;
+
+const securityHeaders = [
+  { key: "X-DNS-Prefetch-Control", value: "on" },
+  { key: "Strict-Transport-Security", value: "max-age=63072000; includeSubDomains; preload" },
+  { key: "X-Frame-Options", value: "SAMEORIGIN" },
+  { key: "X-Content-Type-Options", value: "nosniff" },
+  { key: "Referrer-Policy", value: "origin-when-cross-origin" },
+  { key: "Permissions-Policy", value: "camera=(), microphone=(), geolocation=(self)" },
+  {
+    key: "Content-Security-Policy",
+    value: [
+      "default-src 'self'",
+      "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://checkout.razorpay.com https://www.googletagmanager.com",
+      "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
+      "font-src 'self' https://fonts.gstatic.com",
+      "img-src 'self' data: https://firebasestorage.googleapis.com https://*.googleusercontent.com",
+      "connect-src 'self' https://*.firebaseio.com https://*.googleapis.com https://identitytoolkit.googleapis.com https://securetoken.googleapis.com https://api.razorpay.com wss://*.firebaseio.com",
+      "frame-src https://checkout.razorpay.com https://*.firebaseapp.com",
+      "frame-ancestors 'self'",
+    ].join("; "),
+  },
+];
+
+const nextConfig: NextConfig = {
+  output: isStaticExport ? "export" : "standalone",
+  // `next export` does not run the Next.js image optimiser; keep images
+  // unoptimised in that mode so they ship as plain files.
+  images: isStaticExport
+    ? { unoptimized: true }
+    : {
+        remotePatterns: [
+          {
+            protocol: "https",
+            hostname: "firebasestorage.googleapis.com",
+          },
+        ],
+      },
+  ...(basePath ? { basePath, assetPrefix: basePath } : {}),
+  // Static exports cannot set response headers; only emit the policy when
+  // running in standalone mode.
+  ...(isStaticExport
+    ? {}
+    : {
+        serverExternalPackages: ["firebase-admin"],
+        async headers() {
+          return [
+            {
+              source: "/(.*)",
+              headers: securityHeaders,
+            },
+          ];
+        },
+      }),
+  // Make the build mode visible to the client (consumed by SpaShell).
+  env: {
+    NEXT_PUBLIC_STATIC_EXPORT: isStaticExport ? "1" : "0",
+    NEXT_PUBLIC_BASE_PATH: basePath ?? "",
+  },
+};
+
+export default nextConfig;

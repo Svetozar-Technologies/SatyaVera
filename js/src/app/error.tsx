@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect } from "react";
 import { logger } from "@/lib/logger";
 
@@ -38,12 +39,12 @@ export default function GlobalError({
           >
             Try Again
           </button>
-          <a
+          <Link
             href="/"
             className="px-5 py-2.5 border border-ink-200 text-navy-700 rounded-md font-semibold text-sm"
           >
             Go Home
-          </a>
+          </Link>
         </div>
       </div>
     </div>

@@ -1,0 +1,19 @@
+[workspace]
+resolver = "2"
+members = ["db"]
+
+[workspace.package]
+edition = "2021"
+license = "Unlicense"
+repository = "https://github.com/Svetozar-Technologies/SatyaVera"
+
+[workspace.lints.rust]
+unsafe_code = "forbid"
+
+[workspace.lints.clippy]
+all = { level = "warn", priority = -1 }
+
+[profile.release]
+lto = true
+codegen-units = 1
+strip = true

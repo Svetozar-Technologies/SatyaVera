@@ -1,0 +1,22 @@
+# Files matched here are ignored by the lychee link checker (links.yml).
+# One regex per line; lychee uses regex matching by default.
+
+# Local placeholders that should never resolve to a real URL
+^https?://example\.com.*
+^https?://localhost.*
+^https?://127\.0\.0\.1.*
+^https?://0\.0\.0\.0.*
+
+# GitHub anchors inside auto-generated CHANGELOG entries (often look broken)
+^https?://github\.com/.*/issues/\d+#.*
+
+# Razorpay test endpoints
+^https?://checkout\.razorpay\.com/.*
+
+# Firebase emulator hostnames
+^https?://.*\.firebaseio\.com.*
+^https?://.*\.googleapis\.com.*
+
+# Mailto and tel: are skipped by default but listed for clarity
+^mailto:.*
+^tel:.*

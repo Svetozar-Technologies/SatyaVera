@@ -2,6 +2,8 @@
 
 # dependencies
 /node_modules
+/js/node_modules
+**/node_modules/
 /.pnp
 .pnp.*
 .yarn/*
@@ -13,9 +15,14 @@
 # testing
 /coverage
 
-# next.js
+# next.js (now lives under /js/, but keep root globs for tooling that
+# accidentally drops them at the workspace root)
 /.next/
 /out/
+/js/.next/
+/js/out/
+/js/build/
+/js/dist/
 
 # production
 /build
@@ -45,3 +52,11 @@ next-env.d.ts
 firestore-debug.log
 firebase-debug.log
 ui-debug.log
+
+# rust
+/rust/target/
+**/*.rs.bk
+
+# static-export build helper
+.static-export-stash/
+/js/.static-export-stash/
