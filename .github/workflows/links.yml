@@ -1,0 +1,66 @@
+name: Broken Link Checker
+
+# Adapted from link-foundation/js-ai-driven-development-pipeline-template
+# (.github/workflows/links.yml). Runs lychee against all Markdown and HTML
+# files; the Web Archive fallback step is deferred until we port the helper
+# script from the upstream template.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "**.md"
+      - "**.html"
+      - ".lycheeignore"
+      - ".github/workflows/links.yml"
+  pull_request:
+    types: [opened, synchronize, reopened]
+    paths:
+      - "**.md"
+      - "**.html"
+      - ".lycheeignore"
+      - ".github/workflows/links.yml"
+  workflow_dispatch:
+
+jobs:
+  link-checker:
+    name: Check Links
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check links with lychee
+        id: lychee
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: >-
+            --verbose
+            --no-progress
+            --cache
+            --max-cache-age 1d
+            --max-retries 3
+            --timeout 30
+            --exclude-path docs/case-studies
+            './**/*.md'
+            './**/*.html'
+          fail: false
+          output: lychee/out.md
+          jobSummary: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Fail if broken links found
+        if: steps.lychee.outputs.exit_code != 0
+        shell: bash
+        run: |
+          echo "::error::Broken links were detected. See the 'Check links with lychee' step for the list."
+          echo ""
+          echo "How to fix:"
+          echo "  1. Review the list above."
+          echo "  2. Replace a broken link with an updated URL or its archive.org version."
+          echo "  3. Remove the link if it is no longer relevant."
+          echo "  4. Add the URL to .lycheeignore if it is a known false positive."
+          exit 1
