@@ -26,6 +26,13 @@ An AI-powered legal assistant that explains your rights in plain Hindi and Engli
 | i18n | JSON-based (en/hi) with language dropdown |
 | Laws Data | 846 acts from [indian-law](https://github.com/Svetozar-Technologies/indian-law) repo |
 
+## Documentation
+
+- [`docs/`](./docs/README.md) — documentation index.
+- [`docs/architecture.md`](./docs/architecture.md) — full system architecture (frontend, API, Rust storage, CI/CD, deployment).
+- [`docs/features.md`](./docs/features.md) — catalog of every shipped feature (user-facing, advocate-facing, developer-facing).
+- [`docs/case-studies/issue-3/`](./docs/case-studies/issue-3/README.md) — case study for the repo refactor.
+
 ## Project Structure
 
 All JavaScript / Next.js code lives under [`./js/`](./js/README.md); all Rust
