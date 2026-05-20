@@ -1,5 +1,16 @@
 import type { NextConfig } from "next";
 
+// Toggle: set STATIC_EXPORT=1 to build a fully static bundle for GitHub Pages
+// (issue #3, requirement R1). Without the flag we keep the existing
+// `output: 'standalone'` build used by Firebase App Hosting.
+const isStaticExport = process.env.STATIC_EXPORT === "1";
+
+// When deploying to GitHub Pages the site is served from
+// `https://<user>.github.io/<repo>/` so basePath + assetPrefix must be set.
+// The deploy workflow injects BASE_PATH; locally you can override it.
+const basePath =
+  process.env.BASE_PATH && process.env.BASE_PATH !== "" ? process.env.BASE_PATH : undefined;
+
 const securityHeaders = [
   { key: "X-DNS-Prefetch-Control", value: "on" },
   { key: "Strict-Transport-Security", value: "max-age=63072000; includeSubDomains; preload" },
@@ -23,23 +34,39 @@ const securityHeaders = [
 ];
 
 const nextConfig: NextConfig = {
-  output: "standalone",
-  images: {
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "firebasestorage.googleapis.com",
+  output: isStaticExport ? "export" : "standalone",
+  // `next export` does not run the Next.js image optimiser; keep images
+  // unoptimised in that mode so they ship as plain files.
+  images: isStaticExport
+    ? { unoptimized: true }
+    : {
+        remotePatterns: [
+          {
+            protocol: "https",
+            hostname: "firebasestorage.googleapis.com",
+          },
+        ],
       },
-    ],
-  },
-  serverExternalPackages: ["firebase-admin"],
-  async headers() {
-    return [
-      {
-        source: "/(.*)",
-        headers: securityHeaders,
-      },
-    ];
+  ...(basePath ? { basePath, assetPrefix: basePath } : {}),
+  // Static exports cannot set response headers; only emit the policy when
+  // running in standalone mode.
+  ...(isStaticExport
+    ? {}
+    : {
+        serverExternalPackages: ["firebase-admin"],
+        async headers() {
+          return [
+            {
+              source: "/(.*)",
+              headers: securityHeaders,
+            },
+          ];
+        },
+      }),
+  // Make the build mode visible to the client (consumed by SpaShell).
+  env: {
+    NEXT_PUBLIC_STATIC_EXPORT: isStaticExport ? "1" : "0",
+    NEXT_PUBLIC_BASE_PATH: basePath ?? "",
   },
 };
 

@@ -45,3 +45,10 @@ next-env.d.ts
 firestore-debug.log
 firebase-debug.log
 ui-debug.log
+
+# rust
+/rust/target/
+**/*.rs.bk
+
+# static-export build helper
+.static-export-stash/
