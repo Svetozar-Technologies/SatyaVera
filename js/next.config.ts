@@ -35,6 +35,12 @@ const securityHeaders = [
 
 const nextConfig: NextConfig = {
   output: isStaticExport ? "export" : "standalone",
+  turbopack: {
+    resolveAlias: {
+      "node:fs": { browser: "./src/lib/i18n/empty-node-module.ts" },
+      "node:path": { browser: "./src/lib/i18n/empty-node-module.ts" },
+    },
+  },
   // `next export` does not run the Next.js image optimiser; keep images
   // unoptimised in that mode so they ship as plain files.
   images: isStaticExport
@@ -67,6 +73,23 @@ const nextConfig: NextConfig = {
   env: {
     NEXT_PUBLIC_STATIC_EXPORT: isStaticExport ? "1" : "0",
     NEXT_PUBLIC_BASE_PATH: basePath ?? "",
+  },
+  webpack: (config, { isServer }) => {
+    if (!isServer) {
+      config.resolve = config.resolve ?? {};
+      config.resolve.alias = {
+        ...(config.resolve.alias ?? {}),
+        "node:fs": false,
+        "node:path": false,
+      };
+      config.resolve.fallback = {
+        ...(config.resolve.fallback ?? {}),
+        fs: false,
+        path: false,
+      };
+    }
+
+    return config;
   },
 };
 

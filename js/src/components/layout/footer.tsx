@@ -2,8 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useI18n } from "@/lib/i18n/context";
-import { Icon } from "@/components/ui/icons";
+import { SUPPORTED_LOCALES, useI18n } from "@/lib/i18n/context";
 
 export function Footer() {
   const { t } = useI18n();
@@ -49,14 +48,13 @@ export function Footer() {
             </span>
           </Link>
           <p className="text-ink-500 text-sm m-0">{t("common.tagline")}</p>
-          <div className="flex gap-2 text-sm">
-            <span className="font-semibold">EN</span>
-            <span className="text-ink-300">·</span>
-            <span className="font-semibold">हिं</span>
-            <span className="text-ink-300">·</span>
-            <span className="text-ink-500 italic text-xs">
-              தமிழ் · मराठी · বাংলা · ಕನ್ನಡ ({t("footer.moreLangSoon")})
-            </span>
+          <div className="flex flex-wrap gap-x-2 gap-y-1 text-sm">
+            {SUPPORTED_LOCALES.map((locale, index) => (
+              <span key={locale.code} className="inline-flex items-center gap-2">
+                <span className="font-semibold">{locale.shortLabel}</span>
+                {index < SUPPORTED_LOCALES.length - 1 && <span className="text-ink-300">·</span>}
+              </span>
+            ))}
           </div>
         </div>
 

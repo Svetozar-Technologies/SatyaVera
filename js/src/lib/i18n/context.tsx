@@ -1,35 +1,35 @@
 "use client";
 
-import React, { createContext, useContext, useState, useCallback, useEffect, ReactNode } from "react";
-import en from "./translations/en.json";
-import hi from "./translations/hi.json";
+import React, { createContext, useContext, useState, useCallback, useEffect, ReactNode, useMemo } from "react";
+import { createI18n } from "lino-i18n";
+import { catalogues, type Locale, type TranslationKey } from "./catalogues";
 
-export type Locale = "en" | "hi";
+export type { Locale, TranslationKey };
 
 export interface LocaleOption {
   code: Locale;
   label: string;
   nativeLabel: string;
   flag: string;
+  shortLabel: string;
 }
 
 export const SUPPORTED_LOCALES: LocaleOption[] = [
-  { code: "en", label: "English", nativeLabel: "English", flag: "🇬🇧" },
-  { code: "hi", label: "Hindi", nativeLabel: "हिंदी", flag: "🇮🇳" },
+  { code: "en", label: "English", nativeLabel: "English", flag: "🇬🇧", shortLabel: "EN" },
+  { code: "hi", label: "Hindi", nativeLabel: "हिंदी", flag: "🇮🇳", shortLabel: "हिं" },
+  { code: "bn", label: "Bengali", nativeLabel: "বাংলা", flag: "🇮🇳", shortLabel: "বা" },
+  { code: "kn", label: "Kannada", nativeLabel: "ಕನ್ನಡ", flag: "🇮🇳", shortLabel: "ಕ" },
+  { code: "mr", label: "Marathi", nativeLabel: "मराठी", flag: "🇮🇳", shortLabel: "म" },
+  { code: "ta", label: "Tamil", nativeLabel: "தமிழ்", flag: "🇮🇳", shortLabel: "த" },
+  { code: "te", label: "Telugu", nativeLabel: "తెలుగు", flag: "🇮🇳", shortLabel: "తె" },
 ];
 
-const translations: Record<Locale, typeof en> = { en, hi };
+const localeCodes = new Set<Locale>(SUPPORTED_LOCALES.map((locale) => locale.code));
+const runtimeCatalogues = catalogues as unknown as Record<string, Record<string, string>>;
 
-type NestedKeyOf<T> = T extends object
-  ? { [K in keyof T]: K extends string
-      ? T[K] extends object
-        ? `${K}.${NestedKeyOf<T[K]>}`
-        : `${K}`
-      : never
-    }[keyof T]
-  : never;
-
-export type TranslationKey = NestedKeyOf<typeof en>;
+function isLocale(value: string | null): value is Locale {
+  return Boolean(value && localeCodes.has(value as Locale));
+}
 
 interface I18nContextType {
   lang: Locale;
@@ -44,56 +44,40 @@ const I18nContext = createContext<I18nContextType>({
 });
 
 export function I18nProvider({ children }: { children: ReactNode }) {
+  const i18n = useMemo(
+    () =>
+      createI18n({
+        locales: runtimeCatalogues,
+        defaultLocale: "en",
+        fallback: ["en"],
+        compatibilityAliases: ["collapseTail", "parentLabel"],
+      }),
+    []
+  );
   const [lang, setLangState] = useState<Locale>("en");
 
-  useEffect(() => {
-    const saved = localStorage.getItem("satyavera-lang") as Locale | null;
-    if (saved && (saved === "en" || saved === "hi")) {
-      setLangState(saved);
-    }
-  }, []);
+  const setLang = useCallback(
+    (l: Locale) => {
+      i18n.setLocale(l);
+      setLangState(l);
+      localStorage.setItem("satyavera-lang", l);
+      document.documentElement.lang = l;
+    },
+    [i18n]
+  );
 
-  const setLang = useCallback((l: Locale) => {
-    setLangState(l);
-    localStorage.setItem("satyavera-lang", l);
-    document.documentElement.lang = l;
-  }, []);
+  useEffect(() => {
+    const saved = localStorage.getItem("satyavera-lang");
+    if (isLocale(saved)) {
+      queueMicrotask(() => setLang(saved));
+    }
+  }, [setLang]);
 
   const t = useCallback(
     (key: string, params?: Record<string, string | number>): string => {
-      const keys = key.split(".");
-      let value: unknown = translations[lang];
-      for (const k of keys) {
-        if (value && typeof value === "object" && k in value) {
-          value = (value as Record<string, unknown>)[k];
-        } else {
-          // fallback to English
-          let fallback: unknown = translations.en;
-          for (const fk of keys) {
-            if (fallback && typeof fallback === "object" && fk in fallback) {
-              fallback = (fallback as Record<string, unknown>)[fk];
-            } else {
-              return key; // key not found
-            }
-          }
-          value = fallback;
-          break;
-        }
-      }
-
-      if (typeof value !== "string") return key;
-
-      if (params) {
-        let result = value;
-        for (const [paramKey, paramValue] of Object.entries(params)) {
-          result = result.replace(`{${paramKey}}`, String(paramValue));
-        }
-        return result;
-      }
-
-      return value;
+      return i18n.t(key, params, { locale: lang });
     },
-    [lang]
+    [i18n, lang]
   );
 
   return (
@@ -107,8 +91,8 @@ export function useI18n() {
   return useContext(I18nContext);
 }
 
-/** Inline bilingual text component — shortcut for simple en/hi pairs */
-export function T({ en, hi }: { en: string; hi: string }) {
+/** Inline localized text component for simple copy that is not in the catalog. */
+export function T(props: { en: string } & Partial<Record<Exclude<Locale, "en">, string>>) {
   const { lang } = useI18n();
-  return <>{lang === "hi" ? hi : en}</>;
+  return <>{props[lang] ?? props.en}</>;
 }
