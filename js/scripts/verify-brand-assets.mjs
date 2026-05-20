@@ -24,7 +24,7 @@ function pathFor(relativePath) {
 function read(relativePath) {
   try {
     return readFileSync(pathFor(relativePath));
-  } catch (error) {
+  } catch {
     throw new Error(`${relativePath} is missing`);
   }
 }
