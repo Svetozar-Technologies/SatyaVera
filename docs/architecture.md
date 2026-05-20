@@ -24,8 +24,8 @@ has its own build, lint, and test pipeline:
 
 ```
 satyavera/
-├── js/        # All TypeScript / React / Next.js code (web + SPA shell).
-├── rust/      # Cargo workspace. Storage + future HTTP API. No Node.
+├── js/        # All TypeScript / React / Next.js frontend code.
+├── rust/      # Cargo workspace. Axum API + storage. No Node.
 ├── docs/      # Architecture, features, case studies.
 ├── .github/   # Per-language CI workflows: js.yml, rust.yml, links.yml.
 └── firestore.rules / firestore.indexes.json / firebase.json
@@ -39,9 +39,9 @@ related logic … in `./rust`". The current state of the migration is:
 | ------------------------ | ---------- | --------------------------------------------------------------------------------------- |
 | Web UI                   | `js/src/app/(public)`, `js/src/app/(dashboard)` | Production (Next.js App Router).                              |
 | Universal SPA shell      | `js/src/app/app/`                              | Production (hash-routed, client-only).                        |
-| HTTP / streaming API     | `js/src/app/api/*`                             | Production (Next.js Route Handlers; migrates to Rust later).  |
+| HTTP / streaming API     | `rust/api/`                                    | Production (Axum server; owns `/api/*`).                      |
 | Storage abstraction      | `rust/db/`                                     | Production (in-memory + journal; `link-cli` backend gated).   |
-| Auth, profiles, sessions | `js/src/lib/firebase/*`                        | Production (Firebase Auth + Firestore).                       |
+| Auth, profiles, sessions | `js/src/lib/firebase/*`, `rust/api/src/auth.rs` | Production (Firebase client auth + Rust ID-token verification). |
 | Data ingestion           | `js/scripts/*`                                 | Production (Node scripts that write Firestore).               |
 
 ## 2. Two parallel build targets
@@ -60,8 +60,9 @@ between targets.
 
 ### Why two targets?
 
-- **Firebase App Hosting** needs a Node runtime to host Route Handlers
-  (`/api/*`), Firestore-backed dashboard pages, and `firebase-admin`.
+- **Firebase App Hosting** serves the standalone Next.js frontend. Runtime
+  `/api/*` traffic is handled by the Rust API server configured with
+  `NEXT_PUBLIC_API_BASE`.
 - **GitHub Pages** is a static file host with no runtime — only assets
   that can be served as-is are allowed. Server-only routes are therefore
   pruned before the export.
@@ -72,8 +73,8 @@ between targets.
 [`js/scripts/build-static-export.mjs`](../js/scripts/build-static-export.mjs).
 That script:
 
-1. Moves `src/app/api/`, `src/app/(dashboard)/`, `src/app/(public)/`, and
-   `src/app/sitemap.ts` into `.static-export-stash/` (a sibling of `src/`).
+1. Moves `src/app/(dashboard)/`, `src/app/(public)/`, and `src/app/sitemap.ts`
+   into `.static-export-stash/` (a sibling of `src/`).
 2. Runs `STATIC_EXPORT=1 next build`. With those routes hidden, Next.js
    exports a tree that contains just `/`, `/app`, error pages, and assets.
 3. **Always** restores the stashed paths — in a `try/finally`, plus
@@ -104,10 +105,9 @@ Properties of the shell:
   `about`) live in the URL fragment, e.g. `#/guides`. This works under
   `file://` (Electron) and `capacitor://` (Capacitor) where path-based
   routing breaks because there is no server to map paths to `index.html`.
-- **`NEXT_PUBLIC_API_BASE`** — when set, the shell points its `fetch`
-  calls at an external API host (the future Rust backend). When unset,
-  it falls back to `window.location.origin` so the development build
-  keeps talking to the colocated Next.js Route Handlers.
+- **`NEXT_PUBLIC_API_BASE`** — points browser `fetch` calls at the Rust
+  API host. When unset, requests remain relative to the current origin,
+  which is useful when a reverse proxy forwards `/api/*` to Rust.
 
 The SPA shell intentionally renders **placeholder views** for `chat`,
 `guides`, `documents`. Feature migration from `src/app/(dashboard)/*`
@@ -119,11 +119,10 @@ into the shell is tracked in
 
 ```
 src/
-├── app/                  Next.js App Router routes (pages + Route Handlers).
+├── app/                  Next.js App Router pages.
 │   ├── (public)/         Login, signup, pricing, forgot-password (Firebase Auth UI).
 │   ├── (dashboard)/      Auth-gated citizen + advocate workspaces.
 │   ├── app/              Universal SPA shell (see §3).
-│   ├── api/              Server-side Route Handlers (see §5).
 │   ├── layout.tsx        HTML shell, providers, JSON-LD, security metadata.
 │   ├── page.tsx          Marketing landing page.
 │   ├── sitemap.ts        Sitemap (excluded from static export).
@@ -138,11 +137,9 @@ src/
 │   └── auth-context.tsx  Firebase Auth state + profile bootstrap.
 ├── hooks/                Data hooks per Firestore collection (use-conversations, use-guides, …).
 ├── lib/
-│   ├── firebase/         Client + admin SDK init, helpers, token verification.
-│   ├── ai/               Multi-provider model selection + law-search RAG layer.
-│   ├── api/              Route Handler helpers (rate limiter, auth, body validation).
+│   ├── api/              Browser helper for the configured Rust API origin.
+│   ├── firebase/         Client SDK init, auth, and Firestore helpers.
 │   ├── i18n/             Translation provider + JSON dictionaries (en, hi).
-│   ├── payments/         Razorpay SDK wrapper and pricing tables.
 │   └── logger.ts         Minimal structured logger.
 └── types/
     └── index.ts          All shared TypeScript interfaces (Firestore docs + UI types).
@@ -160,7 +157,7 @@ src/
 
 `AuthProvider` is the source of truth for the current user: it subscribes
 to `onAuthStateChanged`, fetches the matching `users/{uid}` profile, and
-re-issues Firebase ID tokens every 10 minutes so Route Handlers can keep
+re-issues Firebase ID tokens every 10 minutes so the Rust API can keep
 verifying them.
 
 ### Internationalisation
@@ -170,83 +167,84 @@ by `useI18n().t(key)`. The language toggle persists the preference in
 the user's profile (`users/{uid}.language`) and locally in the i18n
 context. No server work is involved.
 
-## 5. API layer (Next.js Route Handlers)
+## 5. API layer (Rust Axum)
+
+`rust/api/` owns every runtime `/api/*` endpoint. The Next.js app has no
+`src/app/api` tree; browser code calls the Rust server through
+`js/src/lib/api/client.ts`, using `NEXT_PUBLIC_API_BASE` or
+`NEXT_PUBLIC_API_BASE_URL` when the server is on another origin.
+
+The public route contract is recorded in `rust/api/src/lib.rs` as
+`API_ROUTE_SPECS` and covered by `rust/api/tests/api_routes.rs`:
 
 ```
-src/app/api/
-├── chat/                 POST: stream a GandhiAI reply (SSE / text stream).
-├── conversations/        CRUD for chat history (subcollection: messages).
-├── documents/            CRUD for drafted legal documents (FIR, RTI, …).
-├── guides/               Read seeded rights-guides.
-├── dictionary/           Read seeded legal-terms dictionary.
-├── templates/            Read seeded document templates.
-├── quizzes/              Read quizzes, submit attempts.
-├── laws/                 Read laws + sections (by slug / number).
-├── lawyers/              Browse the marketplace; create/update advocate profiles.
-├── consultations/        Citizen ↔ advocate booking requests.
-├── subscriptions/        Plan status + per-day / per-month usage counters.
-├── payments/             Razorpay: create-order, verify, webhook.
-└── settings/             User-level preferences (notifications, privacy).
+POST   /api/chat
+GET    /api/conversations
+POST   /api/conversations
+GET    /api/conversations/{id}
+DELETE /api/conversations/{id}
+POST   /api/conversations/{id}/messages
+GET    /api/documents
+POST   /api/documents
+GET    /api/guides
+GET    /api/dictionary
+GET    /api/templates
+GET    /api/quizzes
+GET    /api/quizzes/{id}
+POST   /api/quizzes/{id}/submit
+GET    /api/laws
+GET    /api/laws/{slug}
+GET    /api/laws/{slug}/sections
+GET    /api/lawyers
+GET    /api/consultations
+POST   /api/consultations
+PATCH  /api/consultations/{id}
+GET    /api/subscriptions
+POST   /api/subscriptions/usage
+GET    /api/settings
+PUT    /api/settings
+POST   /api/payments/create-order
+POST   /api/payments/verify
+POST   /api/payments/webhook
 ```
 
-Each Route Handler follows the same pattern, codified in
-`js/src/lib/api/helpers.ts`:
+### Request path
 
-```ts
-export async function POST(req: Request) {
-  const decoded = await verifyAuthToken(req);    // 1. Firebase ID-token → uid.
-  if (!decoded) return apiError("Unauthorized", 401);
+Rust handlers share the same pattern:
 
-  const { allowed } = rateLimit(`chat-${decoded.uid}`, 10);  // 2. Rate limit per uid.
-  if (!allowed) return apiError("Too many requests", 429);
+1. Verify `Authorization: Bearer <Firebase ID token>` in
+   `rust/api/src/auth.rs`. `SATYAVERA_API_AUTH_DISABLED=1` enables the
+   local development bypass used by tests.
+2. Apply process-local rate limits for mutating/high-cost endpoints.
+3. Validate request JSON with route-specific checks.
+4. Persist through the Rust store and optional
+   `SATYAVERA_API_JOURNAL_PATH` journal.
+5. Return JSON errors through `ApiError`, preserving the response shape
+   expected by the frontend hooks.
 
-  if (validateContentType(req)) return /* 415 */;
-  const body = await req.json();                  // 3. Parse + validate body.
-  // … route-specific work (Firestore / AI provider / Razorpay) …
-  return apiResponse(payload);
-}
-```
+### AI and law data
 
-### Multi-provider AI
+`rust/api/src/ai.rs` owns chat validation, the shared legal-system
+prompt, and document generation. The current implementation provides a
+deterministic legal-information fallback so the Rust API can run without
+provider secrets; model-backed providers should be added in this module.
 
-`js/src/lib/ai/providers.ts` exports `streamLegalChat()` and
-`generateLegalDocument()`. The provider is chosen at request time by the
-`AI_PROVIDER` env var:
-
-| `AI_PROVIDER` | SDK package          | Model                       |
-| ------------- | -------------------- | --------------------------- |
-| `claude`*     | `@ai-sdk/anthropic`  | `claude-sonnet-4-20250514`  |
-| `openai`      | `@ai-sdk/openai`     | `gpt-4o`                    |
-| `gemini`      | `@ai-sdk/google`     | `gemini-2.0-flash`          |
-
-\* default
-
-The same `LEGAL_SYSTEM_PROMPT` is used for every provider so behaviour
-stays consistent across swaps. The prompt encodes the Bharatiya
-Nyaya/Nagarik/Sakshya 2023 codes (BNS/BNSS/BSA) replacing IPC/CrPC/IEA.
-
-### Law retrieval (RAG)
-
-`js/src/lib/ai/law-search.ts` is a lightweight retriever invoked before
-the chat call:
-
-1. Match the user's query against a fixed `ACT_ALIASES` table (bns →
-   `the-bharatiya-nyaya-sanhita-2023`, etc.).
-2. Extract explicit section numbers (`Section 302`, `§ 483`).
-3. Pull matching documents from Firestore (`laws/{slug}` and
-   `laws/{slug}/sections/{n}`).
-4. Format the results as a system-prompt suffix so the model grounds its
-   answer on the cited text.
-
-This avoids embedding-based vector search for the first cut and keeps
-the dependency surface small.
+`rust/api/src/state.rs` loads laws from `SATYAVERA_LAWS_DATA_DIR`, which
+defaults to `../js/data/laws` when available. A small built-in catalog
+keeps public guides, templates, dictionary, lawyers, and quizzes usable
+in a clean checkout before production data is imported.
 
 ## 6. Backend / Rust workspace (`rust/`)
 
 ```
 rust/
-├── Cargo.toml          # Workspace: members = ["db"]. unsafe_code = forbid. LTO release.
+├── Cargo.toml          # Workspace: members = ["api", "db"]. unsafe_code = forbid. LTO release.
 ├── README.md
+├── api/                # The satyavera-api Axum server.
+│   ├── Cargo.toml
+│   ├── src/lib.rs      # Router, route contract, middleware layers.
+│   ├── src/handlers.rs # HTTP handlers for every /api endpoint.
+│   └── tests/api_routes.rs
 └── db/                 # The satyavera-db crate.
     ├── Cargo.toml
     ├── src/lib.rs      # KeyValueStore trait + TransactionalStore + Mutation enum.
@@ -323,18 +321,21 @@ full `link-cli` dependency graph. Wiring the actual `link-cli` storage
 handle is a follow-up slice (see `docs/case-studies/issue-3/plan.md`
 item C).
 
-### Future shape
+### Runtime API state
 
-The same workspace will grow `rust/api/` (axum HTTP server) and
-`rust/cli/` (operator CLI). Each Next.js `/api/*` endpoint will be
-migrated one at a time; the SPA shell already reads
-`NEXT_PUBLIC_API_BASE` so it can be repointed without code changes.
+`satyavera-api` uses the same `TransactionalStore` journal for mutating
+endpoints when `SATYAVERA_API_JOURNAL_PATH` is set. The in-process store
+keeps local development and tests dependency-light; production can replay
+the journal during startup and swap in a stronger `KeyValueStore`
+backend when the `link-cli` integration is completed.
 
-## 7. Data model (Firestore)
+## 7. Data model
 
-Today's persistence layer is Cloud Firestore. Security rules live in
-[`firestore.rules`](../firestore.rules); indexes in
-[`firestore.indexes.json`](../firestore.indexes.json).
+Runtime API writes go through `rust/api` and the optional journal-backed
+store described above. Firebase still handles client authentication and
+the legacy/admin seed scripts can populate Firestore for data import or
+back-office workflows. Security rules live in [`firestore.rules`](../firestore.rules);
+indexes in [`firestore.indexes.json`](../firestore.indexes.json).
 
 | Collection                          | Owner    | Read     | Write    | Purpose                                           |
 | ----------------------------------- | -------- | -------- | -------- | ------------------------------------------------- |
@@ -380,24 +381,21 @@ claim for a given uid out of band.
 
 ### Server-side guard
 
-`js/src/lib/firebase/admin.ts#verifyAuthToken` strips the
-`Authorization: Bearer <jwt>` header and runs it through
-`firebase-admin/auth#verifyIdToken`. The decoded token includes the uid
-and any custom claims. All Route Handlers call this before touching
-Firestore.
+`rust/api/src/auth.rs` strips the `Authorization: Bearer <jwt>` header,
+loads Firebase public certificates, and verifies the token audience and
+issuer against the configured Firebase project. The decoded token
+provides the uid used by every protected API handler.
 
 ### Rate limiting
 
-`js/src/lib/api/rate-limiter.ts` is a process-local sliding-window
-limiter keyed on `<route-name>-<uid>`. It's good enough for the
-single-instance Firebase App Hosting backend but will be replaced by a
-shared-state limiter (Redis / Firestore counter) when the Rust API ships.
+`rust/api/src/state.rs` contains a process-local sliding-window limiter
+keyed on `<route-name>-<uid>`. It keeps the first Rust server slice
+simple and can move behind a shared `KeyValueStore` backend later.
 
 ### Subscription gating
 
 Free tier users get a fixed quota (queries/day, documents/month) tracked
-in `subscriptions/{uid}`. Route Handlers consult that document before
-calling the AI provider and increment counters atomically.
+by the Rust subscription endpoints and persisted through the API store.
 
 ## 9. Data ingestion and seeding
 
@@ -479,11 +477,11 @@ sets `BASE_PATH=/SatyaVera`.
 A one-time repo setting (Settings → Pages → Source → **GitHub Actions**)
 is required; it cannot be set from a workflow.
 
-### Future Rust API
+### Rust API server
 
-The `rust/` workspace targets a self-hosted axum server. The web app and
-the SPA shell will switch to it by setting `NEXT_PUBLIC_API_BASE`; no
-code change is needed for the cutover.
+The `rust/api` crate builds the self-hosted Axum API server. The web app
+and SPA shell call it through `NEXT_PUBLIC_API_BASE` or a same-origin
+reverse proxy that forwards `/api/*` to the Rust process.
 
 ### Desktop / mobile (planned)
 
@@ -497,21 +495,22 @@ unchanged. The hash-routed `/app` SPA is the entry point — see
 
 Set in `next.config.ts` for the Firebase target only (static export can't
 emit response headers). The CSP whitelists Firebase, Razorpay,
-fonts.googleapis.com, and the Google identity toolkit; everything else
-is `'self'`.
+fonts.googleapis.com, the Google identity toolkit, and the configured
+Rust API origin; everything else is `'self'`.
 
 ### Logging
 
-`js/src/lib/logger.ts` is a thin wrapper that prefixes log lines with
-the deployment target and a level. Route Handlers also `console.error`
-on unhandled failures so they surface in Firebase / Cloud Run logs.
+`js/src/lib/logger.ts` is a thin frontend wrapper that prefixes log lines
+with the deployment target and a level. The Rust API uses `tracing` and
+`tower-http` request tracing so server failures surface in the API host's
+logs.
 
 ### Error handling
 
 - Client: `js/src/app/error.tsx` and `not-found.tsx` are the global
   boundaries.
-- Server: `apiError(message, status)` and `apiResponse(data, status)`
-  in `js/src/lib/api/helpers.ts` normalise every Route Handler reply.
+- Server: `rust/api/src/error.rs` maps `ApiError` variants to consistent
+  JSON error responses and HTTP status codes.
 
 ### Type-safety boundary
 
@@ -542,8 +541,8 @@ every requirement (R1–R8) to its implementation. Quick index:
 
 Tracked in `docs/case-studies/issue-3/plan.md` under "Follow-up":
 
-- Move Next.js `/api/*` endpoints to the Rust HTTP server one slice at a time.
 - Wire the real `link-cli` storage backend behind the existing Cargo feature.
+- Add model-backed AI providers behind the Rust `ai` module.
 - Activate Electron / Capacitor build matrices in `js.yml` once the SPA shell
   hosts non-placeholder views.
 - Add `cargo audit` / `cargo deny` to the Rust workflow.

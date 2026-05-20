@@ -1,8 +1,8 @@
 # `./rust` — Server code
 
-This folder is the long-term home for **all server-side code**
-(issue #3, requirement R3.2). The Next.js `/api/*` routes that exist
-today will migrate here, one endpoint at a time, behind a Rust HTTP API.
+This folder is the home for **all server-side code** (issue #3,
+requirement R3.2). The Rust API now owns every runtime `/api/*` endpoint;
+the Next.js application under `../js` is frontend-only.
 
 ## Layout
 
@@ -10,13 +10,44 @@ today will migrate here, one endpoint at a time, behind a Rust HTTP API.
 rust/
   README.md
   Cargo.toml        # workspace
+  api/              # Axum HTTP server — owns /api/*
+    Cargo.toml
+    src/lib.rs      # router + public route contract
+    src/handlers.rs # endpoint handlers
+    tests/api_routes.rs
   db/               # storage crate — transactional wrapper over link-cli
     Cargo.toml
     src/lib.rs
     tests/transactional.rs
-  # api/            # (planned) HTTP server crate (axum) — follow-up
   # cli/            # (planned) operator CLI — follow-up
 ```
+
+## `api` crate — Rust HTTP server
+
+The `satyavera-api` binary is an Axum server with route parity for the
+former Next.js API surface: chat, conversations, documents, public catalog
+data, laws, lawyers, consultations, subscriptions, settings, and Razorpay
+webhooks.
+
+```bash
+cd rust
+SATYAVERA_API_AUTH_DISABLED=1 cargo run -p satyavera-api
+```
+
+Useful environment variables:
+
+- `SATYAVERA_API_BIND` — listen address, default `127.0.0.1:8787`.
+- `SATYAVERA_API_AUTH_DISABLED=1` — local/test auth bypass.
+- `FIREBASE_PROJECT_ID` — Firebase project used to verify ID tokens.
+- `SATYAVERA_LAWS_DATA_DIR` — directory of law JSON snapshots; defaults
+  to `../js/data/laws` when present.
+- `SATYAVERA_API_JOURNAL_PATH` — optional append-only mutation journal.
+- `RAZORPAY_KEY_ID`, `RAZORPAY_KEY_SECRET`,
+  `RAZORPAY_WEBHOOK_SECRET` — payment integration settings.
+
+The public route contract is captured in `api/src/lib.rs` as
+`API_ROUTE_SPECS` and is tested in `api/tests/api_routes.rs` so future
+changes cannot silently move endpoint ownership back into Next.js.
 
 ## `db` crate — transactional store over link-cli
 
