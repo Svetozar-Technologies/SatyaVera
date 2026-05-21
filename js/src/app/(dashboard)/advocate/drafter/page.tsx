@@ -30,13 +30,13 @@ export default function LawyerDrafterPage() {
     <>
       <div className="flex justify-between items-center mb-[18px]">
         <div>
-          <span className="eyebrow">Document Drafter</span>
+          <span className="eyebrow">{t("drafter.title")}</span>
           <h2 className="font-serif text-xl font-semibold text-navy-900">Bail Application — Karthik v. State (NCT of Delhi)</h2>
         </div>
         <div className="flex gap-2">
-          <Button variant="ghost" size="sm">← Back</Button>
-          <Button variant="ghost" size="sm"><Icon name="bookmark" size={12} /> Save</Button>
-          <Button variant="primary" size="sm"><Icon name="download" size={12} className="text-white" /> Export .docx</Button>
+          <Button variant="ghost" size="sm">← {t("common.back")}</Button>
+          <Button variant="ghost" size="sm"><Icon name="bookmark" size={12} /> {t("common.save")}</Button>
+          <Button variant="primary" size="sm"><Icon name="download" size={12} className="text-white" /> {t("drafter.download")}</Button>
         </div>
       </div>
 

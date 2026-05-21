@@ -13,8 +13,8 @@ export default function ScannerPage() {
   return (
     <>
       <div className="flex flex-col gap-1 mb-4">
-        <h2 className="font-serif text-[22px] font-semibold text-navy-900">Scan & Understand a Legal Document</h2>
-        <p className="text-ink-500 text-sm">Upload a photo or PDF — GandhiAI summarises it in plain language.</p>
+        <h2 className="font-serif text-[22px] font-semibold text-navy-900">{t("dashboard.scanDoc")}</h2>
+        <p className="text-ink-500 text-sm">{t("dashboard.scanDocDesc")}</p>
       </div>
 
       <div className="flex gap-4">

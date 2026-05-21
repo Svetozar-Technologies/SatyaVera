@@ -165,7 +165,7 @@ export default function SettingsPage() {
       {/* Header */}
       <div className="mb-6">
         <h1 className="text-xl font-serif font-bold text-navy-900 mb-1">
-          Settings
+          {t("settings.title")}
         </h1>
         <p className="text-sm text-ink-500">
           Manage your profile, preferences, and account settings

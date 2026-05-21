@@ -249,13 +249,13 @@ export default function PricingPage() {
       {/* Header */}
       <section className="px-6 md:px-20 pt-16 pb-12 text-center">
         <span className="text-[11px] uppercase tracking-[0.12em] font-bold text-saffron-600 mb-3 block">
-          Pricing
+          {t("nav.pricing")}
         </span>
         <h1 className="font-serif text-[44px] font-semibold text-navy-900 leading-[1.1] mb-4">
-          Simple, transparent pricing
+          {t("pricing.title")}
         </h1>
         <p className="text-ink-500 text-lg max-w-xl mx-auto mb-8">
-          Start for free. Upgrade when you need more. No hidden fees, no surprises.
+          {t("pricing.subtitle")}
         </p>
 
         {/* Billing Toggle */}
@@ -265,15 +265,14 @@ export default function PricingPage() {
             className="cursor-pointer px-4 py-1.5 text-sm"
             onClick={() => setBilling("monthly")}
           >
-            Monthly
+            {t("pricing.monthly")}
           </Chip>
           <Chip
             variant={billing === "yearly" ? "navy" : "default"}
             className="cursor-pointer px-4 py-1.5 text-sm"
             onClick={() => setBilling("yearly")}
           >
-            Yearly
-            <span className="text-green-600 font-semibold ml-1">Save 15%</span>
+            {t("pricing.yearly")}
           </Chip>
         </div>
       </section>
@@ -288,7 +287,7 @@ export default function PricingPage() {
                 onClick={() => setError(null)}
                 className="ml-3 text-red-500 hover:text-red-700 font-semibold"
               >
-                Dismiss
+                {t("common.cancel")}
               </button>
             </div>
           </div>
@@ -387,9 +386,9 @@ export default function PricingPage() {
       {/* Custom Plan CTA */}
       <section className="px-6 md:px-20 pb-16 text-center">
         <p className="text-ink-500 text-base">
-          Need a custom plan for your law firm or organization?{" "}
+          {t("pricing.customPlan")}{" "}
           <Link href="#" className="text-navy-700 font-semibold hover:underline">
-            Contact us <span aria-hidden="true">&rarr;</span>
+            {t("pricing.contactUs")}
           </Link>
         </p>
       </section>

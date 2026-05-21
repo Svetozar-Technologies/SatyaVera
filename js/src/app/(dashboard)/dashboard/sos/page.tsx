@@ -30,8 +30,8 @@ export default function EmergencySOSPage() {
           <div className="flex items-center gap-3">
             <Icon name="siren" size={28} className="text-white" />
             <div>
-              <h1 className="text-2xl font-bold">Emergency Legal Help</h1>
-              <p className="text-[13px] opacity-85">Tap any number to call · all toll-free</p>
+              <h1 className="text-2xl font-bold">{t("dashboard.emergencyHelp")}</h1>
+              <p className="text-[13px] opacity-85">{t("dashboard.emergencyHelpDesc")}</p>
             </div>
           </div>
         </div>
@@ -58,12 +58,12 @@ export default function EmergencySOSPage() {
 
           {/* Rights reminder */}
           <div className="p-[18px] bg-ink-50 rounded-[10px] border border-ink-100 mb-[18px]">
-            <div className="eyebrow mb-2">If you are being detained by police</div>
+            <div className="eyebrow mb-2">{t("landing.rightsArrested")}</div>
             <ul className="list-disc pl-[18px] text-[13px] leading-relaxed space-y-1">
-              <li>You have the right to know the reason for arrest — <span className="lref">Article 22(1)</span></li>
-              <li>You can inform a family member — <span className="lref">S. 48 BNSS</span></li>
+              <li>{t("landing.rightReason")} — <span className="lref">Article 22(1)</span></li>
+              <li>{t("landing.rightRelative")} — <span className="lref">S. 48 BNSS</span></li>
               <li>You have the right to a lawyer.</li>
-              <li>You must be produced before a magistrate within 24 hours — <span className="lref">Article 22(2)</span></li>
+              <li>{t("landing.rightMagistrate")} — <span className="lref">Article 22(2)</span></li>
               <li>Police cannot use force or torture.</li>
             </ul>
           </div>
