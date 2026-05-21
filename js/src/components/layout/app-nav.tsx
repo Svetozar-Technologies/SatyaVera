@@ -6,6 +6,7 @@ import { useI18n } from "@/lib/i18n/context";
 import { LangToggle } from "@/components/ui/lang-toggle";
 import { Chip } from "@/components/ui/chip";
 import { Icon } from "@/components/ui/icons";
+import { assetPath } from "@/lib/assets";
 
 interface AppNavProps {
   role: "citizen" | "lawyer";
@@ -28,7 +29,14 @@ export function AppNav({ role, name, onMenuToggle }: AppNavProps) {
       </button>
 
       <Link href={role === "lawyer" ? "/advocate" : "/dashboard"} className="flex items-center gap-2.5">
-        <Image src="/logo.png" alt="SatyaVera" width={32} height={32} className="object-contain" />
+        <Image
+          src={assetPath("/logo.svg")}
+          alt="SatyaVera"
+          width={32}
+          height={32}
+          className="object-contain"
+          unoptimized
+        />
         <span className="font-serif font-semibold text-lg text-navy-900 tracking-[0.2px]">
           Satya<span className="text-saffron-600">Vera</span>
         </span>

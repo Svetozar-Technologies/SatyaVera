@@ -6,6 +6,7 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useI18n } from "@/lib/i18n/context";
 import { useAuth } from "@/contexts/auth-context";
+import { assetPath } from "@/lib/assets";
 import { Button } from "@/components/ui/button";
 import { Icon } from "@/components/ui/icons";
 import { Field } from "@/components/ui/field";
@@ -52,7 +53,14 @@ export default function LoginPage() {
       <div className="flex-1 bg-gradient-to-br from-navy-900 to-navy-700 text-white px-10 py-16 flex flex-col justify-between min-h-screen">
         <div>
           <Link href="/" className="flex items-center gap-2.5 mb-16">
-            <Image src="/logo.png" alt="SatyaVera" width={36} height={36} className="object-contain brightness-0 invert" />
+            <Image
+              src={assetPath("/logo.svg")}
+              alt="SatyaVera"
+              width={36}
+              height={36}
+              className="object-contain brightness-0 invert"
+              unoptimized
+            />
             <span className="font-serif font-semibold text-xl tracking-[0.2px]">
               Satya<span className="text-saffron-400">Vera</span>
             </span>

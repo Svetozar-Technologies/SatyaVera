@@ -10,6 +10,7 @@
     "build": "next build",
     "prebuild:pages": "npm run i18n:compile",
     "build:pages": "node scripts/build-static-export.mjs",
+    "test:brand-assets": "node scripts/verify-brand-assets.mjs",
     "start": "next start",
     "lint": "eslint",
     "check:api-boundary": "node scripts/check-no-next-api-routes.mjs",
@@ -21,7 +22,8 @@
     "seed-templates": "tsx scripts/seed-templates.ts",
     "seed-quizzes": "tsx scripts/seed-quizzes.ts",
     "seed-all": "tsx scripts/seed-guides.ts && tsx scripts/seed-dictionary.ts && tsx scripts/seed-templates.ts && tsx scripts/seed-quizzes.ts",
-    "set-admin": "tsx scripts/set-admin.ts"
+    "set-admin": "tsx scripts/set-admin.ts",
+    "generate-brand-assets": "node scripts/generate-brand-assets.mjs"
   },
   "dependencies": {
     "@ai-sdk/react": "^3.0.187",
@@ -43,6 +45,8 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.2.6",
+    "potrace": "^2.1.8",
+    "sharp": "^0.34.5",
     "tailwindcss": "^4",
     "tsx": "^4.22.2",
     "typescript": "^5"
