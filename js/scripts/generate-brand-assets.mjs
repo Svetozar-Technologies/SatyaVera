@@ -2,6 +2,7 @@
 import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
+import potrace from "potrace";
 import sharp from "sharp";
 
 const root = fileURLToPath(new URL("..", import.meta.url));
@@ -16,109 +17,183 @@ function write(relativePath, contents) {
   writeFileSync(outputPath, contents);
 }
 
-// Sixteen levels per channel keep every quantized pixel within the verifier's
-// RGB-delta tolerance while emitting real SVG paths instead of a raster embed.
-const colorStep = 17;
-
-function quantizeChannel(value) {
-  return Math.max(0, Math.min(255, Math.round(value / colorStep) * colorStep));
-}
-
-function hexByte(value) {
+function hex(value) {
   return value.toString(16).padStart(2, "0");
 }
 
-function colorKey(red, green, blue) {
-  return `#${hexByte(red)}${hexByte(green)}${hexByte(blue)}`;
+function rgbHex([r, g, b]) {
+  return `#${hex(r)}${hex(g)}${hex(b)}`;
 }
 
-async function vectorPathsFromPng(source) {
-  const { data, info } = await sharp(source)
+function squaredDistance(pixel, centroid) {
+  const dr = pixel[0] - centroid[0];
+  const dg = pixel[1] - centroid[1];
+  const db = pixel[2] - centroid[2];
+  return dr * dr + dg * dg + db * db;
+}
+
+function nearestCentroid(pixel, centroids) {
+  let bestIndex = 0;
+  let bestDistance = Infinity;
+  for (let i = 0; i < centroids.length; i += 1) {
+    const distance = squaredDistance(pixel, centroids[i]);
+    if (distance < bestDistance) {
+      bestDistance = distance;
+      bestIndex = i;
+    }
+  }
+  return bestIndex;
+}
+
+// Deterministic k-means++ palette extraction. We resample by a constant stride
+// so the choice of centroids does not depend on machine performance.
+function kmeansPalette(pixels, paletteSize, iterations = 15) {
+  const samples = [];
+  const stride = Math.max(1, Math.floor(Math.sqrt(pixels.length / 3 / 80000)));
+  for (let i = 0; i + 2 < pixels.length; i += 3 * stride) {
+    samples.push([pixels[i], pixels[i + 1], pixels[i + 2]]);
+  }
+
+  const centroids = [samples[0]];
+  while (centroids.length < paletteSize) {
+    let bestIndex = 0;
+    let bestDistance = -1;
+    const step = Math.max(1, Math.floor(samples.length / 1500));
+    for (let s = 0; s < samples.length; s += step) {
+      let minDistance = Infinity;
+      for (const centroid of centroids) {
+        const distance = squaredDistance(samples[s], centroid);
+        if (distance < minDistance) {
+          minDistance = distance;
+        }
+      }
+      if (minDistance > bestDistance) {
+        bestDistance = minDistance;
+        bestIndex = s;
+      }
+    }
+    centroids.push(samples[bestIndex]);
+  }
+
+  for (let iteration = 0; iteration < iterations; iteration += 1) {
+    const sums = centroids.map(() => [0, 0, 0, 0]);
+    for (const sample of samples) {
+      const index = nearestCentroid(sample, centroids);
+      sums[index][0] += sample[0];
+      sums[index][1] += sample[1];
+      sums[index][2] += sample[2];
+      sums[index][3] += 1;
+    }
+    for (let c = 0; c < centroids.length; c += 1) {
+      if (sums[c][3] > 0) {
+        centroids[c] = [
+          Math.round(sums[c][0] / sums[c][3]),
+          Math.round(sums[c][1] / sums[c][3]),
+          Math.round(sums[c][2] / sums[c][3]),
+        ];
+      }
+    }
+  }
+
+  return centroids;
+}
+
+function tracePathFromMask(maskPng, { turdSize, optTolerance }) {
+  return new Promise((resolve, reject) => {
+    const trace = new potrace.Potrace({
+      threshold: 128,
+      turdSize,
+      alphaMax: 1,
+      optTolerance,
+      blackOnWhite: true,
+    });
+    trace.loadImage(maskPng, (error) => {
+      if (error) {
+        reject(error);
+        return;
+      }
+      resolve(trace.getPathTag());
+    });
+  });
+}
+
+async function vectorizeLogo({ source, paletteSize = 16, turdSize = 10, optTolerance = 0.2 }) {
+  const { data: pixels, info } = await sharp(source)
     .removeAlpha()
     .raw()
     .toBuffer({ resolveWithObject: true });
-  const pathsByColor = new Map();
+  const { width, height } = info;
 
-  function pushRun(fill, x, y, width) {
-    if (fill === "#ffffff") {
-      return;
-    }
-
-    const path = pathsByColor.get(fill) ?? [];
-    path.push(`M${x} ${y}h${width}v1H${x}z`);
-    pathsByColor.set(fill, path);
+  const palette = kmeansPalette(pixels, paletteSize);
+  const labels = new Uint8Array(width * height);
+  const counts = new Array(palette.length).fill(0);
+  for (let p = 0; p < width * height; p += 1) {
+    const pixel = [pixels[p * 3], pixels[p * 3 + 1], pixels[p * 3 + 2]];
+    const index = nearestCentroid(pixel, palette);
+    labels[p] = index;
+    counts[index] += 1;
   }
 
-  for (let y = 0; y < info.height; y += 1) {
-    let runColor = "";
-    let runStart = 0;
-    for (let x = 0; x <= info.width; x += 1) {
-      let fill = "";
-      if (x < info.width) {
-        const offset = (y * info.width + x) * info.channels;
-        fill = colorKey(
-          quantizeChannel(data[offset]),
-          quantizeChannel(data[offset + 1]),
-          quantizeChannel(data[offset + 2]),
-        );
-      }
+  const backgroundIndex = counts.indexOf(Math.max(...counts));
+  const backgroundColor = palette[backgroundIndex];
 
-      if (x === 0) {
-        runColor = fill;
-        continue;
-      }
+  const tracingOrder = palette
+    .map((color, index) => ({ color, index, count: counts[index] }))
+    .filter((entry) => entry.index !== backgroundIndex)
+    .sort((a, b) => b.count - a.count);
 
-      if (fill !== runColor) {
-        pushRun(runColor, runStart, y, x - runStart);
-        runColor = fill;
-        runStart = x;
-      }
+  const paths = [];
+  for (const { color, index } of tracingOrder) {
+    if (counts[index] < turdSize) {
+      continue;
     }
+    const mask = Buffer.alloc(width * height);
+    for (let p = 0; p < width * height; p += 1) {
+      mask[p] = labels[p] === index ? 0 : 255;
+    }
+    const maskPng = await sharp(mask, { raw: { width, height, channels: 1 } })
+      .png()
+      .toBuffer();
+    const pathTag = await tracePathFromMask(maskPng, { turdSize, optTolerance });
+    const colored = pathTag
+      .replace(/fill="[^"]*"/, `fill="${rgbHex(color)}"`)
+      .replace(/stroke="[^"]*"/, "");
+    paths.push(colored);
   }
 
-  return [...pathsByColor.entries()]
-    .sort(([left], [right]) => left.localeCompare(right))
-    .map(([fill, segments]) => `  <path fill="${fill}" d="${segments.join(" ")}"/>`)
-    .join("\n");
+  return {
+    width,
+    height,
+    backgroundColor: rgbHex(backgroundColor),
+    paths,
+  };
 }
 
-async function vectorSvg({ source, width, height, background = "#ffffff", insetRatio = 0 }) {
-  if (!width || !height) {
-    throw new Error("Unable to read source logo dimensions");
-  }
-
-  const inset = Math.round(Math.min(width, height) * insetRatio);
-  const imageWidth = width - inset * 2;
-  const imageHeight = height - inset * 2;
-  const { width: sourceWidth, height: sourceHeight } = await sharp(source).metadata();
-  const paths = await vectorPathsFromPng(source);
-  const scaleX = imageWidth / sourceWidth;
-  const scaleY = imageHeight / sourceHeight;
+function composeSvg({
+  width,
+  height,
+  background,
+  paths,
+  viewWidth = width,
+  viewHeight = height,
+  innerScale = 1,
+  innerOffsetX = 0,
+  innerOffsetY = 0,
+}) {
   const transform =
-    inset === 0 && scaleX === 1 && scaleY === 1
+    innerScale === 1 && innerOffsetX === 0 && innerOffsetY === 0
       ? ""
-      : ` transform="translate(${inset} ${inset}) scale(${scaleX} ${scaleY})"`;
-
-  return `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" role="img" aria-labelledby="title desc">
+      : ` transform="translate(${innerOffsetX} ${innerOffsetY}) scale(${innerScale})"`;
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="${viewWidth}" height="${viewHeight}" viewBox="0 0 ${viewWidth} ${viewHeight}" role="img" aria-labelledby="title desc">
   <title id="title">SatyaVera logo</title>
   <desc id="desc">SatyaVera AI and justice emblem with a neural network, dharma wheel, and scales of justice.</desc>
-  <rect width="${width}" height="${height}" fill="${background}"/>
-  <g shape-rendering="crispEdges"${transform}>
-${paths}
+  <rect width="${viewWidth}" height="${viewHeight}" fill="${background}"/>
+  <g${transform}>
+${paths.map((path) => `    ${path}`).join("\n")}
   </g>
   <metadata>SatyaVera</metadata>
 </svg>
 `;
-}
-
-async function logoSvg({ background = "#ffffff", insetRatio = 0, size } = {}) {
-  const sourceLogo = readFileSync(target("public/logo.png"));
-  const source = size
-    ? await sharp(sourceLogo).resize(size, size, { fit: "fill" }).png().toBuffer()
-    : sourceLogo;
-  const { width, height } = await sharp(source).metadata();
-
-  return vectorSvg({ source, width, height, background, insetRatio });
 }
 
 async function pngFromSvg(svg, size) {
@@ -150,23 +225,53 @@ function icoFromPngs(images) {
   return Buffer.concat([header, ...images.map((image) => image.buffer)]);
 }
 
-const sourceLogoSvg = await logoSvg();
-const appIcon = await logoSvg({ background: "#fbfaf6", size: 512 });
-const maskableIcon = await logoSvg({ background: "#fbfaf6", insetRatio: 0.1, size: 512 });
+const sourceLogoBuffer = readFileSync(target("public/logo.png"));
+const vector = await vectorizeLogo({
+  source: sourceLogoBuffer,
+  paletteSize: 16,
+  turdSize: 10,
+  optTolerance: 0.2,
+});
 
-write("public/logo.svg", sourceLogoSvg);
-write("public/favicon.svg", appIcon);
-write("src/app/icon.svg", appIcon);
+const logoSvg = composeSvg({
+  width: vector.width,
+  height: vector.height,
+  background: vector.backgroundColor,
+  paths: vector.paths,
+});
+
+const iconSvg = composeSvg({
+  width: vector.width,
+  height: vector.height,
+  background: "#fbfaf6",
+  paths: vector.paths,
+});
+
+const maskableInset = Math.round(Math.min(vector.width, vector.height) * 0.1);
+const maskableScale = (Math.min(vector.width, vector.height) - maskableInset * 2) / Math.min(vector.width, vector.height);
+const maskableSvg = composeSvg({
+  width: vector.width,
+  height: vector.height,
+  background: "#fbfaf6",
+  paths: vector.paths,
+  innerScale: maskableScale,
+  innerOffsetX: maskableInset,
+  innerOffsetY: maskableInset,
+});
+
+write("public/logo.svg", logoSvg);
+write("public/favicon.svg", iconSvg);
+write("src/app/icon.svg", iconSvg);
 
 const pngOutputs = [
-  ["public/icons/favicon-16x16.png", 16, sourceLogoSvg],
-  ["public/icons/favicon-32x32.png", 32, sourceLogoSvg],
-  ["public/icons/apple-touch-icon.png", 180, appIcon],
-  ["public/icons/android-chrome-192x192.png", 192, appIcon],
-  ["public/icons/android-chrome-512x512.png", 512, appIcon],
-  ["public/icons/maskable-icon-192x192.png", 192, maskableIcon],
-  ["public/icons/maskable-icon-512x512.png", 512, maskableIcon],
-  ["src/app/apple-icon.png", 180, appIcon],
+  ["public/icons/favicon-16x16.png", 16, logoSvg],
+  ["public/icons/favicon-32x32.png", 32, logoSvg],
+  ["public/icons/apple-touch-icon.png", 180, iconSvg],
+  ["public/icons/android-chrome-192x192.png", 192, iconSvg],
+  ["public/icons/android-chrome-512x512.png", 512, iconSvg],
+  ["public/icons/maskable-icon-192x192.png", 192, maskableSvg],
+  ["public/icons/maskable-icon-512x512.png", 512, maskableSvg],
+  ["src/app/apple-icon.png", 180, iconSvg],
 ];
 
 const icoFrames = [];
@@ -179,7 +284,7 @@ for (const [relativePath, size, svg] of pngOutputs) {
 }
 
 for (const size of [48, 256]) {
-  icoFrames.push({ size, buffer: await pngFromSvg(sourceLogoSvg, size) });
+  icoFrames.push({ size, buffer: await pngFromSvg(logoSvg, size) });
 }
 
 write("src/app/favicon.ico", icoFromPngs(icoFrames));
