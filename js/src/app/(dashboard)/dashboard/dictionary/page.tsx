@@ -60,10 +60,10 @@ export default function DictionaryPage() {
       {/* Header */}
       <div className="mb-5">
         <h1 className="text-xl font-serif font-bold text-navy-900 mb-1">
-          Legal Dictionary
+          {t("dictionary.title")}
         </h1>
         <p className="text-sm text-ink-500">
-          Legal terms explained in plain language with examples
+          {t("dictionary.subtitle")}
         </p>
       </div>
 
@@ -76,7 +76,7 @@ export default function DictionaryPage() {
         />
         <input
           className="w-full border border-ink-200 bg-white rounded-lg py-3 pl-10 pr-4 text-sm font-sans outline-none focus:border-navy-500 transition-colors"
-          placeholder="Search for a legal term... e.g., habeas corpus, bail, FIR"
+          placeholder={t("dictionary.searchPlaceholder")}
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
         />

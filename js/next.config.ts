@@ -11,6 +11,21 @@ const isStaticExport = process.env.STATIC_EXPORT === "1";
 const basePath =
   process.env.BASE_PATH && process.env.BASE_PATH !== "" ? process.env.BASE_PATH : undefined;
 
+const configuredApiBase =
+  process.env.NEXT_PUBLIC_API_BASE_URL || process.env.NEXT_PUBLIC_API_BASE || "";
+
+function apiConnectSources(): string {
+  const sources = ["http://localhost:8787"];
+  if (configuredApiBase) {
+    try {
+      sources.push(new URL(configuredApiBase).origin);
+    } catch {
+      // Relative API bases are covered by 'self'.
+    }
+  }
+  return Array.from(new Set(sources)).join(" ");
+}
+
 const securityHeaders = [
   { key: "X-DNS-Prefetch-Control", value: "on" },
   { key: "Strict-Transport-Security", value: "max-age=63072000; includeSubDomains; preload" },
@@ -26,7 +41,7 @@ const securityHeaders = [
       "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
       "font-src 'self' https://fonts.gstatic.com",
       "img-src 'self' data: https://firebasestorage.googleapis.com https://*.googleusercontent.com",
-      "connect-src 'self' https://*.firebaseio.com https://*.googleapis.com https://identitytoolkit.googleapis.com https://securetoken.googleapis.com https://api.razorpay.com wss://*.firebaseio.com",
+      `connect-src 'self' ${apiConnectSources()} https://*.firebaseio.com https://*.googleapis.com https://identitytoolkit.googleapis.com https://securetoken.googleapis.com https://api.razorpay.com wss://*.firebaseio.com`,
       "frame-src https://checkout.razorpay.com https://*.firebaseapp.com",
       "frame-ancestors 'self'",
     ].join("; "),
@@ -35,6 +50,12 @@ const securityHeaders = [
 
 const nextConfig: NextConfig = {
   output: isStaticExport ? "export" : "standalone",
+  turbopack: {
+    resolveAlias: {
+      "node:fs": { browser: "./src/lib/i18n/empty-node-module.ts" },
+      "node:path": { browser: "./src/lib/i18n/empty-node-module.ts" },
+    },
+  },
   // `next export` does not run the Next.js image optimiser; keep images
   // unoptimised in that mode so they ship as plain files.
   images: isStaticExport
@@ -53,7 +74,6 @@ const nextConfig: NextConfig = {
   ...(isStaticExport
     ? {}
     : {
-        serverExternalPackages: ["firebase-admin"],
         async headers() {
           return [
             {
@@ -67,6 +87,25 @@ const nextConfig: NextConfig = {
   env: {
     NEXT_PUBLIC_STATIC_EXPORT: isStaticExport ? "1" : "0",
     NEXT_PUBLIC_BASE_PATH: basePath ?? "",
+    NEXT_PUBLIC_API_BASE: process.env.NEXT_PUBLIC_API_BASE ?? "",
+    NEXT_PUBLIC_API_BASE_URL: process.env.NEXT_PUBLIC_API_BASE_URL ?? "",
+  },
+  webpack: (config, { isServer }) => {
+    if (!isServer) {
+      config.resolve = config.resolve ?? {};
+      config.resolve.alias = {
+        ...(config.resolve.alias ?? {}),
+        "node:fs": false,
+        "node:path": false,
+      };
+      config.resolve.fallback = {
+        ...(config.resolve.fallback ?? {}),
+        fs: false,
+        path: false,
+      };
+    }
+
+    return config;
   },
 };
 

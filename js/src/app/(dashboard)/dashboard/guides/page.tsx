@@ -38,10 +38,10 @@ export default function GuidesPage() {
       {/* Header */}
       <div className="mb-5">
         <h1 className="text-xl font-serif font-bold text-navy-900 mb-1">
-          Know Your Rights
+          {t("guides.title")}
         </h1>
         <p className="text-sm text-ink-500">
-          Step-by-step guides to help you understand and exercise your legal rights
+          {t("guides.subtitle")}
         </p>
       </div>
 
@@ -95,7 +95,7 @@ export default function GuidesPage() {
       {/* Error state */}
       {error && !loading && (
         <Card className="p-6 text-center">
-          <p className="text-sm text-red-600 mb-2">Failed to load guides</p>
+          <p className="text-sm text-red-600 mb-2">{t("ask.error")}</p>
           <p className="text-xs text-ink-400">{error}</p>
         </Card>
       )}

@@ -41,10 +41,10 @@ export default function LawyersPage() {
       {/* Header */}
       <div className="mb-5">
         <h1 className="text-xl font-serif font-bold text-navy-900 mb-1">
-          Find a Lawyer
+          {t("dashboard.findLawyer")}
         </h1>
         <p className="text-sm text-ink-500">
-          Browse verified advocates near you. Book consultations directly.
+          {t("dashboard.findLawyerDesc")}
         </p>
       </div>
 

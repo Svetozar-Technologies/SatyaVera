@@ -53,7 +53,7 @@ export default function LegalAidPage() {
         <div className="flex-[1.2] flex flex-col gap-3">
           <Card className="p-3.5">
             <div className="flex gap-2">
-              <Field label="State" options={["Delhi", "Maharashtra", "Tamil Nadu"]} className="flex-1" />
+              <Field label={t("auth.state")} options={["Delhi", "Maharashtra", "Tamil Nadu"]} className="flex-1" />
               <Field label="District" options={["South East", "Central", "North"]} className="flex-1" />
               <Field label="Type" options={["All", "DLSA", "Legal Aid Clinic", "Lok Adalat", "Tele-Law"]} className="flex-1" />
             </div>

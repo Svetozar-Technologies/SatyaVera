@@ -28,12 +28,12 @@ export default function BareActsPage() {
   const [activeCategory, setActiveCategory] = useState("all");
   const [searchQuery, setSearchQuery] = useState("");
 
-  // Fetch laws via API route
+  // Fetch laws via the Rust API.
   const lawsUrl = "/api/laws" + (activeCategory !== "all" ? `?category=${activeCategory}` : "");
   const { data: lawsData, loading } = useApi<{ laws: LawWithMeta[] }>(lawsUrl);
   const laws = lawsData?.laws ?? [];
 
-  // Fetch sections via API route when a law is selected
+  // Fetch sections via the Rust API when a law is selected.
   const sectionsUrl = selectedLaw ? `/api/laws/${selectedLaw}/sections` : null;
   const { data: sectionsData, loading: sectionsLoading } = useApi<{ sections: SectionWithId[] }>(sectionsUrl);
   const sections = sectionsData?.sections ?? [];

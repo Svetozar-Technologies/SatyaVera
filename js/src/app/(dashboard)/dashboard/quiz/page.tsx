@@ -81,10 +81,10 @@ export default function QuizPage() {
       <div className="flex items-center justify-between mb-5">
         <div>
           <h1 className="text-xl font-serif font-bold text-navy-900 mb-1">
-            Rights Quiz
+            {t("dashboard.knowRights")}
           </h1>
           <p className="text-sm text-ink-500">
-            Test your knowledge of Indian legal rights and earn badges
+            {t("dashboard.knowRightsDesc")}
           </p>
         </div>
         <div className="flex items-center gap-3">

@@ -104,9 +104,7 @@ export default function DashboardPage() {
             🙏
           </span>
         </h1>
-        <p className="text-sm text-ink-600">
-          How can GandhiAI help you today?
-        </p>
+        <p className="text-sm text-ink-600">{t("dashboard.howCanHelp")}</p>
       </div>
 
       {/* Usage Bar */}
@@ -156,13 +154,13 @@ export default function DashboardPage() {
         <Card className="lg:col-span-3 p-5">
           <div className="flex items-center justify-between mb-4">
             <h3 className="font-semibold text-sm text-ink-900">
-              Recent Activity
+              {t("dashboard.recentActivity")}
             </h3>
             <Link
               href="/dashboard/ask"
               className="text-xs text-navy-700 font-semibold hover:underline"
             >
-              View all
+              {t("common.viewAll")}
             </Link>
           </div>
           <div className="flex flex-col gap-3">

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import { useI18n, SUPPORTED_LOCALES, type Locale } from "@/lib/i18n/context";
+import { useI18n, SUPPORTED_LOCALES } from "@/lib/i18n/context";
 import { Icon } from "./icons";
 
 export function LangToggle() {
@@ -48,11 +48,6 @@ export function LangToggle() {
               {lang === locale.code && <Icon name="check" size={14} className="ml-auto text-navy-700" />}
             </button>
           ))}
-          <div className="border-t border-ink-100 mt-1 pt-1 px-3 py-1.5">
-            <span className="text-[10px] text-ink-400 italic">
-              தமிழ் · मराठी · বাংলা · ಕನ್ನಡ (coming soon)
-            </span>
-          </div>
         </div>
       )}
     </div>
@@ -63,23 +58,19 @@ export function LangToggle() {
 export function LangPill() {
   const { lang, setLang } = useI18n();
   return (
-    <div className="inline-flex items-center p-1 bg-ink-50 rounded-full border border-ink-100 text-xs">
-      <button
-        onClick={() => setLang("en")}
-        className={`px-2.5 py-1 rounded-full font-semibold cursor-pointer transition-colors ${
-          lang === "en" ? "bg-navy-700 text-white" : "text-ink-500 hover:text-ink-700"
-        }`}
-      >
-        EN
-      </button>
-      <button
-        onClick={() => setLang("hi")}
-        className={`px-2.5 py-1 rounded-full font-semibold cursor-pointer transition-colors ${
-          lang === "hi" ? "bg-navy-700 text-white" : "text-ink-500 hover:text-ink-700"
-        }`}
-      >
-        हिं
-      </button>
+    <div className="inline-flex max-w-full flex-wrap items-center gap-0.5 rounded-full border border-ink-100 bg-ink-50 p-1 text-xs">
+      {SUPPORTED_LOCALES.map((locale) => (
+        <button
+          key={locale.code}
+          onClick={() => setLang(locale.code)}
+          className={`min-w-8 rounded-full px-2 py-1 font-semibold cursor-pointer transition-colors ${
+            lang === locale.code ? "bg-navy-700 text-white" : "text-ink-500 hover:text-ink-700"
+          }`}
+          aria-label={`Switch to ${locale.label}`}
+        >
+          {locale.shortLabel}
+        </button>
+      ))}
     </div>
   );
 }

@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import { mkdirSync, writeFileSync } from "node:fs";
+import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import sharp from "sharp";
@@ -16,91 +16,34 @@ function write(relativePath, contents) {
   writeFileSync(outputPath, contents);
 }
 
-function iconSvg({ background = "none", inset = 0 } = {}) {
-  const translate = inset;
-  const scale = (256 - inset * 2) / 256;
+function rasterSvg({ source, width, height, background = "none", insetRatio = 0 }) {
+  if (!width || !height) {
+    throw new Error("Unable to read source logo dimensions");
+  }
+
+  const inset = Math.round(Math.min(width, height) * insetRatio);
+  const imageWidth = width - inset * 2;
+  const imageHeight = height - inset * 2;
   const backgroundRect =
-    background === "none" ? "" : `\n  <rect width="256" height="256" rx="48" fill="${background}"/>`;
+    background === "none" ? "" : `\n  <rect width="${width}" height="${height}" fill="${background}"/>`;
 
-  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
+  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${width} ${height}" role="img" aria-labelledby="title desc">
   <title id="title">SatyaVera logo</title>
-  <desc id="desc">SatyaVera AI and justice emblem with a neural network, dharma wheel, and scales of justice.</desc>
-  <defs>
-    <linearGradient id="gold" x1="148" y1="38" x2="226" y2="214" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#f1c46d"/>
-      <stop offset="0.48" stop-color="#c9822e"/>
-      <stop offset="1" stop-color="#8a551d"/>
-    </linearGradient>
-    <linearGradient id="navy" x1="33" y1="48" x2="129" y2="220" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#0b4f86"/>
-      <stop offset="1" stop-color="#062844"/>
-    </linearGradient>
-    <radialGradient id="medallion" cx="47%" cy="38%" r="68%">
-      <stop offset="0" stop-color="#0e4c7b"/>
-      <stop offset="1" stop-color="#06233c"/>
-    </radialGradient>
-    <filter id="shadow" x="-12%" y="-12%" width="124%" height="124%">
-      <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#03192b" flood-opacity="0.25"/>
-    </filter>
-  </defs>${backgroundRect}
-  <g transform="translate(${translate} ${translate}) scale(${scale})">
-    <g fill="none" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M128 29A99 99 0 0 0 128 227" stroke="url(#navy)" stroke-width="11"/>
-      <path d="M128 29A99 99 0 0 1 128 227" stroke="url(#gold)" stroke-width="14"/>
-      <path d="M128 29v198" stroke="url(#gold)" stroke-width="12"/>
-      <path d="M128 35 204 72M128 128h95M128 221l76-37" stroke="url(#gold)" stroke-width="12"/>
-      <path d="M129 52 194 83M129 204l65-31" stroke="#f4cf7b" stroke-width="3" opacity="0.55"/>
-    </g>
-
-    <g fill="none" stroke="#073763" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M128 36C88 42 57 68 43 103 29 138 36 181 63 207"/>
-      <path d="M44 105 85 88 112 121 72 144 44 105Z"/>
-      <path d="M63 207 84 171 122 198"/>
-      <path d="M43 104 75 146 68 196"/>
-      <path d="M86 88 88 139 123 122 125 79"/>
-      <path d="M74 146 88 139 85 88"/>
-      <path d="M74 146 122 198 123 122"/>
-      <path d="M43 104 86 88 128 36"/>
-      <path d="M68 196 122 198"/>
-    </g>
-
-    <g fill="#073763" stroke="#fbfaf6" stroke-width="3">
-      <circle cx="43" cy="104" r="10"/>
-      <circle cx="86" cy="88" r="13"/>
-      <circle cx="125" cy="79" r="10"/>
-      <circle cx="74" cy="146" r="12"/>
-      <circle cx="88" cy="139" r="13"/>
-      <circle cx="123" cy="122" r="12"/>
-      <circle cx="68" cy="196" r="10"/>
-      <circle cx="122" cy="198" r="14"/>
-      <circle cx="84" cy="171" r="9"/>
-    </g>
-
-    <g filter="url(#shadow)">
-      <circle cx="128" cy="128" r="45" fill="url(#gold)"/>
-      <circle cx="128" cy="128" r="34" fill="url(#medallion)"/>
-      <g fill="none" stroke="#f5c96e" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M128 91v62" stroke-width="7"/>
-        <path d="M104 103c11 9 37 9 48 0" stroke-width="5"/>
-        <path d="M104 103 93 133h22l-11-30Z" stroke-width="4"/>
-        <path d="M152 103 141 133h22l-11-30Z" stroke-width="4"/>
-        <path d="M90 133h28M138 133h28" stroke-width="4"/>
-        <path d="M116 155h24M110 162h36" stroke-width="5"/>
-      </g>
-      <circle cx="128" cy="93" r="7" fill="#f5c96e"/>
-    </g>
-
-    <g fill="url(#gold)">
-      <circle cx="128" cy="29" r="8"/>
-      <circle cx="128" cy="227" r="8"/>
-      <circle cx="225" cy="128" r="9"/>
-      <circle cx="204" cy="72" r="8"/>
-      <circle cx="204" cy="184" r="8"/>
-    </g>
-  </g>
+  <desc id="desc">SatyaVera AI and justice emblem with a neural network, dharma wheel, and scales of justice.</desc>${backgroundRect}
+  <image x="${inset}" y="${inset}" width="${imageWidth}" height="${imageHeight}" href="data:image/png;base64,${source.toString("base64")}" preserveAspectRatio="xMidYMid meet"/>
   <metadata>SatyaVera</metadata>
 </svg>
 `;
+}
+
+async function logoSvg({ background = "none", insetRatio = 0, size } = {}) {
+  const sourceLogo = readFileSync(target("public/logo.png"));
+  const source = size
+    ? await sharp(sourceLogo).resize(size, size, { fit: "fill" }).png().toBuffer()
+    : sourceLogo;
+  const { width, height } = await sharp(source).metadata();
+
+  return rasterSvg({ source, width, height, background, insetRatio });
 }
 
 async function pngFromSvg(svg, size) {
@@ -132,9 +75,9 @@ function icoFromPngs(images) {
   return Buffer.concat([header, ...images.map((image) => image.buffer)]);
 }
 
-const transparentLogo = iconSvg();
-const appIcon = iconSvg({ background: "#fbfaf6" });
-const maskableIcon = iconSvg({ background: "#fbfaf6", inset: 26 });
+const transparentLogo = await logoSvg();
+const appIcon = await logoSvg({ background: "#fbfaf6", size: 512 });
+const maskableIcon = await logoSvg({ background: "#fbfaf6", insetRatio: 0.1, size: 512 });
 
 write("public/logo.svg", transparentLogo);
 write("public/favicon.svg", appIcon);

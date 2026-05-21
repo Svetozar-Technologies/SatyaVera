@@ -2,6 +2,7 @@
 import { readFileSync, statSync } from "node:fs";
 import { join } from "node:path";
 import { fileURLToPath } from "node:url";
+import sharp from "sharp";
 
 const root = fileURLToPath(new URL("..", import.meta.url));
 
@@ -76,8 +77,45 @@ function verifyIco(relativePath, sizes) {
 function verifySvg(relativePath) {
   const source = read(relativePath).toString("utf8");
   expect(source.includes("<svg"), `${relativePath} is not an SVG`);
-  expect(source.includes("viewBox=\"0 0 256 256\""), `${relativePath} has the wrong viewBox`);
+  expect(source.includes("viewBox="), `${relativePath} is missing a viewBox`);
   expect(source.includes("SatyaVera"), `${relativePath} is missing accessible brand text`);
+}
+
+async function verifyLogoVisualMatch() {
+  const sourcePath = pathFor("public/logo.png");
+  const candidateSvg = read("public/logo.svg");
+  const { width, height } = await sharp(sourcePath).metadata();
+  expect(width && height, "public/logo.png dimensions could not be read");
+
+  const source = await sharp(sourcePath)
+    .resize(width, height, { fit: "fill" })
+    .removeAlpha()
+    .raw()
+    .toBuffer();
+  const candidate = await sharp(candidateSvg)
+    .resize(width, height, { fit: "fill" })
+    .removeAlpha()
+    .raw()
+    .toBuffer();
+
+  expect(candidate.length === source.length, "rendered logo.svg dimensions do not match logo.png");
+
+  let differentPixels = 0;
+  const totalPixels = source.length / 3;
+  for (let index = 0; index < source.length; index += 3) {
+    const redDelta = Math.abs(source[index] - candidate[index]);
+    const greenDelta = Math.abs(source[index + 1] - candidate[index + 1]);
+    const blueDelta = Math.abs(source[index + 2] - candidate[index + 2]);
+    if (redDelta + greenDelta + blueDelta > 30) {
+      differentPixels += 1;
+    }
+  }
+
+  const differentPercent = (differentPixels / totalPixels) * 100;
+  expect(
+    differentPercent < 1,
+    `public/logo.svg differs from public/logo.png by ${differentPercent.toFixed(2)}% of pixels`,
+  );
 }
 
 function verifyManifest() {
@@ -95,13 +133,21 @@ function verifyManifest() {
   );
 }
 
-verifySvg("public/logo.svg");
-verifySvg("public/favicon.svg");
-verifySvg("src/app/icon.svg");
-for (const [relativePath, width, height] of expectedPngs) {
-  verifyPng(relativePath, width, height);
-}
-verifyIco("src/app/favicon.ico", [16, 32, 48, 256]);
-verifyManifest();
+async function main() {
+  verifySvg("public/logo.svg");
+  verifySvg("public/favicon.svg");
+  verifySvg("src/app/icon.svg");
+  await verifyLogoVisualMatch();
+  for (const [relativePath, width, height] of expectedPngs) {
+    verifyPng(relativePath, width, height);
+  }
+  verifyIco("src/app/favicon.ico", [16, 32, 48, 256]);
+  verifyManifest();
 
-console.log("Brand assets verified.");
+  console.log("Brand assets verified.");
+}
+
+main().catch((error) => {
+  console.error(error);
+  process.exit(1);
+});

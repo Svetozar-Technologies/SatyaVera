@@ -78,10 +78,10 @@ export default function DrafterPage() {
       {/* Header */}
       <div className="mb-5">
         <h1 className="text-xl font-serif font-bold text-navy-900 mb-1">
-          Document Drafter
+          {t("drafter.title")}
         </h1>
         <p className="text-sm text-ink-500">
-          AI-powered drafting for FIRs, RTIs, complaints, and legal notices
+          {t("drafter.subtitle")}
         </p>
       </div>
 

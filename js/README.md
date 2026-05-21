@@ -11,7 +11,7 @@ Every JavaScript-related artefact lives under this directory:
 ```
 js/
   README.md              # this file
-  package.json           # npm scripts: dev, build, build:pages, lint, ingest-*, seed-*
+  package.json           # npm scripts: dev, build, build:pages, lint, check:api-boundary, ingest-*, seed-*
   package-lock.json
   next.config.ts         # STATIC_EXPORT / BASE_PATH gates for Firebase vs. Pages
   next-env.d.ts
@@ -42,7 +42,7 @@ cd js
 npm ci
 
 # Firebase App Hosting target (default; output: standalone)
-npm run dev
+NEXT_PUBLIC_API_BASE=http://127.0.0.1:8787 npm run dev
 npm run build
 
 # GitHub Pages target (output: export)
@@ -51,10 +51,17 @@ BASE_PATH="/SatyaVera" NEXT_PUBLIC_BASE_PATH="/SatyaVera" \
 ```
 
 `build:pages` runs `node scripts/build-static-export.mjs`, which temporarily
-relocates server-only routes (`src/app/api`, `src/app/(dashboard)`,
+relocates server-rendered page trees (`src/app/(dashboard)`,
 `src/app/(public)`, `src/app/sitemap.ts`) into `.static-export-stash/`,
 invokes `next build` with `STATIC_EXPORT=1`, and unconditionally restores
 them in a `finally` block so the working tree is never left mid-stash.
+
+Runtime API calls belong to the Rust server in `../rust/api`. Browser
+code should call `apiUrl("/api/...")` from `src/lib/api/client.ts`
+instead of hard-coding an origin. `NEXT_PUBLIC_API_BASE` or
+`NEXT_PUBLIC_API_BASE_URL` points the bundle at the deployed Rust API.
+`npm run check:api-boundary` fails if a Next.js `src/app/api/**/route.*`
+file is reintroduced.
 
 ## Continuous integration
 
@@ -62,7 +69,7 @@ them in a `finally` block so the working tree is never left mid-stash.
 every job for this folder. Notable jobs:
 
 - `lint` — ESLint (hard gate), Prettier + jscpd (advisory), secretlint
-  (hard gate).
+  (hard gate), plus the Rust-owned API boundary guard.
 - `build (firebase)` — `npm run build`, exercising the App Hosting target.
 - `build (pages)` — `npm run build:pages` with `BASE_PATH=/SatyaVera`.
 - `pages-deploy` — runs only on push to `main`, uploads `js/out/` as a
@@ -78,5 +85,5 @@ at `link-foundation/*-ai-driven-development-pipeline-template`.
 **Operational note**: because the Next.js project root moved into `./js/`,
 the App Hosting backend's *Root directory* setting (Firebase console →
 App Hosting → backend → Settings) must be set to `js`. The build target
-(`output: standalone`) and `apphosting.yaml` contents are unchanged from
-the previous root-level layout.
+(`output: standalone`) serves the frontend only; `/api/*` is served by
+the Rust API and configured through `NEXT_PUBLIC_API_BASE`.

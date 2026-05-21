@@ -67,12 +67,10 @@ export default function LoginPage() {
           </Link>
 
           <h1 className="font-serif text-4xl font-semibold leading-[1.15] mb-4">
-            Justice begins
-            <br />
-            with knowing.
+            {t("auth.justiceBegins")}
           </h1>
           <p className="text-white/70 text-base leading-relaxed max-w-sm mb-10">
-            Join 47,000+ citizens and advocates using AI-powered legal awareness across India.
+            {t("auth.joinUsers")}
           </p>
 
           {/* Trust Badges */}
@@ -81,19 +79,19 @@ export default function LoginPage() {
               <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center">
                 <Icon name="shield" size={16} className="text-saffron-400" />
               </div>
-              <span className="text-sm text-white/80">ISO 27001 Certified Security</span>
+              <span className="text-sm text-white/80">{t("auth.isoCertified")}</span>
             </div>
             <div className="flex items-center gap-3">
               <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center">
                 <Icon name="flag" size={16} className="text-saffron-400" />
               </div>
-              <span className="text-sm text-white/80">Data stored exclusively in India</span>
+              <span className="text-sm text-white/80">{t("auth.dataHosted")}</span>
             </div>
             <div className="flex items-center gap-3">
               <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center">
                 <Icon name="info" size={16} className="text-saffron-400" />
               </div>
-              <span className="text-sm text-white/80">No legal advice &mdash; information only</span>
+              <span className="text-sm text-white/80">{t("auth.noLegalAdvice")}</span>
             </div>
           </div>
         </div>
@@ -101,15 +99,14 @@ export default function LoginPage() {
         {/* Testimonial */}
         <div className="border-t border-white/10 pt-6">
           <p className="text-white/60 text-sm italic leading-relaxed mb-3">
-            &ldquo;SatyaVera helped me understand my tenant rights when my landlord refused
-            to return my deposit. I knew exactly what to say at the consumer forum.&rdquo;
+            {t("auth.testimonial")}
           </p>
           <div className="flex items-center gap-2">
             <div className="w-8 h-8 rounded-full bg-saffron-600 flex items-center justify-center text-xs font-bold">
               PM
             </div>
             <div>
-              <div className="text-sm font-semibold">Priya M.</div>
+              <div className="text-sm font-semibold">{t("auth.testimonialAuthor")}</div>
               <div className="text-xs text-white/50">Pune, Maharashtra</div>
             </div>
           </div>
@@ -120,7 +117,7 @@ export default function LoginPage() {
       <div className="flex-[1.1] bg-white px-8 lg:px-16 py-12 lg:py-16 flex items-center justify-center">
         <div className="max-w-md w-full">
           <h2 className="font-serif text-[28px] font-semibold text-navy-900 mb-1">
-            Welcome back
+            {t("auth.loginTitle")}
           </h2>
           <p className="text-sm text-ink-500 mb-10">
             Sign in to your SatyaVera account to continue.
@@ -128,7 +125,7 @@ export default function LoginPage() {
 
           <form className="flex flex-col gap-5" onSubmit={handleSubmit}>
             <Field
-              label="Email or Mobile"
+              label={t("auth.email")}
               placeholder="you@example.com or +91 98765 43210"
               type="text"
               value={email}
@@ -137,7 +134,7 @@ export default function LoginPage() {
 
             <div className="flex flex-col gap-1">
               <Field
-                label="Password"
+                label={t("auth.password")}
                 placeholder="Enter your password"
                 type="password"
                 value={password}
@@ -164,7 +161,7 @@ export default function LoginPage() {
               disabled={submitting}
             >
               <Icon name="lock" size={16} />
-              {submitting ? "Signing in..." : "Login"}
+              {submitting ? t("common.loading") : t("auth.loginBtn")}
             </Button>
 
             <div className="flex items-center gap-3 my-1">
@@ -187,13 +184,13 @@ export default function LoginPage() {
                 <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" />
                 <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" />
               </svg>
-              Continue with Google
+              {t("auth.continueGoogle")}
             </Button>
 
             <p className="text-sm text-ink-500 text-center mt-6">
-              Don&apos;t have an account?{" "}
+              {t("auth.noAccount")}{" "}
               <Link href="/signup" className="text-navy-700 font-semibold hover:underline">
-                Sign Up
+                {t("common.signUp")}
               </Link>
             </p>
           </form>

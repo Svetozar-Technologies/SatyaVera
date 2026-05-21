@@ -45,15 +45,15 @@ export default function TemplatesPage() {
       <div className="flex items-start justify-between mb-5">
         <div>
           <h1 className="text-xl font-serif font-bold text-navy-900 mb-1">
-            Template Library
+            {t("templates.title")}
           </h1>
           <p className="text-sm text-ink-500">
-            Download ready-to-use legal document templates. Free and premium formats available.
+            {t("templates.subtitle")}
           </p>
         </div>
         <Chip variant="saffron" className="text-[11px]">
           <Icon name="lock" size={11} />
-          {templates.filter((t) => t.premium).length} Premium Templates
+          {templates.filter((tpl) => tpl.premium).length} {t("common.premium")} {t("templates.title")}
         </Chip>
       </div>
 
@@ -105,7 +105,7 @@ export default function TemplatesPage() {
       {error && (
         <Card className="p-6 text-center">
           <Icon name="info" size={24} className="text-red-500 mx-auto mb-2" />
-          <p className="text-sm text-ink-600 mb-3">Failed to load templates: {error}</p>
+          <p className="text-sm text-ink-600 mb-3">{t("ask.error")} {error}</p>
           <Button variant="ghost" size="sm" onClick={() => window.location.reload()}>
             Try Again
           </Button>
@@ -134,11 +134,11 @@ export default function TemplatesPage() {
                   {tpl.premium ? (
                     <Chip variant="saffron" className="text-[9px]">
                       <Icon name="lock" size={9} />
-                      PREMIUM
+                      {t("common.premium")}
                     </Chip>
                   ) : (
                     <Chip variant="green" className="text-[9px]">
-                      FREE
+                      {t("common.free")}
                     </Chip>
                   )}
                 </div>
@@ -181,12 +181,12 @@ export default function TemplatesPage() {
                   {tpl.premium ? (
                     <>
                       <Icon name="lock" size={12} />
-                      Unlock with Pro
+                      {t("common.upgrade")}
                     </>
                   ) : (
                     <>
                       <Icon name="download" size={12} />
-                      Download Free
+                      {t("drafter.download")}
                     </>
                   )}
                 </Button>

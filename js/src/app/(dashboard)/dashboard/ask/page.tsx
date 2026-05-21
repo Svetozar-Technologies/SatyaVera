@@ -4,6 +4,7 @@ import { useI18n } from "@/lib/i18n/context";
 import { useAuth } from "@/contexts/auth-context";
 import { useConversations, useConversation } from "@/hooks/use-conversations";
 import { useSubscription } from "@/hooks/use-subscription";
+import { apiUrl } from "@/lib/api/client";
 import { DisclaimerBanner } from "@/components/layout/disclaimer-banner";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -100,7 +101,7 @@ export default function AskPage() {
   const transport = useMemo(
     () =>
       new TextStreamChatTransport({
-        api: "/api/chat",
+        api: apiUrl("/api/chat"),
         headers: async (): Promise<Record<string, string>> => {
           const token = await getToken();
           return token ? { Authorization: `Bearer ${token}` } : {};
@@ -119,13 +120,13 @@ export default function AskPage() {
   } = useChat({
     transport,
     onFinish: async ({ message }) => {
-      // Persist assistant message to Firestore
+      // Persist assistant message through the Rust API.
       if (activeConversationId) {
         const token = await getToken();
         const text = getMessageText(message);
         if (text) {
           await fetch(
-            `/api/conversations/${activeConversationId}/messages`,
+            apiUrl(`/api/conversations/${activeConversationId}/messages`),
             {
               method: "POST",
               headers: {
@@ -221,10 +222,10 @@ export default function AskPage() {
       }
     }
 
-    // Persist user message to Firestore
+    // Persist user message through the Rust API.
     const token = await getToken();
     const isFirstMessage = messages.length === 0;
-    await fetch(`/api/conversations/${convId}/messages`, {
+    await fetch(apiUrl(`/api/conversations/${convId}/messages`), {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

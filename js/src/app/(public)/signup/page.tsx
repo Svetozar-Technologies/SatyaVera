@@ -134,12 +134,10 @@ export default function SignUpPage() {
           </Link>
 
           <h1 className="font-serif text-4xl font-semibold leading-[1.15] mb-4">
-            Justice begins
-            <br />
-            with knowing.
+            {t("auth.justiceBegins")}
           </h1>
           <p className="text-white/70 text-base leading-relaxed max-w-sm mb-10">
-            Join 47,000+ citizens and advocates using AI-powered legal awareness across India.
+            {t("auth.joinUsers")}
           </p>
 
           {/* Trust Badges */}
@@ -148,19 +146,19 @@ export default function SignUpPage() {
               <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center">
                 <Icon name="shield" size={16} className="text-saffron-400" />
               </div>
-              <span className="text-sm text-white/80">ISO 27001 Certified Security</span>
+              <span className="text-sm text-white/80">{t("auth.isoCertified")}</span>
             </div>
             <div className="flex items-center gap-3">
               <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center">
                 <Icon name="flag" size={16} className="text-saffron-400" />
               </div>
-              <span className="text-sm text-white/80">Data stored exclusively in India</span>
+              <span className="text-sm text-white/80">{t("auth.dataHosted")}</span>
             </div>
             <div className="flex items-center gap-3">
               <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center">
                 <Icon name="info" size={16} className="text-saffron-400" />
               </div>
-              <span className="text-sm text-white/80">No legal advice &mdash; information only</span>
+              <span className="text-sm text-white/80">{t("auth.noLegalAdvice")}</span>
             </div>
           </div>
         </div>
@@ -168,15 +166,14 @@ export default function SignUpPage() {
         {/* Testimonial */}
         <div className="border-t border-white/10 pt-6">
           <p className="text-white/60 text-sm italic leading-relaxed mb-3">
-            &ldquo;SatyaVera helped me understand my tenant rights when my landlord refused
-            to return my deposit. I knew exactly what to say at the consumer forum.&rdquo;
+            {t("auth.testimonial")}
           </p>
           <div className="flex items-center gap-2">
             <div className="w-8 h-8 rounded-full bg-saffron-600 flex items-center justify-center text-xs font-bold">
               PM
             </div>
             <div>
-              <div className="text-sm font-semibold">Priya M.</div>
+              <div className="text-sm font-semibold">{t("auth.testimonialAuthor")}</div>
               <div className="text-xs text-white/50">Pune, Maharashtra</div>
             </div>
           </div>
@@ -187,12 +184,12 @@ export default function SignUpPage() {
       <div className="flex-[1.1] bg-white px-8 lg:px-16 py-12 lg:py-16 overflow-y-auto">
         <div className="max-w-lg mx-auto">
           <h2 className="font-serif text-[28px] font-semibold text-navy-900 mb-1">
-            Create your account
+            {t("auth.createAccount")}
           </h2>
           <p className="text-sm text-ink-500 mb-8">
-            Already have one?{" "}
+            {t("auth.alreadyHaveAccount")}{" "}
             <Link href="/login" className="text-navy-700 font-semibold hover:underline">
-              Login
+              {t("common.login")}
             </Link>
           </p>
 
@@ -206,7 +203,7 @@ export default function SignUpPage() {
                   : "text-ink-500 hover:text-ink-700"
               }`}
             >
-              I&apos;m a Citizen
+              {t("auth.imCitizen")}
             </button>
             <button
               onClick={() => { setTab("advocate"); clearError(); }}
@@ -216,7 +213,7 @@ export default function SignUpPage() {
                   : "text-ink-500 hover:text-ink-700"
               }`}
             >
-              I&apos;m an Advocate
+              {t("auth.imAdvocate")}
             </button>
           </div>
 
@@ -230,14 +227,14 @@ export default function SignUpPage() {
           {tab === "citizen" && (
             <form className="flex flex-col gap-5" onSubmit={handleCitizenSubmit}>
               <Field
-                label="Full Name"
+                label={t("auth.fullName")}
                 placeholder="Enter your full name"
                 value={citizenName}
                 onChange={(e) => setCitizenName(e.target.value)}
               />
 
               <Field
-                label="Email"
+                label={t("auth.email")}
                 placeholder="you@example.com"
                 type="email"
                 value={citizenEmail}
@@ -245,7 +242,7 @@ export default function SignUpPage() {
               />
 
               <Field
-                label="Password"
+                label={t("auth.password")}
                 placeholder="At least 6 characters"
                 type="password"
                 value={citizenPassword}
@@ -254,7 +251,7 @@ export default function SignUpPage() {
 
               <div className="flex gap-3">
                 <Field
-                  label="Mobile Number"
+                  label={t("auth.mobile")}
                   placeholder="+91 98765 43210"
                   prefix="+91"
                   className="flex-1"
@@ -270,21 +267,21 @@ export default function SignUpPage() {
 
               <div className="flex gap-3">
                 <Field
-                  label="Language"
+                  label={t("settings.language")}
                   options={["English", "Hindi", "Marathi", "Tamil", "Bengali", "Kannada", "Telugu"]}
                   className="flex-1"
                   value={citizenLanguage}
                   onChange={(e) => setCitizenLanguage(e.target.value)}
                 />
                 <Field
-                  label="State"
+                  label={t("auth.state")}
                   options={["Select State", "Maharashtra", "Delhi", "Karnataka", "Tamil Nadu", "Uttar Pradesh", "West Bengal"]}
                   className="flex-1"
                   value={citizenState}
                   onChange={(e) => setCitizenState(e.target.value)}
                 />
                 <Field
-                  label="City"
+                  label={t("auth.city")}
                   options={["Select City", "Mumbai", "Delhi", "Bangalore", "Chennai", "Kolkata", "Pune"]}
                   className="flex-1"
                   value={citizenCity}
@@ -299,7 +296,7 @@ export default function SignUpPage() {
                 type="submit"
                 disabled={submitting}
               >
-                {submitting ? "Creating account..." : "Create Citizen Account"}
+                {submitting ? t("common.loading") : t("auth.createCitizenAccount")}
               </Button>
 
               <div className="flex items-center gap-3 my-1">
@@ -322,14 +319,11 @@ export default function SignUpPage() {
                   <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" />
                   <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" />
                 </svg>
-                Continue with Google
+                {t("auth.continueGoogle")}
               </Button>
 
               <p className="text-[11px] text-ink-400 text-center leading-relaxed mt-1">
-                By creating an account, you agree to our{" "}
-                <Link href="#" className="text-navy-700 underline">Terms of Service</Link> and{" "}
-                <Link href="#" className="text-navy-700 underline">Privacy Policy</Link>.
-                SatyaVera provides legal information, not legal advice.
+                {t("auth.termsAgree")} {t("common.disclaimer")}
               </p>
             </form>
           )}
@@ -339,14 +333,14 @@ export default function SignUpPage() {
             <form className="flex flex-col gap-5" onSubmit={handleAdvocateSubmit}>
               <div className="flex gap-3">
                 <Field
-                  label="Full Name"
+                  label={t("auth.fullName")}
                   placeholder="Adv. Full Name"
                   className="flex-1"
                   value={advName}
                   onChange={(e) => setAdvName(e.target.value)}
                 />
                 <Field
-                  label="Email"
+                  label={t("auth.email")}
                   placeholder="advocate@example.com"
                   type="email"
                   className="flex-1"
@@ -356,7 +350,7 @@ export default function SignUpPage() {
               </div>
 
               <Field
-                label="Password"
+                label={t("auth.password")}
                 placeholder="At least 6 characters"
                 type="password"
                 value={advPassword}
@@ -365,7 +359,7 @@ export default function SignUpPage() {
 
               <div className="flex gap-3">
                 <Field
-                  label="Mobile Number"
+                  label={t("auth.mobile")}
                   placeholder="+91 98765 43210"
                   prefix="+91"
                   className="flex-1"
@@ -381,14 +375,14 @@ export default function SignUpPage() {
 
               <div className="flex gap-3">
                 <Field
-                  label="Bar Council Enrollment No."
+                  label={t("auth.barCouncil")}
                   placeholder="MH/1234/2020"
                   className="flex-1"
                   value={advBarCouncil}
                   onChange={(e) => setAdvBarCouncil(e.target.value)}
                 />
                 <Field
-                  label="State Bar Council"
+                  label={t("auth.stateBarCouncil")}
                   options={["Select Bar Council", "Bar Council of Maharashtra & Goa", "Bar Council of Delhi", "Bar Council of Karnataka", "Bar Council of Tamil Nadu", "Bar Council of UP"]}
                   className="flex-1"
                   value={advStateBarCouncil}
@@ -397,7 +391,7 @@ export default function SignUpPage() {
               </div>
 
               <Field
-                label="Years of Practice"
+                label={t("auth.yearsOfPractice")}
                 options={["Select Years", "0-2 years", "2-5 years", "5-10 years", "10-20 years", "20+ years"]}
                 value={advYears}
                 onChange={(e) => setAdvYears(e.target.value)}
@@ -405,7 +399,7 @@ export default function SignUpPage() {
 
               {/* Specializations */}
               <div className="flex flex-col gap-2">
-                <label className="text-xs font-semibold text-ink-700">Specializations</label>
+                <label className="text-xs font-semibold text-ink-700">{t("auth.specializations")}</label>
                 <div className="flex flex-wrap gap-2">
                   {specializations.map((spec) => (
                     <Chip
@@ -425,14 +419,14 @@ export default function SignUpPage() {
 
               <div className="flex gap-3">
                 <Field
-                  label="City"
+                  label={t("auth.city")}
                   options={["Select City", "Mumbai", "Delhi", "Bangalore", "Chennai", "Kolkata", "Pune", "Hyderabad"]}
                   className="flex-1"
                   value={advCity}
                   onChange={(e) => setAdvCity(e.target.value)}
                 />
                 <Field
-                  label="Court of Practice"
+                  label={t("auth.courtOfPractice")}
                   options={["Select Court", "Supreme Court", "High Court", "District Court", "Sessions Court", "Tribunal", "Consumer Forum"]}
                   className="flex-1"
                   value={advCourt}
@@ -443,19 +437,19 @@ export default function SignUpPage() {
               {/* Upload Areas */}
               <div className="flex gap-3">
                 <div className="flex-1 flex flex-col gap-1">
-                  <label className="text-xs font-semibold text-ink-700">Bar Council ID Card</label>
+                  <label className="text-xs font-semibold text-ink-700">{t("auth.barCouncilUpload")}</label>
                   <div className="border-2 border-dashed border-ink-200 rounded-lg p-6 flex flex-col items-center gap-2 hover:border-navy-300 transition-colors cursor-pointer">
                     <Icon name="upload" size={24} className="text-ink-400" />
                     <span className="text-xs text-ink-500">Click to upload or drag & drop</span>
-                    <span className="text-[10px] text-ink-400">PDF, JPG, PNG (max 5MB)</span>
+                    <span className="text-[10px] text-ink-400">{t("auth.uploadHint")}</span>
                   </div>
                 </div>
                 <div className="flex-1 flex flex-col gap-1">
-                  <label className="text-xs font-semibold text-ink-700">Certificate of Practice</label>
+                  <label className="text-xs font-semibold text-ink-700">{t("auth.govIdUpload")}</label>
                   <div className="border-2 border-dashed border-ink-200 rounded-lg p-6 flex flex-col items-center gap-2 hover:border-navy-300 transition-colors cursor-pointer">
                     <Icon name="upload" size={24} className="text-ink-400" />
                     <span className="text-xs text-ink-500">Click to upload or drag & drop</span>
-                    <span className="text-[10px] text-ink-400">PDF, JPG, PNG (max 5MB)</span>
+                    <span className="text-[10px] text-ink-400">{t("auth.uploadHint")}</span>
                   </div>
                 </div>
               </div>
@@ -464,8 +458,7 @@ export default function SignUpPage() {
               <div className="bg-saffron-50 border border-saffron-100 rounded-lg px-4 py-3 flex items-start gap-3">
                 <Icon name="info" size={16} className="text-saffron-600 mt-0.5 flex-shrink-0" />
                 <p className="text-xs text-saffron-700 leading-relaxed">
-                  Your Bar Council credentials will be verified within 24&ndash;48 hours.
-                  You&apos;ll receive full access to Lawyer Pro features once verification is complete.
+                  {t("auth.verificationNote")}
                 </p>
               </div>
 
@@ -476,13 +469,11 @@ export default function SignUpPage() {
                 type="submit"
                 disabled={submitting}
               >
-                {submitting ? "Submitting..." : "Submit for Verification"}
+                {submitting ? t("common.loading") : t("auth.submitVerification")}
               </Button>
 
               <p className="text-[11px] text-ink-400 text-center leading-relaxed mt-1">
-                By creating an account, you agree to our{" "}
-                <Link href="#" className="text-navy-700 underline">Terms of Service</Link> and{" "}
-                <Link href="#" className="text-navy-700 underline">Privacy Policy</Link>.
+                {t("auth.termsAgree")}
               </p>
             </form>
           )}
