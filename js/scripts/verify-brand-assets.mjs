@@ -79,6 +79,10 @@ function verifySvg(relativePath) {
   expect(source.includes("<svg"), `${relativePath} is not an SVG`);
   expect(source.includes("viewBox="), `${relativePath} is missing a viewBox`);
   expect(source.includes("SatyaVera"), `${relativePath} is missing accessible brand text`);
+  expect(!/<image\b/i.test(source), `${relativePath} embeds a raster image`);
+  expect(!/data:image/i.test(source), `${relativePath} embeds a data URI image`);
+  expect(!/base64/i.test(source), `${relativePath} contains base64 data`);
+  expect(/<path\b/i.test(source), `${relativePath} does not contain vector paths`);
 }
 
 async function verifyLogoVisualMatch() {
