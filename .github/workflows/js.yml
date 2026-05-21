@@ -160,6 +160,9 @@ jobs:
       - name: Run ESLint
         run: npm run lint
 
+      - name: Enforce Rust-owned API boundary
+        run: npm run check:api-boundary
+
       # Prettier and jscpd are advisory while we land the CI baseline; the
       # legacy tree predates this PR and has not been formatted yet. Each
       # follow-up slice will format the files it touches, after which these

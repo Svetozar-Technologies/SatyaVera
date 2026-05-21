@@ -12,6 +12,7 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Chip } from "@/components/ui/chip";
 import { Icon } from "@/components/ui/icons";
+import { apiUrl } from "@/lib/api/client";
 
 declare global {
   interface Window {
@@ -167,7 +168,7 @@ export default function PricingPage() {
         return;
       }
 
-      const res = await fetch("/api/payments/create-order", {
+      const res = await fetch(apiUrl("/api/payments/create-order"), {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -196,7 +197,7 @@ export default function PricingPage() {
         order_id: orderId,
         handler: async (response: RazorpayResponse) => {
           try {
-            const verifyRes = await fetch("/api/payments/verify", {
+            const verifyRes = await fetch(apiUrl("/api/payments/verify"), {
               method: "POST",
               headers: {
                 "Content-Type": "application/json",

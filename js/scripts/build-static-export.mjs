@@ -1,11 +1,10 @@
 #!/usr/bin/env node
 // Build the Next.js app as a static export suitable for GitHub Pages.
 //
-// The full Next.js tree contains routes that require a server (Route
-// Handlers under `js/src/app/api`, dashboard/login screens that hit
-// firebase-admin at request time). `output: 'export'` rejects those at
+// The full Next.js tree contains routes that require a browser-authenticated
+// dashboard or public signup flow. `output: 'export'` rejects those at
 // build time. For the GitHub Pages variant we only need the `/app` SPA
-// shell (issue #3 R2), so this script temporarily relocates the
+// shell (issue #3 R2), so this script temporarily relocates those
 // server-only routes out of `js/src/app/`, runs `next build`, and
 // restores them — even if the build fails.
 
@@ -20,8 +19,8 @@ const stashDir = join(jsRoot, ".static-export-stash");
 
 // Anything under src/app/ that we do NOT want in the static export.
 // Folder names match exactly what's on disk; route groups keep their
-// parentheses and `api` is the App Router's Route Handlers directory.
-const stashTargets = ["api", "(dashboard)", "(public)", "sitemap.ts"];
+// parentheses.
+const stashTargets = ["(dashboard)", "(public)", "sitemap.ts"];
 
 function stash() {
   if (existsSync(stashDir)) {

@@ -5,10 +5,9 @@
 > **what** ships today, organised by audience: end-users, advocates,
 > administrators, and developers.
 
-Every feature here is in the codebase on the `issue-3-c86d84590f77`
-branch as of this commit. Items marked **Planned** are tracked but not
-yet implemented; they are listed here so reviewers can see the seam
-where a future PR will plug in.
+Every feature here is in the current codebase. Items marked
+**Planned** are tracked but not yet implemented; they are listed here so
+reviewers can see where a future PR will plug in.
 
 ## 1. End-user features (citizens)
 
@@ -16,17 +15,16 @@ where a future PR will plug in.
 
 Conversational legal Q&A in English or Hindi.
 
-- Streaming responses via the Vercel AI SDK (`text/event-stream`).
-- Provider-swappable at deploy time: Anthropic Claude (default),
-  OpenAI GPT-4o, or Google Gemini 2.0 Flash. The active provider is
-  selected by `AI_PROVIDER` and shares one `LEGAL_SYSTEM_PROMPT` so
-  behaviour is consistent across models.
+- Streaming responses from the Rust `/api/chat` endpoint, consumed by
+  the Vercel AI SDK client transport.
+- The Rust API shares one `LEGAL_SYSTEM_PROMPT` and currently provides a
+  deterministic legal-information fallback. Model-backed providers are a
+  planned backend extension.
 - Cites specific sections of Indian Central Acts using the new
   Bharatiya codes (BNS / BNSS / BSA 2023) and falls back to the old
   IPC / CrPC / IEA references where relevant.
-- Retrieval-augmented: `lib/ai/law-search.ts` pulls matching law text
-  from Firestore before the model call and appends it to the prompt as
-  authoritative context (see `architecture.md` § 5 "Law retrieval").
+- Law/catalog data is served by `rust/api`, loading JSON snapshots from
+  `SATYAVERA_LAWS_DATA_DIR` or the built-in starter catalog.
 - Per-user rate limit (10 messages/minute) and per-day free-tier quota
   (`subscriptions/{uid}.queriesUsedToday`).
 - Conversation history is persisted in
@@ -41,13 +39,12 @@ Generate properly formatted Indian legal documents.
 
 - Supported types (`DocumentType` enum): `FIR`, `RTI`, `COMPLAINT`,
   `BAIL_APPLICATION`, `NOTICE`, `AGREEMENT`, `AFFIDAVIT`, `OTHER`.
-- `generateLegalDocument(type, details)` in `lib/ai/providers.ts`
-  produces the body with the same shared system prompt so citations
-  follow the same format as chat answers.
+- `POST /api/documents` in the Rust API generates the body with the same
+  shared legal-information framing as chat answers.
 - Documents are saved per-user under `documents/{id}` with `status`
   (`DRAFT` / `COMPLETED`) and a per-month quota counter.
 - API: `POST /api/documents` (generate),
-  `GET/PATCH/DELETE /api/documents` (manage drafts).
+  `GET /api/documents` (list drafts).
 
 ### 1.3 Rights guides — `dashboard/guides`
 
@@ -151,7 +148,7 @@ indexed by state and topic.
 
 - Tiers: `FREE`, `CITIZEN_PREMIUM` (₹99/month, ₹999/year),
   `LAWYER_PRO` (₹499/month, ₹4 999/year).
-- Razorpay integration (`lib/payments/razorpay.ts`).
+- Razorpay integration in `rust/api/src/payments.rs`.
 - `POST /api/payments/create-order`, `POST /api/payments/verify`,
   `POST /api/payments/webhook`.
 - Daily query counters and monthly document counters live in
@@ -161,7 +158,7 @@ indexed by state and topic.
 
 `dashboard/settings` lets the user edit their profile, language,
 emergency contact, notification preferences, and privacy preferences
-(save-chat-history / analytics opt-in). Backed by `GET/PATCH /api/settings`.
+(save-chat-history / analytics opt-in). Backed by `GET/PUT /api/settings`.
 
 ## 2. Advocate features
 
@@ -214,9 +211,9 @@ shell ships in this PR.
   imports, no Firebase Admin.
 - Drop-in for Electron Forge (file://) and Capacitor (capacitor://)
   because the router never touches `window.location.pathname`.
-- Reads `NEXT_PUBLIC_API_BASE` so the bundle can be repointed at the
-  future Rust backend without code changes; falls back to
-  `window.location.origin` for the colocated Next.js dev build.
+- Reads `NEXT_PUBLIC_API_BASE` so the bundle can call the Rust API
+  directly, or falls back to same-origin `/api/*` when a proxy forwards
+  traffic to Rust.
 - Shows current build metadata on the About view: static export flag,
   base path, API base.
 - Surface area is intentionally minimal so it is easy to fold in the
@@ -347,7 +344,8 @@ declared once in `js/src/types/index.ts` (no per-route schema drift).
 ### Logger
 
 `js/src/lib/logger.ts` exposes `logger.info / warn / error / debug` so
-Route Handlers do not call `console.*` directly.
+frontend code has a consistent log wrapper. Server request logging lives
+in the Rust API through `tracing` and `tower-http`.
 
 ### Scripts
 
@@ -390,11 +388,9 @@ These items are documented here so the seam is visible. Each has a
 case-study entry in
 [`docs/case-studies/issue-3/plan.md`](./case-studies/issue-3/plan.md#follow-up-tracked-not-in-this-pr).
 
-- Migrate Next.js `/api/*` endpoints to a Rust HTTP server (axum),
-  one route at a time. The SPA shell already reads
-  `NEXT_PUBLIC_API_BASE` so the cutover is configuration-only.
 - Replace the placeholder `LinkCliStore` with the real `link-cli`
   storage handle behind the existing Cargo feature.
+- Add model-backed AI providers behind the Rust chat/document module.
 - Add Electron Forge (desktop) and Capacitor (mobile) build matrices
   to `js.yml`. Both wrap `js/out/` unchanged.
 - Restore an optional Docker publish job once the Rust binary is a

@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useCallback, useRef } from "react";
 import { useAuth } from "@/contexts/auth-context";
+import { apiUrl } from "@/lib/api/client";
 
 interface UseApiOptions {
   /** Skip automatic fetch on mount */
@@ -42,7 +43,7 @@ export function useApi<T>(url: string | null, options: UseApiOptions = {}): UseA
         if (token) headers["Authorization"] = `Bearer ${token}`;
       }
 
-      const res = await fetch(url, { headers, signal: controller.signal });
+      const res = await fetch(apiUrl(url), { headers, signal: controller.signal });
 
       if (!res.ok) {
         const body = await res.json().catch(() => null);
@@ -90,7 +91,7 @@ export function useApiMutation<TBody = unknown, TResult = unknown>() {
         const headers: Record<string, string> = { "Content-Type": "application/json" };
         if (token) headers["Authorization"] = `Bearer ${token}`;
 
-        const res = await fetch(url, {
+        const res = await fetch(apiUrl(url), {
           method,
           headers,
           body: body ? JSON.stringify(body) : undefined,
